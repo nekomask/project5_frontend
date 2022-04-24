@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import SingleItemComponent from "./singleItemComponentn/singleItemComponent";
 import NewItemComponent from "./newItemComponent/newItemComponent";
+import FrameTypeComponent from "../nonItemComponents/frameTypeComponent/frameTypeComponent";
 
 
-const ItemContainer = () => {
+const ItemContainer = (props) => {
     //requestError is a variable in state that setRequestError is the function we use to set that value when we want to update it
     //whenever something might possibly go wrong on the frontend
     const [requestError, setRequestError] = useState("")
@@ -127,20 +128,22 @@ const ItemContainer = () => {
                     <h1 id="myBikeDatabase"><a href="/">myBikeDatabase</a></h1>
                     <a id="about" href="/about">About</a>
                 </section>
+                <aside className="list-of bikes">
+                <h2 id="list-bikes"><u>List of Bikes</u></h2>
+                    {items.map((item) => {
+                        return <SingleItemComponent currentItem={props.currentItem} setCurrentItem={props.setCurrentItem} key={item._id} item={item} deleteItem={deleteItem} updateItem={updateItem}></SingleItemComponent>
+                    })}
+                       <hr />
+                       </aside>
+                   
                 <aside className="create">
                     <h2 id="create">Create a Bike</h2>
-
                     <NewItemComponent
                         newItemServerError={newItemServerError}
                         createNewItem={createNewItem}></NewItemComponent>
                 </aside>
                 <section id="list">
                     <hr />
-
-                    <h2 id="list-bikes">List of Bikes</h2>
-                    {items.map((item) => {
-                        return <SingleItemComponent key={item._id} item={item} deleteItem={deleteItem} updateItem={updateItem}></SingleItemComponent>
-                    })}
                 </section>
             </div>
         )

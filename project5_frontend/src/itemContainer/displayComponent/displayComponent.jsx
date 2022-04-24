@@ -7,7 +7,7 @@ export function DisplayComponent() {
   let index = props.item
   return (
     <div className="show">
-
+<li>Frame Height: {props.item.frameHeight.value}</li>
 
     </div>
   );

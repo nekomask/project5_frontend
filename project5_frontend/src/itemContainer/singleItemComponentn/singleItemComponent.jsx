@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Navigate, useNavigate } from "react-router-dom"
+import { Navigate, useNavigate, Link } from "react-router-dom"
 
 const SingleItemComponent = (props) => {
     //sets 2 types of states to determine whether state is valid
@@ -8,7 +8,6 @@ const SingleItemComponent = (props) => {
     // and change this object as the user updates the form
     const [showing, setShowing] = useState(false)
     //function for showing our form when button is clicked
-    const [currentItem, setCurrentItem] = useState([])
     const toggleShowing = () => {
         //sets variable equal to its opposite for toggling
         setShowing(!showing)
@@ -26,6 +25,7 @@ const SingleItemComponent = (props) => {
         headTubeLength: props.item.headTubeLength,
         headsetSize: props.item.headsetSize,
         headsetType: props.item.headsetType,
+        spacerStackHeight: props.item.spacerStackHeight,
         stemLength: props.item.stemLength,
         stemClampSize: props.item.stemClampSize,
         stemAngle: props.item.stemAngle,
@@ -63,7 +63,7 @@ const SingleItemComponent = (props) => {
             const item = await fetch(`https://my-bike-database-backend.herokuapp.com/items/${props.item._id}`)
             const parsedItem = await item.json();
             console.log(parsedItem)
-            setCurrentItem(parsedItem.data).then(navigate("/item/:id"))
+            props.setCurrentItem(parsedItem.data)
         } catch (err) {
             console.log(err)
         }
@@ -110,7 +110,7 @@ const SingleItemComponent = (props) => {
                             Headset Size: <input onChange={handleInputChange} type="text" name="headsetSize" value={updateItem.headsetSize || ""} /><br />
                             Headset Type: <input onChange={handleInputChange} type="text" name="headsetType" value={updateItem.headsetType || ""} /><br />
                             Stem Length: <input onChange={handleInputChange} type="number" name="stemLength" value={updateItem.stemLength || ""} />mm<br />
-                            Fork Brand: <input onChange={handleInputChange} type="text" name="forkType" value={updateItem.forkBrand || ""} /><br />
+                            Fork Brand: <input onChange={handleInputChange} type="text" name="forkBrand" value={updateItem.forkBrand || ""} /><br />
                             Fork Type: <input onChange={handleInputChange} type="text" name="forkType" value={updateItem.forkType || ""} /><br />
                             Stem Clamp Size: <input onChange={handleInputChange} type="text" name="stemClampSize" value={updateItem.stemClampSize || ""} /><br />
                             Stem Rise angle: <input onChange={handleInputChange} type="number" name="stemAngle" value={updateItem.stemAngle || ""} />°<br />
@@ -151,7 +151,9 @@ const SingleItemComponent = (props) => {
             }
             <>
             </>
-
+            <Link to="/item">
+            <button onClick={showItem}>View</button>
+            </Link>
         </div>
     )
 }
