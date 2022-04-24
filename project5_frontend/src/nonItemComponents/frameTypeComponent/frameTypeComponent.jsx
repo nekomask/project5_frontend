@@ -13,8 +13,7 @@ const FrameTypeComponent = () => {
         //sets variable equal to its opposite for toggling
         setShowing(!showing)
     }
-
-
+    
     
 const colorChange = () => {
     let color = document.getElementById('colorInput').value;
@@ -53,7 +52,7 @@ return (
 
   </div>
 
-        <img id="frame1" src={currentImage} className="bmx" />
+        <img id="frame1" src={URL} className="bmx" />
         <p>Select Your Color</p>
         <input type="color" id="colorInput"></input>
         <br />
