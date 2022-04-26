@@ -105,6 +105,7 @@ const SingleItemComponent = (props) => {
                             <h2>Frame and Fork</h2>
                             Bike Name: <input onChange={handleInputChange} type="text" name="productName" value={updateItem.productName} /><br />
                             Frame Type: <input onChange={handleInputChange} type="text" name="frameType" value={updateItem.frameType || ""} /><br />
+                            Frame Color: <input onChange={handleInputChange} type="color" name="color" value={updateItem.color || ""} /><br />
                             Frame Height: <input onChange={handleInputChange} type="text" name="frameHeight" value={updateItem.frameHeight || ""} /><br />
                             Fork Manufacturer: <input onChange={handleInputChange} type="text" name="forkBrand" value={updateItem.forkBrand || ""} /><br />
                             Fork Type: <input onChange={handleInputChange} type="text" name="forkType" value={updateItem.forkType || ""} /><br />

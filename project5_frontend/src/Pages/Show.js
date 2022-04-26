@@ -9,14 +9,8 @@ import FrameTypeComponent from "../nonItemComponents/frameTypeComponent/frameTyp
 
 export function Show(props) {
 
-    const showColor = async() => {
-
     const frameColor = props.currentItem.color
-    console.log(frameColor)
-    console.log(props.currentItem)
-   if (frameColor)
-   document.querySelector("#frame2").style.backgroundColor = frameColor;
-    }
+
 
     let bikeType = props.currentItem.frameType
 
@@ -31,12 +25,10 @@ export function Show(props) {
         URL="./images/track.png"
     }
 
-showColor();
-
     return (
         <div>
         This is the Show page for {props.currentItem.productName}<br />
-        <img id="frame2" src={URL} className="show" /><br />
+        <img id="frame2" src={URL} style={{ backgroundColor: frameColor}} className="show" /><br />
         Frame Type: {props.currentItem.frameType}<br />
       
         Frame Height: {props.currentItem.frameHeight}<br />
