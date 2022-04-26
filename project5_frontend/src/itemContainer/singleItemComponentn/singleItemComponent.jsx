@@ -34,8 +34,8 @@ const SingleItemComponent = (props) => {
         seatPostDiameter: props.item.seatPostDiameter,
         saddleBrand: props.item.saddleBrand,
         brakeType: props.item.brakeType,
-        frontBrakeBrand: props.item.frontBrakeBrand,
-        rearBrakeBrand: props.item.rearBrakeBrand,
+        frontBrakeType: props.item.frontBrakeType,
+        rearBrakeType: props.item.rearBrakeType,
         chainRingTeeth: props.item.chainRingTeeth,
         chainRingBCD: props.item.chainRingBCD,
         bottomBracketDiameter: props.item.bottomBracketDiameter,
@@ -60,7 +60,7 @@ const SingleItemComponent = (props) => {
 
     const showItem = async () => {
         try {
-            const item = await fetch(`https://my-bike-database-backend.herokuapp.com/items/${props.item._id}`)
+            const item = await fetch(`http://localhost:3001/items/${props.item._id}`)
             const parsedItem = await item.json();
             console.log(parsedItem)
             props.setCurrentItem(parsedItem.data)
@@ -122,8 +122,8 @@ const SingleItemComponent = (props) => {
                             Stem Clamp Size: <input onChange={handleInputChange} type="text" name="stemClampSize" value={updateItem.stemClampSize || ""} /><br />
                             Stem Rise angle: <input onChange={handleInputChange} type="number" name="stemAngle" value={updateItem.stemAngle || ""} />°<br />
                             Handlebar Type: <input onChange={handleInputChange} type="text" name="handlebarType" value={updateItem.handlebarType || ""} /><br />
-                            Front Brake Type: <input onChange={handleInputChange} type="text" name="frontBrakeBrand" value={updateItem.frontBrakeBrand || ""} /><br />
-                            Rear Brake Type: <input onChange={handleInputChange} type="text" name="rearBrakeBrand" value={updateItem.rearBrakeBrand || ""} /><br />
+                            Front Brake Type: <input onChange={handleInputChange} type="text" name="frontBrakeType" value={updateItem.frontBrakeType || ""} /><br />
+                            Rear Brake Type: <input onChange={handleInputChange} type="text" name="rearBrakeType" value={updateItem.rearBrakeType || ""} /><br />
 
                             <h2>Wheels</h2>
                             Rim Size: <input onChange={handleInputChange} type="text" name="rimSize" value={updateItem.rimSize || ""} /><br />
@@ -139,7 +139,7 @@ const SingleItemComponent = (props) => {
                             Front Wheel Spoke Length: <input onChange={handleInputChange} type="number" name="spokeLengthFront" value={updateItem.spokeLengthFront || ""} />mm<br />
                             Rear Wheel Spoke Length: <input onChange={handleInputChange} type="number" name="spokeLengthRear" value={updateItem.spokeLengthRear || ""} />mm<br />
                             <h2 id="seat">Seatpost {"&"} Saddle</h2>
-                            
+
                             Seatpost Manufacturer: <input onChange={handleInputChange} type="text" name="seatPostBrand" value={updateItem.seatPostBrand || ""} /><br />
                             Seatpost Diameter: <input onChange={handleInputChange} type="number" name="seatPostDiameter" value={updateItem.seatPostDiameter || ""} />mm<br />
                             Saddle Brand: <input onChange={handleInputChange} type="text" name="saddleBrand" value={updateItem.saddleBrand || ""} /><br />
