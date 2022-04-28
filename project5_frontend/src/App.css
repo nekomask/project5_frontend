@@ -24,6 +24,12 @@ button#close{
   margin-right: auto;
 }
 
+button#submit{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 div.showName{
   text-align: center;
 }
@@ -115,13 +121,30 @@ div.seat {
   border: 1px solid black;
 }
 
+div.links{
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
 h1{
   font-family: 'Train One', cursive;
   text-decoration: none;
 }
 
+h2#myBikeDatabase{
+  font-family: 'Train One', cursive; 
+}
+
 h2#create{
   text-align: center;
+}
+
+aside.list-of-bikes{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
 }
 
 h2#list-bikes{
@@ -129,17 +152,19 @@ h2#list-bikes{
 }
 
 div.index-single-item{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: inline-block;
 }
 
 div.item-name{
   display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
-button#single-item{
+div.list-of-bikes {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 li{
@@ -151,7 +176,6 @@ li{
   font-weight: 600;
   gap: 2px;
 }
-
 
 .App-logo {
   height: 40vmin;

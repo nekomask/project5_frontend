@@ -21,7 +21,7 @@ const ItemContainer = (props) => {
 
 
         //Send a request to our back-end
-        const apiResponse = await fetch("http://localhost:3001/items", {
+        const apiResponse = await fetch("https://mybikedatabase-backend.herokuapp.com/items", {
             method: "POST",
             body: JSON.stringify(newItem),
             //need this to POST-- where's this request coming from? What type of Content is it?
@@ -45,7 +45,7 @@ const ItemContainer = (props) => {
     const deleteItem = async (idToDelete) => {
         //fetch our item ID from the database to delete one
         try {
-            const apiResponse = await fetch(`http://localhost:3001/items/${idToDelete}`, {
+            const apiResponse = await fetch(`https://mybikedatabase-backend.herokuapp.com/items/${idToDelete}`, {
                 method: "DELETE"
             })
             const parsedResponse = await apiResponse.json()
@@ -73,7 +73,7 @@ const ItemContainer = (props) => {
         //function that fetches items from server into our itemContainer
         const getItems = async () => {
             try {
-                const items = await fetch("http://localhost:3001/items")
+                const items = await fetch("https://mybikedatabase-backend.herokuapp.com/items")
                 const parsedItems = await items.json();
                 setItems(parsedItems.data)
             } catch (err) {
@@ -97,7 +97,7 @@ const ItemContainer = (props) => {
             // }
 
             //calling our API to store our updated item data to the backend
-            const apiResponse = await fetch(`http://localhost:3001/items/${idToUpdate}`, {
+            const apiResponse = await fetch(`https://mybikedatabase-backend.herokuapp.com/items/${idToUpdate}`, {
                 method: "PUT",
                 body: JSON.stringify(itemToUpdate),
                 headers: {
@@ -126,17 +126,20 @@ const ItemContainer = (props) => {
 <div className="nav">
                <h2 id="myBikeDatabase"><a href="/create">myBikeDatabase</a></h2>
             <div className="links">
+            <a id="home" href="/create">Home</a>
                 <a id="about" href="/about">About</a>
             </div></div><br />
-                <aside className="list-of bikes">
-                <h2 id="list-bikes"><u>List of Bikes</u></h2>
+            <div className="list-of-bikes">
+            <h2 id="list-bikes"><u>List of Bikes</u></h2>
+                <aside className="list-of-bikes">
                     {items.map((item) => {
                         return <SingleItemComponent currentItem={props.currentItem} setCurrentItem={props.setCurrentItem} key={item._id} item={item} deleteItem={deleteItem} updateItem={updateItem}></SingleItemComponent>
                     })}
                        <hr />
                        </aside>
-                   
+                       </div>
                 <aside className="create">
+                    <hr />
                     <h2 id="create">Create a Bike</h2>
                     <NewItemComponent
                         newItemServerError={newItemServerError}

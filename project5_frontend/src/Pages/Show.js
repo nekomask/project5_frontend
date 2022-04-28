@@ -27,7 +27,9 @@ export function Show(props) {
            <div className="nav">
                <h2 id="myBikeDatabase"><a href="/create">myBikeDatabase</a></h2>
             <div className="links">
+            <a id="home" href="/create">Home</a>
                 <a id="about" href="/about">About</a>
+               
             </div></div><br />
             <div className="showName">This is the Show page for {props.currentItem.productName}</div><br />
             <img id="frame2" src={URL} style={{ backgroundColor: frameColor }} className="show" /><br />

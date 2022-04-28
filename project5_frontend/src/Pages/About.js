@@ -4,6 +4,10 @@ import Rufus from "../rufus_francais.png"
 function About(){
     return <div className="App">
       <h1 id="myBikeDatabase"><a href="/">myBikeDatabase</a></h1>
+      <div className="links">
+            <a id="home" href="/create">Home</a>
+                <a id="about" href="/about">About</a>
+                </div>
     <br />
     <p>This React-powered application was an idea I had before I started learning to code. Over the years I've built and worked on a number of bikes that I've owned but as time goes on I've usually forgotten some of their specifications like the clamp size on my stem or the minimum length I've needed on new tubes.</p>
 
