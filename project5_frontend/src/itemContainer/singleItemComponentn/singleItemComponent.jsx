@@ -61,7 +61,7 @@ const SingleItemComponent = (props) => {
 
     const showItem = async () => {
         try {
-            const item = await fetch(`https://mybikedatabase-backend.herokuapp.com/${props.item._id}`)
+            const item = await fetch(`https://mybikedatabase-backend.herokuapp.com/items/${props.item._id}`)
             const parsedItem = await item.json();
             console.log(parsedItem)
             props.setCurrentItem(parsedItem.data)
