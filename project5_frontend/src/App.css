@@ -43,9 +43,16 @@ gap: 20px;
 }
 
 div.nav{
+  background-color: black;
+  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+a#navlinks{
+  color: white;
+  font-weight: 400;
 }
 
 div.showValue{

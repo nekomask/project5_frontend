@@ -25,10 +25,10 @@ export function Show(props) {
     return (
         <div className="showPage">
            <div className="nav">
-               <h2 id="myBikeDatabase"><a href="/create">myBikeDatabase</a></h2>
+               <h2 id="myBikeDatabase"><a id="navlinks" href="/create">myBikeDatabase</a></h2>
             <div className="links">
-            <a id="home" href="/create">Home</a>
-                <a id="about" href="/about">About</a>
+            <a id="navlinks" href="/create">Bikes</a>
+                <a id="navlinks" href="/about">About</a>
                
             </div></div><br />
             <div className="showName">This is the Show page for {props.currentItem.productName}</div><br />
