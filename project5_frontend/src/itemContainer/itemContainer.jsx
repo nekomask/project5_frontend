@@ -123,11 +123,11 @@ const ItemContainer = (props) => {
 
         return (
             <div className="itemContainer">
-                <section className="nav">
-                    {requestError.length ? <p>{requestError}</p> : null}
-                    <h1 id="myBikeDatabase"><a href="/">myBikeDatabase</a></h1>
-                    <a id="about" href="/about">About</a>
-                </section>
+<div className="nav">
+               <h2 id="myBikeDatabase"><a href="/create">myBikeDatabase</a></h2>
+            <div className="links">
+                <a id="about" href="/about">About</a>
+            </div></div><br />
                 <aside className="list-of bikes">
                 <h2 id="list-bikes"><u>List of Bikes</u></h2>
                     {items.map((item) => {

@@ -1,6 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
+
 .App {
   text-align: center;
 }
+
+a { 
+  text-decoration: none;
+ }
+
+a:visited { 
+  text-decoration: none;
+ }
+
+ button#create{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button#close{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.showName{
+  text-align: center;
+}
+
+div.showItems {
+  display: flex;
+  flex-wrap: wrap;
+justify-content: center;
+text-align: center;
+gap: 20px;
+}
+
+div.nav{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.showValue{
+  display: flex;
+  font-weight: 600;
+}
+
+img#frame2{
+  display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+p#showCategory{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 50px;
+  border: 1px solid black;
+  align-items: center;
+  justify-content: center;
+}
+
+div.form{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+}
+
+div.frame_and_fork {
+  display: block;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid black;
+}
+
+div.headset {
+  display: block;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid black;
+}
+
+div.wheels {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+
+div.crankset {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+
+div.seat {
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid black;
+}
+
+h1{
+  font-family: 'Train One', cursive;
+  text-decoration: none;
+}
+
+h2#create{
+  text-align: center;
+}
+
+h2#list-bikes{
+  text-align: center;
+}
+
+div.index-single-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.item-name{
+  display: flex;
+}
+
+button#single-item{
+  display: flex;
+}
+
+li{
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: stretch;
+  font-weight: 600;
+  gap: 2px;
+}
+
 
 .App-logo {
   height: 40vmin;

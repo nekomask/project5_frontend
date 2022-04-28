@@ -91,6 +91,8 @@ const NewItemComponent = (props) => {
                 handlebarType: "",
                 seatPostBrand: "",
                 seatPostDiameter: "",
+                seatPostCollar: "",
+                seatPostLength: "",
                 saddleBrand: "",
                 brakeType: "",
                 frontBrakeType: "",
@@ -140,9 +142,10 @@ const NewItemComponent = (props) => {
                             {isValidState.valid ? null : <p className="form-error">{isValidState.message}</p>}
                             {props.newItemServerError ? <p className="form-error">{props.newItemServerError}</p> : null}
                             <div className="form">
+                                
                                 <div className="frame_and_fork">
                                     <h2>Frame and Fork</h2>
-                                    <ul className="frame_and_fork">
+                                
                                         <li>Name: <input onChange={handleInputChange} type="text" name="productName" placeholder="Name for your bike" value={newItem.productName || ""} /></li><hr /><br />
                                         <li>Frame Type: <select onChange={handleInputChange} type="text" name="frameType" value={newItem.frameType || ""}>
                                             <option value="">---Select One---</option>
@@ -160,7 +163,7 @@ const NewItemComponent = (props) => {
                                         <li>Fork Manufacturer: <input onChange={handleInputChange} type="string" name="forkBrand" value={newItem.forkBrand || ""} /></li><hr /><br />
                                         <li><a href="https://hub.chainreactioncycles.com/buying-guides/frames-and-forks/forks-buying-guide/" target="_blank"><img src="./images/icons/question_icon.png" /></a> Fork Type: <select onChange={handleInputChange} type="text" name="forkType" placeholder="Suspension, Rigid, ect." value={newItem.forkType || ""} >
                                             <option value="">---Select One---</option>
-                                            <option value="Rigid">Press-Fit</option>
+                                            <option value="Rigid">Rigid</option>
                                             <option value="Suspension">Suspension</option>
                                         </select></li><hr /><br />
                                         <li><a href="https://www.sheldonbrown.com/rinard/forklengths.htm" target="_blank"><img src="./images/icons/question_icon.png" /></a> Fork Length: <input onChange={handleInputChange} type="text" name="forkLength" value={newItem.forkLength || ""} />mm</li><hr /><br />
@@ -172,11 +175,11 @@ const NewItemComponent = (props) => {
                                         </select></li><hr /><br />
                                         <li>Headtube Length: <input onChange={handleInputChange} type="text" name="headTubeLength" value={newItem.headTubeLength || ""} />mm</li><hr /><br />
                                         <li>Rear Dropout Spacing: <input onChange={handleInputChange} type="number" name="dropoutSpacing" placeholder="110mm, 114mm, 120mm, ect." value={newItem.dropoutSpacing} />mm</li><hr /><br />
-                                    </ul>
+                                 
                                 </div>
                                 <div className="headset">
                                     <h2 className="headset">Headset and Brakes</h2>
-                                    <ul className="headset-class">
+                                 
                                         <li id="headset-size">Headset Size: <input onChange={handleInputChange} type="text" name="headsetSize" value={newItem.headsetSize || ""} /></li><hr /><br />
                                         <li id="headset-type">Headset Type: <select onChange={handleInputChange} type="text" name="headsetType" placeholder="Threaded, threadless, integrated, ect." value={newItem.headsetType || ""} >
                                             <option value="">---Select One---</option>
@@ -236,18 +239,17 @@ const NewItemComponent = (props) => {
                                             <option value="V-Brake">V-Brake</option>
                                         </select></li><hr /><br />
 
-                                    </ul>
+                                
                                 </div>
                                 <div className="wheels">
                                     <h2 className="wheels">Wheels</h2>
-                                    <ul className="wheels">
+                                   
                                         <li><a href="https://www.montaguebikes.com/folding-bikes-blog/2019/06/bicycle-wheel-sizes-explained/" target="_blank"><img src="./images/icons/question_icon.png" /></a> Rims Size: <select onChange={handleInputChange} type="text" name="rimSize" placeholder='26", 700cc, ect' value={newItem.rimSize || ""}>
                                             <option value="">---Select One---</option>
                                             <option value="16">16</option>
                                             <option value="20">20</option>
                                             <option value="24">24</option>
                                             <option value="26">26</option>
-                                            <option value="27">27</option>
                                             <option value="27.5">27.5 (650b)</option>
                                             <option value="700c">700c (29")</option>
                                             <option value="32">32"</option>
@@ -309,13 +311,13 @@ const NewItemComponent = (props) => {
                                         <li>Rear Hub # of Spokes: <input onChange={handleInputChange} type="number" name="hubSpokeCountRear" placeholder="20, 24, 28, 32, ect." value={newItem.hubSpokeCountRear || ""} /></li><hr /><br />
                                         <li> Front Wheel Spoke Length: <input onChange={handleInputChange} type="number" name="spokeLengthFront" value={newItem.spokeLengthFront || ""} />mm</li><hr /><br />
                                         <li>Rear Wheel Spoke Length: <input onChange={handleInputChange} type="number" name="spokeLengthRear" value={newItem.spokeLengthRear || ""} />mm</li><hr /><br />
-                                    </ul>
+                                 
                                 </div>
-                            </div>
+                          
 
                             <div className="seat">
                                 <h2 className="seat">Seatpost {"&"} Saddle</h2>
-                                <ul className="seat">
+                            
                                     <li>Seatpost Manufacturer: <input onChange={handleInputChange} type="text" name="seatPostBrand" value={newItem.seatPostBrand || ""} /></li><hr /><br />
                                     <li>Seatpost Diameter: <select onChange={handleInputChange} type="text" name="seatPostDiameter" value={newItem.seatPostDiameter || ""} >mm
                                         <option value="">---Select One---</option>
@@ -330,12 +332,22 @@ const NewItemComponent = (props) => {
                                         <option value="31.8">31.8</option>
                                         <option value="34.9">34.9</option>
                                     </select></li><hr /><br />
+                                    <li>Seatpost Collar Size: <select onChange={handleInputChange} type="text" name="seatPostCollar" value={newItem.seatPostCollar || ""}>
+                                    <option value="">---Select One---</option>
+                                        <option value="25.4">25.4mm</option>
+                                        <option value="28.6">28.6/29mm</option>
+                                        <option value="31.8">31.8/32mm</option>
+                                        <option value="34.9">34.9/35mm</option>
+                                        <option value="36.4">36.4</option>
+                                        <option value="38.6">38.6mm/39mm</option>
+                                        </select></li><hr /><br />
+                                        <li><a href="https://bike.bikegremlin.com/3144/minimum-seatpost-insertion-length/" target="_blank"><img src="./images/icons/question_icon.png" /></a>Seatpost Length: <input onChange={handleInputChange} type="text" name="seatPostLength" value={newItem.seatPostLength || ""} /> mm</li><hr /><br />
                                     <li>Saddle Brand: <input onChange={handleInputChange} type="text" name="saddleBrand" value={newItem.saddleBrand || ""} /></li><hr /><br />
-                                </ul>
+                             
                             </div>
                             <div className="crankset">
                                 <h2 className="crankset">Crankset {"&"} Bottom Bracket</h2>
-                                <ul className="crankset">
+                            
                                     <li>Chainring Teeth #: <input onChange={handleInputChange} type="text" name="chainRingTeeth" value={newItem.chainRingTeeth || ""} /></li><hr /><br />
                                     <li><a href="https://www.sheldonbrown.com/gloss_bo-z.html#bcd" target="_blank"><img src="./images/icons/question_icon.png" /></a> Bolt Circle Diameter (BCD): <input onChange={handleInputChange} type="number" name="chainRingBCD" value={newItem.chainRingBCD || ""} />mm</li><hr /><br />
                                     <li>Bottom Bracket Type: <select onChange={handleInputChange} type="text" name="bottomBracketType" placeholder="Cartridge, External, Press-Fit, ect." value={newItem.bottomBracketType || ""} >
@@ -346,9 +358,9 @@ const NewItemComponent = (props) => {
                                     </select></li><hr /><br />
                                     <li><a href="https://www.sheldonbrown.com/bbsize.html" target="_blank"><img src="./images/icons/question_icon.png" /></a> Bottom Bracket Shell Width: <input onChange={handleInputChange} type="number" name="bottomBracketSize" value={newItem.bottomBracketSize || ""} />mm</li><hr /><br />
                                     <li>Crank Arms Length: <input onChange={handleInputChange} type="number" name="crankArmLength" value={newItem.crankArmLength || ""} />mm</li><hr /><br />
-                                </ul>
+                                
                             </div>
-
+                            </div>
 
 
                             <br />

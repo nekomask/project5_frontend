@@ -32,6 +32,7 @@ const SingleItemComponent = (props) => {
         handlebarType: props.item.handlebarType,
         seatPostBrand: props.item.seatPostBrand,
         seatPostDiameter: props.item.seatPostDiameter,
+        seatPostLength: props.item.seatPostLength,
         saddleBrand: props.item.saddleBrand,
         brakeType: props.item.brakeType,
         frontBrakeType: props.item.frontBrakeType,
@@ -88,9 +89,10 @@ const SingleItemComponent = (props) => {
     }
     return (
         <div className="index-single-item">
-            <h2 onClick={showItem}>{props.item.productName}</h2>
-
-            <button onClick={() => {
+            <div className="item-name">
+                <h2 onClick={showItem}>{props.item.productName}</h2>
+            </div>
+            <button id="single-item" onClick={() => {
                 if (window.confirm('Delete selected item?')) {
                     return props.deleteItem(props.item._id)
                 }
@@ -143,27 +145,28 @@ const SingleItemComponent = (props) => {
 
                             Seatpost Manufacturer: <input onChange={handleInputChange} type="text" name="seatPostBrand" value={updateItem.seatPostBrand || ""} /><br />
                             Seatpost Diameter: <input onChange={handleInputChange} type="number" name="seatPostDiameter" value={updateItem.seatPostDiameter || ""} />mm<br />
+                            Seatpost Collar Size: <input onChange={handleInputChange} type="number" name="seatPostCollar" value={updateItem.seatPostCollar || ""} />mm<br />
                             Saddle Brand: <input onChange={handleInputChange} type="text" name="saddleBrand" value={updateItem.saddleBrand || ""} /><br />
- 
+
                             <h2>Crankset {"&"} Bottom Bracket</h2>
                             Chainring Teeth #: <input onChange={handleInputChange} type="text" name="chainRingTeeth" value={updateItem.chainRingTeeth || ""} /><br />
                             Bolt Circle Diameter: <input onChange={handleInputChange} type="number" name="chainRingBCD" value={updateItem.chainRingBCD || ""} />mm<br />
                             Bottom Bracket Type: <input onChange={handleInputChange} type="text" name="bottomBracketType" value={updateItem.bottomBracketType || ""} /><br />
                             Bottom Bracket Shell Width: <input onChange={handleInputChange} type="number" name="bottomBracketSize" value={updateItem.bottomBracketSize || ""} />mm<br />
                             Crank Arm Length: <input onChange={handleInputChange} type="number" name="crankArmLength" value={updateItem.crankArmLength || ""} />mm<br />
-                            
+
 
                             <br></br>
                             <button id="submit" type="submit">Submit</button>
                         </form>
                     </div>
                     :
-                    <button onClick={toggleShowing}>Edit this bike</button>
+                    <button id="single-item" onClick={toggleShowing}>Edit this bike</button>
             }
             <>
             </>
             <Link to="/item">
-            <button onClick={showItem}>View</button>
+                <button id="single-item" onClick={showItem}>View</button>
             </Link>
         </div>
     )
