@@ -31,5 +31,5 @@ If a vendor, like a bike shop, actually wants to use this app for its clients-- 
 
 Other short-term goals would also include more front-end validations, styling, and updating the edit form. It will probably have a similar aesthetic to the create form but at least it currently works.
 
-Front-end heroku:
-Back-end heroku:
+Front-end heroku: https://mybikedatabase-frontend.herokuapp.com/
+Back-end heroku: https://mybikedatabase-backend.herokuapp.com/
