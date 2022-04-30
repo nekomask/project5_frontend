@@ -110,6 +110,10 @@ const NewItemComponent = (props) => {
                 hubTypeRear: "",
                 hubLengthFront: "",
                 hubLengthRear: "",
+                frontAxelLength: "",
+                rearAxelLength: "",
+                cogTeeth: "",
+                spindleLength: "",
                 hubSpokeCountFront: "",
                 hubSpokeCountRear: "",
                 spokeLengthFront: "",
@@ -346,7 +350,7 @@ const NewItemComponent = (props) => {
                              
                             </div>
                             <div className="crankset">
-                                <h2 className="crankset">Crankset {"&"} Bottom Bracket</h2>
+                                <h2 className="crankset">Drivetrain</h2>
                             
                                     <li>Chainring Teeth #: <input onChange={handleInputChange} type="text" name="chainRingTeeth" value={newItem.chainRingTeeth || ""} /></li><hr /><br />
                                     <li><a href="https://www.sheldonbrown.com/gloss_bo-z.html#bcd" target="_blank"><img src="./images/icons/question_icon.png" /></a> Bolt Circle Diameter (BCD): <input onChange={handleInputChange} type="number" name="chainRingBCD" value={newItem.chainRingBCD || ""} />mm</li><hr /><br />
@@ -358,7 +362,8 @@ const NewItemComponent = (props) => {
                                     </select></li><hr /><br />
                                     <li><a href="https://www.sheldonbrown.com/bbsize.html" target="_blank"><img src="./images/icons/question_icon.png" /></a> Bottom Bracket Shell Width: <input onChange={handleInputChange} type="number" name="bottomBracketSize" value={newItem.bottomBracketSize || ""} />mm</li><hr /><br />
                                     <li>Crank Arms Length: <input onChange={handleInputChange} type="number" name="crankArmLength" value={newItem.crankArmLength || ""} />mm</li><hr /><br />
-                                
+                                    <li>Spindle Length: <input onChange={handleInputChange} type="number" name="spindleLength" value={newItem.spindleLength || ""} />mm</li><hr /><br />
+                                    <li>Cog Teeth: <input onChange={handleInputChange} type="number" name="cogTeeth" value={newItem.cogTeeth || ""} />mm</li><hr /><br />
                             </div>
                             </div>
 

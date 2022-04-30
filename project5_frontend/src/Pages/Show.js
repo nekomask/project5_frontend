@@ -20,6 +20,8 @@ export function Show(props) {
         URL = "./images/mtb.png"
     } else if (bikeType === "Track") {
         URL = "./images/track.png"
+    } else if (bikeType === "Recumbent") {
+        URL = "./images/recumbent.png"
     }
 
     return (
@@ -69,11 +71,12 @@ export function Show(props) {
            <p id="showCategory"> Saddle Brand: <div className="showValue">{props.currentItem.saddleBrand}</div></p>
            </div>
            <div className="showCrankset">
-           <h3>Crankset</h3>
+           <h3>Drivetrain</h3>
            <p id="showCategory"> Chainring Teeth: <div className="showValue">{props.currentItem.chainRingTeeth}</div></p> 
            <p id="showCategory"> Chainring BCD: <div className="showValue">{props.currentItem.chainRingBCD}</div></p> 
            <p id="showCategory"> Bottom Bracket Diameter: <div className="showValue">{props.currentItem.bottomBracketDiameter}</div></p> 
            <p id="showCategory"> Bottom Bracket Type: <div className="showValue">{props.currentItem.bottomBracketType}</div></p>
+           
            <p id="showCategory">Crank Arm Length: <div className="showValue">{props.currentItem.crankArmLength}</div></p>
            </div>
            <div className="showWheels">
