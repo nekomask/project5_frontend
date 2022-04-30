@@ -54,7 +54,10 @@ const SingleItemComponent = (props) => {
         hubSpokeCountRear: props.item.hubSpokeCountRear,
         spokeLengthFront: props.item.spokeLengthFront,
         spokeLengthRear: props.item.spokeLengthRear,
-
+        rearAxelLength: props.item.rearAxelLength,
+        frontAxelLength: props.item.frontAxelLength,
+        cogTeeth: props.item.cogTeeth,
+        spindleLength: props.item.spindleLength,
         _id: props.item._id
     })
     //show route
