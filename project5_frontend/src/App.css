@@ -30,6 +30,21 @@ button#submit{
   margin-right: auto;
 }
 
+div#edit-item-form {
+  display: flex;
+  flex-direction: column;
+}
+
+div.edit-form {
+  display: flex;
+  border: 2px solid black;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+
+
 div.showName{
   text-align: center;
 }
