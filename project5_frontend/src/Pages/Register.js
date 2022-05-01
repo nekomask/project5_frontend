@@ -1,10 +1,8 @@
 import React from "react";
 import { useRef, useState, useEffect } from "react";
 
-const USER_REG = /^[a-zA-Z][a-zA-Z0-0-_]{3,23}$/;
-const PWD_REG = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
-const Register = () => {
+const Register = (props) => {
     
 
     return (
