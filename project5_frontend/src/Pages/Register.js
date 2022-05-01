@@ -5,35 +5,19 @@ const USER_REG = /^[a-zA-Z][a-zA-Z0-0-_]{3,23}$/;
 const PWD_REG = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 const Register = () => {
-    const userRef = useRef();
-    const errRef = useRef();
-
-    //user state related to user input
-    const [user, setUser] = useState('');
-    //state for name validation
-    const [validName, setValidName] = useState(false);
-    //state for focus on input field
-    const [userFocus, setUserFocus] = useState(false);
-
-    const [pwd, setPwd] = useState('');
-    const [validPwd, setValidPwd] = useState(false);
-    const [pwdFocus, setPwdFocus] = useState(false);
-
-    const [matchPwd, setMatchPwd] = useState('');
-    const [validMatch, setValidMatch] = useState(false);
-    const [matchFocus, setMatchFocus] = useState(false);
-
-    const [errMsg, setErrMsg] = useState('');
-    const [success, setSuccess] = useState(false);
-
-    useEffect(() => {
-        userRef.current.focus();
-    }, [])
-
+    
 
     return (
         <div>
-
+            <h1>Register</h1>
+            <form action="/users" method="POST">
+                    <label htmlFor="username">Username:</label>
+                    <input type="text" name="username" required /><br />
+                    <label htmlFor="password">Password:</label>
+                    <input type="password" name="password" required /><br />
+                <button type="submit">Register</button>
+          
+            </form>
         </div>
     )
 }
