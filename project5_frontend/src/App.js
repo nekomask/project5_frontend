@@ -16,6 +16,7 @@ function App() {
         <Route path="/create" element={<ItemContainer currentItem={currentItem} setCurrentItem={setCurrentItem}/>} />
         <Route path="/about" element={<About />} />
         <Route path="/item" element={<Show currentItem={currentItem}/>} />
+        <Route path="/register" element={<Register />} />
         </Routes>
     </Router>
   );
