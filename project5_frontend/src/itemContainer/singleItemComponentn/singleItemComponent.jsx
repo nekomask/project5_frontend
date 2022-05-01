@@ -9,9 +9,12 @@ const SingleItemComponent = (props) => {
     const [showing, setShowing] = useState(false)
     //function for showing our form when button is clicked
     const toggleShowing = () => {
+
         //sets variable equal to its opposite for toggling
         setShowing(!showing)
     }
+
+
     const navigate = useNavigate()
 
     const [updateItem, setUpdateItem] = useState({
@@ -95,10 +98,11 @@ const SingleItemComponent = (props) => {
             <div className="item-name">
                 <h2 onClick={showItem}>{props.item.productName}</h2>
             </div>
-            <button id="single-item" onClick={() => {
-                if (window.confirm('Delete selected item?')) {
+            <button id="delete" onClick={() => {
+                if (window.confirm(`Do you want to delete ${props.item.productName}?`)) {
                     return props.deleteItem(props.item._id)
                 }
+
             }}>Delete</button>
             {
                 showing ?
@@ -107,6 +111,8 @@ const SingleItemComponent = (props) => {
                         <form onSubmit={submitUpdateItem}>
                             {isValidState.valid ? null : <p className="form-error">{isValidState.message}</p>}
                             {props.newItemServerError ? <p className="form-error">{props.newItemServerError}</p> : null}
+                            <div className="edit-form">
+                            <div className="frame_and_fork">
                             <h2>Frame and Fork</h2>
                             Bike Name: <input onChange={handleInputChange} type="text" name="productName" value={updateItem.productName} /><br />
                             Frame Type: <input onChange={handleInputChange} type="text" name="frameType" value={updateItem.frameType || ""} /><br />
@@ -119,6 +125,8 @@ const SingleItemComponent = (props) => {
                             Headtube Type: <input onChange={handleInputChange} type="text" name="headTubeType" value={updateItem.headTubeType || ""} /><br />
                             Headtube Length: <input onChange={handleInputChange} type="text" name="headTubeLength" value={updateItem.headTubeLength || ""} /><br />
                             Rear Dropout Spacing: <input onChange={handleInputChange} type="number" name="dropoutSpacing" value={updateItem.dropoutSpacing || ""} />mm<br />
+                            </div>
+                            <div className="headset">
                             <h2>Headset</h2>
                             Headset Size: <input onChange={handleInputChange} type="text" name="headsetSize" value={updateItem.headsetSize || ""} /><br />
                             Headset Type: <input onChange={handleInputChange} type="text" name="headsetType" value={updateItem.headsetType || ""} /><br />
@@ -130,7 +138,8 @@ const SingleItemComponent = (props) => {
                             Handlebar Type: <input onChange={handleInputChange} type="text" name="handlebarType" value={updateItem.handlebarType || ""} /><br />
                             Front Brake Type: <input onChange={handleInputChange} type="text" name="frontBrakeType" value={updateItem.frontBrakeType || ""} /><br />
                             Rear Brake Type: <input onChange={handleInputChange} type="text" name="rearBrakeType" value={updateItem.rearBrakeType || ""} /><br />
-
+                            </div>
+                            <div className="wheels">
                             <h2>Wheels</h2>
                             Rim Size: <input onChange={handleInputChange} type="text" name="rimSize" value={updateItem.rimSize || ""} /><br />
                             # Spoke Holes Front Wheel: <input onChange={handleInputChange} type="number" name="hubSpokeCountFront" value={updateItem.hubSpokeCountFront || ""} /><br />
@@ -144,32 +153,35 @@ const SingleItemComponent = (props) => {
                             Rear Hub # of Spokes: <input onChange={handleInputChange} type="number" name="hubSpokeCountRear" value={updateItem.hubSpokeCountRear || ""} /><br />
                             Front Wheel Spoke Length: <input onChange={handleInputChange} type="number" name="spokeLengthFront" value={updateItem.spokeLengthFront || ""} />mm<br />
                             Rear Wheel Spoke Length: <input onChange={handleInputChange} type="number" name="spokeLengthRear" value={updateItem.spokeLengthRear || ""} />mm<br />
+                            </div>
+                            <div className="seat">
                             <h2 id="seat">Seatpost {"&"} Saddle</h2>
-
+                            
                             Seatpost Manufacturer: <input onChange={handleInputChange} type="text" name="seatPostBrand" value={updateItem.seatPostBrand || ""} /><br />
                             Seatpost Diameter: <input onChange={handleInputChange} type="number" name="seatPostDiameter" value={updateItem.seatPostDiameter || ""} />mm<br />
                             Seatpost Collar Size: <input onChange={handleInputChange} type="number" name="seatPostCollar" value={updateItem.seatPostCollar || ""} />mm<br />
                             Saddle Brand: <input onChange={handleInputChange} type="text" name="saddleBrand" value={updateItem.saddleBrand || ""} /><br />
-
+</div>
+<div className="crankset">
                             <h2>Crankset {"&"} Bottom Bracket</h2>
                             Chainring Teeth #: <input onChange={handleInputChange} type="text" name="chainRingTeeth" value={updateItem.chainRingTeeth || ""} /><br />
                             Bolt Circle Diameter: <input onChange={handleInputChange} type="number" name="chainRingBCD" value={updateItem.chainRingBCD || ""} />mm<br />
                             Bottom Bracket Type: <input onChange={handleInputChange} type="text" name="bottomBracketType" value={updateItem.bottomBracketType || ""} /><br />
                             Bottom Bracket Shell Width: <input onChange={handleInputChange} type="number" name="bottomBracketSize" value={updateItem.bottomBracketSize || ""} />mm<br />
                             Crank Arm Length: <input onChange={handleInputChange} type="number" name="crankArmLength" value={updateItem.crankArmLength || ""} />mm<br />
-
-
+                            </div>
+                            </div>
                             <br></br>
                             <button id="submit" type="submit">Submit</button>
                         </form>
                     </div>
                     :
-                    <button id="single-item" onClick={toggleShowing}>Edit this bike</button>
+                    <button id="edit" onClick={toggleShowing}>Edit this bike</button>
             }
             <>
             </>
             <Link to="/item">
-                <button id="single-item" onClick={showItem}>View</button>
+                <button id="view" onClick={showItem}>View</button>
             </Link>
         </div>
     )

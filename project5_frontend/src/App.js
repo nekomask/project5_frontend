@@ -2,6 +2,7 @@ import './App.css';
 import ItemContainer from './itemContainer/itemContainer';
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Register from "./Pages/Register"
 import Home from "./Pages/Home"
 import About from "./Pages/About"
 import Show from './Pages/Show';
