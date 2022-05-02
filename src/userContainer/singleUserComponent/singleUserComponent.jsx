@@ -54,10 +54,10 @@ const SingleUserComponent = (props) => {
     return (
         <div className="index-single-user">
             <div className="user-name">
-             <h4 onclick={showUser}>{props.user.username}</h4>
+                <h2 onClick={showUser}>{props.user.productName}</h2>
             </div>
             <button id="delete" onClick={() => {
-                if (window.confirm(`Do you want to delete ${props.user.username}?`)) {
+                if (window.confirm(`Do you want to delete ${props.user.productName}?`)) {
                     return props.deleteUser(props.user._id)
                 }
 
@@ -79,11 +79,13 @@ const SingleUserComponent = (props) => {
                         </form>
                     </div>
                     :
-                    <button id="edit" onClick={toggleShowing}>Edit this User</button>
+                    <button id="edit" onClick={toggleShowing}>Edit this bike</button>
             }
             <>
             </>
-
+            <Link to="/user">
+                <button id="view" onClick={showUser}>View</button>
+            </Link>
         </div>
     )
 }
