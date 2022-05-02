@@ -364,7 +364,7 @@ const NewItemComponent = (props) => {
                                         <option value="External">External</option>
                                         <option value="Press-fit">Press-fit</option>
                                     </select></li><hr /><br />
-                                    <li><a href="https://www.sheldonbrown.com/cribsheet-bottombrackets.html" target="_blank"><img src="./images/icons/question_icon.png" /></a>Bottom Bracket Threading: <select onChange={handleInputChange} type="text" name="bottomBracketThreading" value={newItem.bottomBracketType || ""} >
+                                    <li><a href="https://www.sheldonbrown.com/cribsheet-bottombrackets.html" target="_blank"><img src="./images/icons/question_icon.png" /></a>Bottom Bracket Threading: <select onChange={handleInputChange} type="text" name="bottomBracketThreading" value={newItem.bottomBracketThreading || ""} >
                                     <option value="">---Select One---</option>
                                         <option value="I.S.O.">I.S.O.</option>
                                         <option value="French">French</option>
