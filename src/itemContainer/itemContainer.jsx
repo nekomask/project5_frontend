@@ -98,6 +98,7 @@ const ItemContainer = (props) => {
 
             //calling our API to store our updated item data to the backend
             const apiResponse = await fetch(`https://mybikedatabase-backend.herokuapp.com/items/${idToUpdate}`, {
+                
                 method: "PUT",
                 body: JSON.stringify(itemToUpdate),
                 headers: {
