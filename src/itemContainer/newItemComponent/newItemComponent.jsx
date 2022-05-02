@@ -373,11 +373,7 @@ const NewItemComponent = (props) => {
                                         <option value="Swiss">Swiss</option>
                                     </select></li><hr /><br />
                                     <li><a href="https://www.sheldonbrown.com/bbsize.html" target="_blank"><img src="./images/icons/question_icon.png" /></a> Bottom Bracket Shell Width: <input onChange={handleInputChange} type="number" name="bottomBracketSize" value={newItem.bottomBracketSize || ""} />mm</li><hr /><br />
-<<<<<<< HEAD:src/itemContainer/newItemComponent/newItemComponent.jsx
                                     <li><a href="https://www.sheldonbrown.com/cranks.html" target="_blank"><img src="./images/icons/question_icon.png" /></a>Crank Length: <input onChange={handleInputChange} type="number" name="crankArmLength" value={newItem.crankArmLength || ""} />mm</li><hr /><br />
-=======
-                                    <li>Crank Arms Length: <input onChange={handleInputChange} type="number" name="crankArmLength" value={newItem.crankArmLength || ""} />mm</li><hr /><br />
->>>>>>> 04eaf75e6fa5e855669820dfa3518bb129c65a93:project5_frontend/src/itemContainer/newItemComponent/newItemComponent.jsx
                                     <li>Spindle Length: <input onChange={handleInputChange} type="number" name="spindleLength" value={newItem.spindleLength || ""} />mm</li><hr /><br />
                                     <li>Cog Teeth: <input onChange={handleInputChange} type="number" name="cogTeeth" value={newItem.cogTeeth || ""} />mm</li><hr /><br />
                             </div>
