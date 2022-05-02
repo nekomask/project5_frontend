@@ -44,6 +44,7 @@ export function Show(props) {
             <p id="showCategory"> Fork Brand: <div className="showValue">{props.currentItem.forkBrand}</div></p>
             <p id="showCategory"> Fork Type: <div className="showValue">{props.currentItem.forkType}</div></p>
             <p id="showCategory"> Fork Length: <div className="showValue">{props.currentItem.forkLength}</div></p>
+            <p id="showCategory"> Steerer Tube: <div className="showValue">{props.currentItem.steerTubeLength}</div></p>
             <p id="showCategory">Forkend Spacing: <div className="showValue">{props.currentItem.forkEndSpacing}</div></p>
             <p id="showCategory">Dropout Spacing: <div className="showValue">{props.currentItem.dropoutSpacing}</div></p>
             <p id="showCategory"> Headtube Type: <div className="showValue">{props.currentItem.headTubeType}</div></p>

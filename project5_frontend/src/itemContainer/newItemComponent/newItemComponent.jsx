@@ -16,6 +16,7 @@ const NewItemComponent = (props) => {
         productName: "",
         frameType: "",
         frameHeight: "",
+        steerTubeLength: "",
         forkBrand: "",
         forkType: "",
         headsetSize: "",
@@ -80,6 +81,7 @@ const NewItemComponent = (props) => {
                 color: "",
                 frameType: "",
                 frameHeight: "",
+                steerTubeLength: "",
                 headTubeLength: "",
                 forkBrand: "",
                 forkType: "",
@@ -171,6 +173,7 @@ const NewItemComponent = (props) => {
                                             <option value="Suspension">Suspension</option>
                                         </select></li><hr /><br />
                                         <li><a href="https://www.sheldonbrown.com/rinard/forklengths.htm" target="_blank"><img src="./images/icons/question_icon.png" /></a> Fork Length: <input onChange={handleInputChange} type="text" name="forkLength" value={newItem.forkLength || ""} />mm</li><hr /><br />
+                                        <li><a href="https://www.sheldonbrown.com/gloss_st-z.html#steerer" target="_blank"><img src="./images/icons/question_icon.png" /></a> Steerer Tube Length: <input onChange={handleInputChange} type="text" name="steerTubeLength" value={newItem.steerTubeLength || ""} />mm</li><hr /><br />
                                         <li> <a href="https://www.sheldonbrown.com/frame-spacing.html" target="_blank"><img src="./images/icons/question_icon.png" /></a> Forkend Dropout Spacing: <input onChange={handleInputChange} type="number" name="forkEndSpacing" placeholder="100mm, 110mm, ect." value={newItem.forkEndSpacing} />mm</li><hr /><br />
                                         <li> <a href="https://canecreek.com/everything-you-need-to-know-about-headsets/#elementor-toc__heading-anchor-4" target="_blank"><img src="./images/icons/question_icon.png" /></a> Headtube Type: <select onChange={handleInputChange} type="text" name="headTubeType" value={newItem.headTubeType || ""}>
                                             <option value="">---Select One---</option>
@@ -185,15 +188,15 @@ const NewItemComponent = (props) => {
                                     <h2 className="headset">Headset and Brakes</h2>
                                  
                                         <li id="headset-size">Headset Size: <input onChange={handleInputChange} type="text" name="headsetSize" value={newItem.headsetSize || ""} /></li><hr /><br />
-                                        <li id="headset-type">Headset Type: <select onChange={handleInputChange} type="text" name="headsetType" placeholder="Threaded, threadless, integrated, ect." value={newItem.headsetType || ""} >
+                                        <li id="headset-type"><a href="https://www.bikeradar.com/features/the-ultimate-guide-to-headsets/" target="_blank"><img src="./images/icons/question_icon.png" /></a>Headset Type: <select onChange={handleInputChange} type="text" name="headsetType" placeholder="Threaded, threadless, integrated, ect." value={newItem.headsetType || ""} >
                                             <option value="">---Select One---</option>
                                             <option value="Threadless">Threadless</option>
                                             <option value="Threaded">Threaded</option>
                                             <option value="Internal">Internal</option>
                                             <option value="Integrated">Integrated</option>
                                         </select></li><hr /><br />
-                                        <li id="spacer-stack-height">Headset Spacer Stack Height: <input onChange={handleInputChange} type="text" name="spacerStackHeight" value={newItem.spacerStackHeight || ""} />mm</li><hr /><br />
-                                        <li id="stem-length">Stem Length: <input onChange={handleInputChange} type="number" name="stemLength" value={newItem.stemLength || ""} />mm</li><hr /><br />
+                                        <li id="spacer-stack-height"><a href="https://www.firstcomponents.com/bike-headset-spacers/" target="_blank"><img src="./images/icons/question_icon.png" /></a>Headset Spacer Stack Height: <input onChange={handleInputChange} type="text" name="spacerStackHeight" value={newItem.spacerStackHeight || ""} />mm</li><hr /><br />
+                                        <li id="stem-length"><a href="https://www.bikeradar.com/advice/buyers-guides/bike-stems/" target="_blank"><img src="./images/icons/question_icon.png" /></a>Stem Length: <input onChange={handleInputChange} type="number" name="stemLength" value={newItem.stemLength || ""} />mm</li><hr /><br />
                                         <li id="stem-clamp"><a href="https://bike.bikegremlin.com/3729/bicycle-stem-size-standards/#3.1" target="_blank"><img src="./images/icons/question_icon.png" /></a> Stem Clamp Size: <select onChange={handleInputChange} type="text" name="stemClampSize" value={newItem.stemClampSize || ""}>mm
                                             <option value="">---Select One---</option>
                                             <option value="22.2">22.2mm</option>
@@ -206,7 +209,7 @@ const NewItemComponent = (props) => {
                                             <option value="35">35mm</option>
                                         </select></li><hr /><br />
                                         <li id="stem-rise"><a href="https://www.google.com/search?q=stem+rise" target="_blank"><img src="./images/icons/question_icon.png" /></a> Stem Rise angle: <input onChange={handleInputChange} type="number" name="stemAngle" value={newItem.stemAngle || ""} />°</li><hr /><br />
-                                        <li id="handlebar-type">Handlebar Type: <select onChange={handleInputChange} type="text" name="handlebarType" placeholder="Drop, Aero, Flat, ect." value={newItem.handlebarType || ""} >
+                                        <li id="handlebar-type"><a href="https://bikexchange.com/bike-handlebar-types/" target="_blank"><img src="./images/icons/question_icon.png" /></a>Handlebar Type: <select onChange={handleInputChange} type="text" name="handlebarType" placeholder="Drop, Aero, Flat, ect." value={newItem.handlebarType || ""} >
                                             <option value="">---Select One---</option>
                                             <option value="Aero">Aero</option>
                                             <option value="Ape Hanger">Ape Hanger</option>
@@ -280,8 +283,8 @@ const NewItemComponent = (props) => {
                                         </select></li><hr /><br />
 
                                         <li>Tire Width: <input onChange={handleInputChange} type="number" name="tireSize" placeholder='1.5", 1.75", 2.0", ect.' value={newItem.tireSize || ""} />"</li><hr /><br />
-                                        <li>Hub Type Front: <input onChange={handleInputChange} type="text" name="hubTypeFront" value={newItem.hubTypeFront} /></li><hr /><br />
-                                        <li>Hub Type Rear: <input onChange={handleInputChange} type="text" name="hubTypeRear" value={newItem.hubTypeRear} /></li><hr /><br />
+                                        <li><a href="https://www.sheldonbrown.com/harris/hubs.html" target="_blank"><img src="./images/icons/question_icon.png" /></a>Hub Type Front: <input onChange={handleInputChange} type="text" name="hubTypeFront" value={newItem.hubTypeFront} /></li><hr /><br />
+                                        <li><a href="https://www.sheldonbrown.com/gloss_ho-z.html#hub" target="_blank"><img src="./images/icons/question_icon.png" /></a>Hub Type Rear: <input onChange={handleInputChange} type="text" name="hubTypeRear" value={newItem.hubTypeRear} /></li><hr /><br />
                                         <li>Front Hub Length: <select onChange={handleInputChange} type="text" name="hubLengthFront" placeholder="100mm, 110mm, ect." value={newItem.hubLengthFront} >mm
                                             <option value="">---Select One---</option>
                                             <option value="70">70mm </option>
@@ -323,7 +326,7 @@ const NewItemComponent = (props) => {
                                 <h2 className="seat">Seatpost {"&"} Saddle</h2>
                             
                                     <li>Seatpost Manufacturer: <input onChange={handleInputChange} type="text" name="seatPostBrand" value={newItem.seatPostBrand || ""} /></li><hr /><br />
-                                    <li>Seatpost Diameter: <select onChange={handleInputChange} type="text" name="seatPostDiameter" value={newItem.seatPostDiameter || ""} >mm
+                                    <li><a href="https://www.sheldonbrown.com/seatpost-sizes.html" target="_blank"><img src="./images/icons/question_icon.png" /></a>Seatpost Diameter: <select onChange={handleInputChange} type="text" name="seatPostDiameter" value={newItem.seatPostDiameter || ""} >mm
                                         <option value="">---Select One---</option>
                                         <option value="25">25mm</option>
                                         <option value="25.4">25.4mm</option>
@@ -340,6 +343,7 @@ const NewItemComponent = (props) => {
                                     <option value="">---Select One---</option>
                                         <option value="25.4">25.4mm</option>
                                         <option value="28.6">28.6/29mm</option>
+                                        <option value="29.8">29.8mm/30mm</option>
                                         <option value="31.8">31.8/32mm</option>
                                         <option value="34.9">34.9/35mm</option>
                                         <option value="36.4">36.4</option>
@@ -354,14 +358,22 @@ const NewItemComponent = (props) => {
                             
                                     <li>Chainring Teeth #: <input onChange={handleInputChange} type="text" name="chainRingTeeth" value={newItem.chainRingTeeth || ""} /></li><hr /><br />
                                     <li><a href="https://www.sheldonbrown.com/gloss_bo-z.html#bcd" target="_blank"><img src="./images/icons/question_icon.png" /></a> Bolt Circle Diameter (BCD): <input onChange={handleInputChange} type="number" name="chainRingBCD" value={newItem.chainRingBCD || ""} />mm</li><hr /><br />
-                                    <li>Bottom Bracket Type: <select onChange={handleInputChange} type="text" name="bottomBracketType" placeholder="Cartridge, External, Press-Fit, ect." value={newItem.bottomBracketType || ""} >
+                                    <li><a href="https://www.parktool.com/blog/repair-help/bottom-bracket-standards-and-terminology" target="_blank"><img src="./images/icons/question_icon.png" /></a>Bottom Bracket Type: <select onChange={handleInputChange} type="text" name="bottomBracketType" placeholder="Cartridge, External, Press-Fit, ect." value={newItem.bottomBracketType || ""} >
                                         <option value="">---Select One---</option>
                                         <option value="Cartridge">Cartridge</option>
                                         <option value="External">External</option>
                                         <option value="Press-fit">Press-fit</option>
                                     </select></li><hr /><br />
+                                    <li><a href="https://www.sheldonbrown.com/cribsheet-bottombrackets.html" target="_blank"><img src="./images/icons/question_icon.png" /></a>Bottom Bracket Threading: <select onChange={handleInputChange} type="text" name="bottomBracketThreading" value={newItem.bottomBracketType || ""} >
+                                    <option value="">---Select One---</option>
+                                        <option value="I.S.O.">I.S.O.</option>
+                                        <option value="French">French</option>
+                                        <option value="ISIS">ISIS</option>
+                                        <option value="Italian">Italian</option>
+                                        <option value="Swiss">Swiss</option>
+                                    </select></li><hr /><br />
                                     <li><a href="https://www.sheldonbrown.com/bbsize.html" target="_blank"><img src="./images/icons/question_icon.png" /></a> Bottom Bracket Shell Width: <input onChange={handleInputChange} type="number" name="bottomBracketSize" value={newItem.bottomBracketSize || ""} />mm</li><hr /><br />
-                                    <li>Crank Arms Length: <input onChange={handleInputChange} type="number" name="crankArmLength" value={newItem.crankArmLength || ""} />mm</li><hr /><br />
+                                    <li><a href="https://www.sheldonbrown.com/cranks.html" target="_blank"><img src="./images/icons/question_icon.png" /></a>Crank Length: <input onChange={handleInputChange} type="number" name="crankArmLength" value={newItem.crankArmLength || ""} />mm</li><hr /><br />
                                     <li>Spindle Length: <input onChange={handleInputChange} type="number" name="spindleLength" value={newItem.spindleLength || ""} />mm</li><hr /><br />
                                     <li>Cog Teeth: <input onChange={handleInputChange} type="number" name="cogTeeth" value={newItem.cogTeeth || ""} />mm</li><hr /><br />
                             </div>

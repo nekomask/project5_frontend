@@ -112,27 +112,29 @@ div.headset {
   display: block;
   align-items: center;
   text-align: center;
-  justify-content: center;
+  justify-content: space-around;
   text-align: center;
   border: 1px solid black;
+  flex-direction: column;
 }
 
 div.wheels {
-  display: flex;
+  display: block;
   text-align: center;
   flex-direction: column;
-  align-content: center;
   align-items: center;
   border: 1px solid black;
+  justify-content: space-evenly;
 }
 
 div.crankset {
-  display: flex;
+  display: block;
   text-align: center;
   flex-direction: column;
   align-content: center;
   align-items: center;
   border: 1px solid black;
+  justify-content: space-between;
 }
 
 div.seat {
@@ -141,6 +143,7 @@ div.seat {
   align-items: center;
   text-align: center;
   border: 1px solid black;
+  justify-content: space-between;
 }
 
 div.links{

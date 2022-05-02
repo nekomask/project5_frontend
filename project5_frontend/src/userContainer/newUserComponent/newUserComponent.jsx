@@ -66,7 +66,7 @@ const Register = (props) => {
 
 
     return (
-        <div>
+        <div className="register">
             <h1>Register</h1>
             <form onSubmit={submitNewUser}>
                     <label htmlFor="username">Username:</label>

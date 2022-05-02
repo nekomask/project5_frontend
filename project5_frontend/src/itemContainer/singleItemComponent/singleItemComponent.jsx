@@ -21,6 +21,7 @@ const SingleItemComponent = (props) => {
         productName: props.item.productName,
         frameType: props.item.frameType,
         frameHeight: props.item.frameHeight,
+        steerTubeLength: props.item.steerTubeLength,
         forkBrand: props.item.forkBrand,
         forkType: props.item.forkType,
         forkLength: props.item.forkLength,
