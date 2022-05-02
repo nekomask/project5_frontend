@@ -21,7 +21,7 @@ const ItemContainer = (props) => {
 
 
         //Send a request to our back-end
-        const apiResponse = await fetch("https://mybikedatabase-frontend.herokuapp.com/items", {
+        const apiResponse = await fetch("https://mybikedatabase-backend.herokuapp.com/items", {
             method: "POST",
             body: JSON.stringify(newItem),
             //need this to POST-- where's this request coming from? What type of Content is it?
@@ -46,7 +46,7 @@ const ItemContainer = (props) => {
     const deleteItem = async (idToDelete) => {
         //fetch our item ID from the database to delete one
         try {
-            const apiResponse = await fetch(`https://mybikedatabase-frontend.herokuapp.com/items/${idToDelete}`, {
+            const apiResponse = await fetch(`https://mybikedatabase-backend.herokuapp.com/items/${idToDelete}`, {
                 method: "DELETE"
             })
             const parsedResponse = await apiResponse.json()
@@ -74,7 +74,7 @@ const ItemContainer = (props) => {
         //function that fetches items from server into our itemContainer
         const getItems = async () => {
             try {
-                const items = await fetch("https://mybikedatabase-frontend.herokuapp.com/items")
+                const items = await fetch("https://mybikedatabase-backend.herokuapp.com/items")
                 const parsedItems = await items.json();
                 setItems(parsedItems.data)
             } catch (err) {
@@ -98,7 +98,7 @@ const ItemContainer = (props) => {
             // }
 
             //calling our API to store our updated item data to the backend
-            const apiResponse = await fetch(`https://mybikedatabase-frontend.herokuapp.com/items/${idToUpdate}`, {
+            const apiResponse = await fetch(`https://mybikedatabase-backend.herokuapp.com/items/${idToUpdate}`, {
                 
                 method: "PUT",
                 body: JSON.stringify(itemToUpdate),
