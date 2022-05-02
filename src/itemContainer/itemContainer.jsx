@@ -74,7 +74,7 @@ const ItemContainer = (props) => {
         //function that fetches items from server into our itemContainer
         const getItems = async () => {
             try {
-                const items = await fetch("https://mybikedatabase-backend.herokuapp.com/items")
+                const items = await fetch("https://mybikedatabase-backend.herokuapp.com/items", {mode: 'cors'})
                 const parsedItems = await items.json();
                 setItems(parsedItems.data)
             } catch (err) {
