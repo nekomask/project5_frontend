@@ -26,6 +26,7 @@ const ItemContainer = (props) => {
             body: JSON.stringify(newItem),
             //need this to POST-- where's this request coming from? What type of Content is it?
             headers: {
+                "Access-Control-Allow-Origin": "*",
                 "Content-Type": "application/json"
             }
         })
@@ -102,6 +103,7 @@ const ItemContainer = (props) => {
                 method: "PUT",
                 body: JSON.stringify(itemToUpdate),
                 headers: {
+                    "Access-Control-Allow-Origin": "*",
                     "Content-Type": "application/json"
                 }
             })
