@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import SingleItemComponent from "./singleItemComponentn/singleItemComponent";
+import SingleItemComponent from "./singleItemComponent/singleItemComponent";
 import NewItemComponent from "./newItemComponent/newItemComponent";
 import FrameTypeComponent from "../nonItemComponents/frameTypeComponent/frameTypeComponent";
 
