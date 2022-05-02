@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import SingleItemComponent from "./singleItemComponent/singleItemComponent";
+import SingleItemComponent from "./singleItemComponentn/singleItemComponent";
 import NewItemComponent from "./newItemComponent/newItemComponent";
 import FrameTypeComponent from "../nonItemComponents/frameTypeComponent/frameTypeComponent";
 
@@ -26,7 +26,6 @@ const ItemContainer = (props) => {
             body: JSON.stringify(newItem),
             //need this to POST-- where's this request coming from? What type of Content is it?
             headers: {
-                "Access-Control-Allow-Origin": "*",
                 "Content-Type": "application/json"
             }
         })
@@ -99,9 +98,11 @@ const ItemContainer = (props) => {
 
             //calling our API to store our updated item data to the backend
             const apiResponse = await fetch(`https://mybikedatabase-backend.herokuapp.com/items/${idToUpdate}`, {
-                
                 method: "PUT",
                 body: JSON.stringify(itemToUpdate),
+                headers: {
+                    "Content-Type": "application/json"
+                }
             })
             const parsedResponse = await apiResponse.json();
             if (parsedResponse.success) {
