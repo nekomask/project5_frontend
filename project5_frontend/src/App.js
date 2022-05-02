@@ -2,12 +2,13 @@ import './App.css';
 import ItemContainer from './itemContainer/itemContainer';
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Register from "./Pages/Register"
+import NewUserComponent from "./userContainer/newUserComponent/newUserComponent"
 import Home from "./Pages/Home"
 import About from "./Pages/About"
 import Show from './Pages/Show';
 
 function App() {
+  const [currentUser, setCurrentUser] = useState([])
   const [currentItem, setCurrentItem] = useState([])
   return (
     <Router>
@@ -16,7 +17,7 @@ function App() {
         <Route path="/create" element={<ItemContainer currentItem={currentItem} setCurrentItem={setCurrentItem}/>} />
         <Route path="/about" element={<About />} />
         <Route path="/item" element={<Show currentItem={currentItem}/>} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<NewUserComponent currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
         </Routes>
     </Router>
   );

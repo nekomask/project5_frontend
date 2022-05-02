@@ -1,29 +1,28 @@
 import { useEffect, useState } from "react";
-import SingleItemComponent from "./singleItemComponent/singleItemComponent";
-import NewItemComponent from "./newItemComponent/newItemComponent";
-import FrameTypeComponent from "../nonItemComponents/frameTypeComponent/frameTypeComponent";
+import Register from "./newUserComponent/newUserComponent";
+import SingleUserComponent from "./singleUserComponent/singleUserComponent";
+import NewUserComponent from "./newUserComponent/newUserComponent"
 
-
-const ItemContainer = (props) => {
+const UserContainer = (props) => {
     //requestError is a variable in state that setRequestError is the function we use to set that value when we want to update it
     //whenever something might possibly go wrong on the frontend
     const [requestError, setRequestError] = useState("")
     //setting up state with dummy data and figuring out how to get it from API later;
-    //setItems is a free simple useState function that just says whatever item we call to update it to whatever we call it
-    const [items, setItems] = useState([])
+    //setUsers is a free simple useState function that just says whatever item we call to update it to whatever we call it
+    const [users, setUsers] = useState([])
     //a new item server error that we're passing to the child in our newItemContainer
-    const [newItemServerError, setNewItemServerError] = useState("")
+    const [newUserServerError, setNewUserServerError] = useState("")
 
     //function that lifts state from child to parent
-    const createNewItem = async (newItem) => {
-        console.log(newItem);
+    const createNewUser = async (newUser) => {
+        console.log(newUser);
         console.log("Let's create this!")
 
 
         //Send a request to our back-end
-        const apiResponse = await fetch("http://localhost:3001/items", {
+        const apiResponse = await fetch("http://localhost:3001/users", {
             method: "POST",
-            body: JSON.stringify(newItem),
+            body: JSON.stringify(newUser),
             //need this to POST-- where's this request coming from? What type of Content is it?
             headers: {
                 "Content-Type": "application/json"
@@ -35,23 +34,23 @@ const ItemContainer = (props) => {
         console.log(parsedResponse)
         if (parsedResponse.success) {
             //Add the new item to state!
-            setItems([parsedResponse.data, ...items])
+            setUsers([parsedResponse.data, ...users])
             //Else show the error message in the form, don't change it back to showing? 
         } else {
-            setNewItemServerError(parsedResponse.data);
+            setNewUserServerError(parsedResponse.data);
         }
     }
-    //function creating a new array out of all the filtered item objects that return true to delete a specific one
-    const deleteItem = async (idToDelete) => {
+    //function creating a new array out of all the filtered User objects that return true to delete a specific one
+    const deleteUser = async (idToDelete) => {
         //fetch our item ID from the database to delete one
         try {
-            const apiResponse = await fetch(`http://localhost:3001/items/${idToDelete}`, {
+            const apiResponse = await fetch(`http://localhost:3001/users/${idToDelete}`, {
                 method: "DELETE"
             })
             const parsedResponse = await apiResponse.json()
             if (parsedResponse.success) {
-                const newItems = items.filter(item => item._id !== idToDelete)
-                setItems(newItems);
+                const newUsers = users.filter(user => user._id !== idToDelete)
+                setUsers(newUsers);
             } else {
                 //TODO: handle an unsuccessful delete
 
@@ -71,45 +70,33 @@ const ItemContainer = (props) => {
 
 
         //function that fetches items from server into our itemContainer
-        const getItems = async () => {
+        const getUsers = async () => {
             try {
-                const items = await fetch("http://localhost:3001/items")
-                const parsedItems = await items.json();
-                setItems(parsedItems.data)
+                const users = await fetch("http://localhost:3001/users")
+                const parsedUsers = await users.json();
+                setUsers(parsedUsers.data)
             } catch (err) {
                 console.log(err)
             }
         }
 
-        //function to edit/update our items from the form
-        const updateItem = async (idToUpdate, itemToUpdate) => {
-            //blank array for creating a new array with all the stuff we want
-            // const newItems = []
-            // //forLoop for looking through all the items that already exist in state
-            // for(let i = 0; i< items.length; i++){
-            //     //this specific item we need to change to the new item (idToUpdate) coming into the form
-            //     if(items[i]._id === idToUpdate._id){
-            //         newItems.push(itemToUpdate)
-            //     }else{
-            //         //all other items get a pass to the new array
-            //         newItems.push(items[i])
-            //     }
-            // }
+        //function to edit/update our Users from the form
+        const updateUser = async (idToUpdate, userToUpdate) => {
 
             //calling our API to store our updated item data to the backend
-            const apiResponse = await fetch(`http://localhost:3001/items/${idToUpdate}`, {
+            const apiResponse = await fetch(`http://localhost:3001/users/${idToUpdate}`, {
                 method: "PUT",
-                body: JSON.stringify(itemToUpdate),
+                body: JSON.stringify(userToUpdate),
                 headers: {
                     "Content-Type": "application/json"
                 }
             })
             const parsedResponse = await apiResponse.json();
             if (parsedResponse.success) {
-                //shortcut version that checks the item to see if it equals the id to the item we want to update-- if so, update that-- otherwise send the old version
-                const newItems = items.map(item => item._id === idToUpdate ? itemToUpdate : item)
+                //shortcut version that checks the user to see if it equals the id to the user we want to update-- if so, update that-- otherwise send the old version
+                const newUsers = users.map(user => user._id === idToUpdate ? userToUpdate : user)
                 //calling our set function
-                setItems(newItems)
+                setUsers(newUsers)
             } else {
                 setRequestError(parsedResponse.data)
             }
@@ -118,22 +105,22 @@ const ItemContainer = (props) => {
         }
         //loads the object items in our backend database to the page
         useEffect(() => {
-            getItems()
+            getUsers()
           }, [])
 
         return (
-            <div className="itemContainer">
+            <div className="userContainer">
 <div className="nav">
                <h2 id="myBikeDatabase"><a id="navlinks" href="/">myBikeDatabase</a></h2>
             <div className="links">
             <a id="navlinks" href="/create">Bikes</a>
                 <a id="navlinks" href="/about">About</a>
             </div></div><br />
-            <div className="list-of-bikes">
-            <h2 id="list-bikes"><u>List of Bikes</u></h2>
-                <aside className="list-of-bikes">
-                    {items.map((item) => {
-                        return <SingleItemComponent currentItem={props.currentItem} setCurrentItem={props.setCurrentItem} key={item._id} item={item} deleteItem={deleteItem} updateItem={updateItem}></SingleItemComponent>
+            <div className="list-of-users">
+            <h2 id="list-of-users"><u>List of Users</u></h2>
+                <aside className="list-of-users">
+                    {users.map((user) => {
+                        return <SingleUserComponent currentUser={props.currentUser} setCurrentUser={props.setCurrentUser} key={user._id} user={user} deleteUser={deleteUser} updateUser={updateUser}></SingleUserComponent>
                     })}
                        <hr />
                        </aside>
@@ -141,9 +128,9 @@ const ItemContainer = (props) => {
                 <aside className="create">
                     <hr />
                     <h2 id="create">Create a Bike</h2>
-                    <NewItemComponent
-                        newItemServerError={newItemServerError}
-                        createNewItem={createNewItem}></NewItemComponent>
+                    <NewUserComponent
+                        newUserServerError={newUserServerError}
+                        createNewUser={createNewUser}></NewUserComponent>
                 </aside>
                 <section id="list">
                     <hr />
@@ -152,4 +139,4 @@ const ItemContainer = (props) => {
         )
     }
 
-    export default ItemContainer;
+    export default UserContainer;
