@@ -1,6 +1,6 @@
 # Project 5
 # MyBikeDatabase
-My objectives in this Capstone projects were to continue improving my website from Project 3 by creating a better front-end and UI experience as detailed below:
+My objectives in this Capstone projects were to continue improving my website from Project 3 by creating a better front-end and UI experience that you can read about below.
 
 This React-powered app is an idea I had before I started coding. Over the years, I've repaired and assembled my own bicycles piece-by-piece. It has always annoyed me when a part needed a replacement that I would have to disassemble my bike to double-check the component's measurements in order to ensure that the new part would be compatible. So that was the whole inspiration behind this app. Why not save myself the time and avoid getting my hands dirty more than once?
 
@@ -32,5 +32,4 @@ If a vendor, like a bike shop, actually wants to use this app for its clients-- 
 Other short-term goals would also include more front-end validations, styling, and updating the edit form. It will probably have a similar aesthetic to the create form but at least it currently works.
 
 Front-end heroku: https://mybikedatabase-frontend.herokuapp.com/
-
 Back-end heroku: https://mybikedatabase-backend.herokuapp.com/

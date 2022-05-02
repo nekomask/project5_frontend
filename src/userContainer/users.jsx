@@ -66,7 +66,7 @@ const deleteUser = async (idToDelete) => {
             console.log(err)
         }
     }
-
+ 
     //function to edit/update our Users from the form
     const updateUser = async (idToUpdate, userToUpdate) => {
 
