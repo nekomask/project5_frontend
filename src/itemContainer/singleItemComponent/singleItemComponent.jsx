@@ -47,6 +47,7 @@ const SingleItemComponent = (props) => {
         bottomBracketDiameter: props.item.bottomBracketDiameter,
         bottomBracketType: props.item.bottomBracketType,
         bottomBracketThreading: props.item.bottomBracketThreading,
+        pedalType: props.item.pedalType,
         crankArmLength: props.item.crankArmLength,
         rimSize: props.item.rimSize,
         tireSize: props.item.tireSize,

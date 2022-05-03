@@ -24,6 +24,7 @@ const NewItemComponent = (props) => {
         stemLength: "",
         stemClampSize: "",
         stemAngle: "",
+        spacerStackHeight: "",
         handlebarType: "",
         seatPostBrand: "",
         seatPostDiameter: "",
@@ -92,6 +93,7 @@ const NewItemComponent = (props) => {
                 stemLength: "",
                 stemClampSize: "",
                 stemAngle: "",
+                spacerStackHeight: "",
                 handlebarType: "",
                 seatPostBrand: "",
                 seatPostDiameter: "",
@@ -257,14 +259,14 @@ const NewItemComponent = (props) => {
                                    
                                         <li><a href="https://www.montaguebikes.com/folding-bikes-blog/2019/06/bicycle-wheel-sizes-explained/" target="_blank"><img src="./images/icons/question_icon.png" /></a> Rims Size: <select onChange={handleInputChange} type="text" name="rimSize" placeholder='26", 700cc, ect' value={newItem.rimSize || ""}>
                                             <option value="">---Select One---</option>
-                                            <option value="16">16</option>
-                                            <option value="20">20</option>
-                                            <option value="24">24</option>
-                                            <option value="26">26</option>
-                                            <option value="27.5">27.5 (650b)</option>
-                                            <option value="700c">700c (29")</option>
-                                            <option value="32">32"</option>
-                                            <option value="36">36"</option>
+                                            <option value='16"'>16"</option>
+                                            <option value='20"'>20"</option>
+                                            <option value='24"'>24"</option>
+                                            <option value='26"'>26"</option>
+                                            <option value='27.5'>27.5 (650b)</option>
+                                            <option value='700c'>700c (29")</option>
+                                            <option value='32"'>32"</option>
+                                            <option value='36"'>36"</option>
                                         </select></li><hr /><br />
                                         <li># Spoke Holes Front Wheel:: <select onChange={handleInputChange} type="number" name="hubSpokeCountFront" value={newItem.hubSpokeCountFront || ""}>
                                             <option value="">---Select One---</option>
@@ -362,7 +364,7 @@ const NewItemComponent = (props) => {
                             
                                     <li>Chainring Teeth #: <input onChange={handleInputChange} type="text" name="chainRingTeeth" value={newItem.chainRingTeeth || ""} /></li><hr /><br />
                                     <li><a href="https://www.sheldonbrown.com/gloss_bo-z.html#bcd" target="_blank"><img src="./images/icons/question_icon.png" /></a> Bolt Circle Diameter (BCD): <input onChange={handleInputChange} type="number" name="chainRingBCD" value={newItem.chainRingBCD || ""} />mm</li><hr /><br />
-                                    <li id="spacer-stack-height">Chain Length: <input onChange={handleInputChange} type="text" name="chainLength" value={newItem.chainLength || ""} />mm</li><hr /><br />
+                                    <li id="chain-length">Chain Length: <input onChange={handleInputChange} type="text" name="chainLength" value={newItem.chainLength || ""} />mm</li><hr /><br />
                                     <li><a href="https://www.parktool.com/blog/repair-help/bottom-bracket-standards-and-terminology" target="_blank"><img src="./images/icons/question_icon.png" /></a>Bottom Bracket Type: <select onChange={handleInputChange} type="text" name="bottomBracketType" placeholder="Cartridge, External, Press-Fit, ect." value={newItem.bottomBracketType || ""} >
                                         <option value="">---Select One---</option>
                                         <option value="Cartridge">Cartridge</option>
@@ -377,7 +379,7 @@ const NewItemComponent = (props) => {
                                         <option value="Italian">Italian</option>
                                         <option value="Swiss">Swiss</option>
                                     </select></li><hr /><br />
-                                    <li><a href="https://www.sheldonbrown.com/cribsheet-bottombrackets.html" target="_blank"><img src="./images/icons/question_icon.png" /></a>Pedal Type: <select onChange={handleInputChange} type="text" name="pedalType" value={newItem.pedalType || ""} >
+                                    <li><a href="https://www.active.com/cycling/articles/types-of-bike-pedals-a-user-s-guide-for-all-levels/slide-11" target="_blank"><img src="./images/icons/question_icon.png" /></a>Pedal Type: <select onChange={handleInputChange} type="text" name="pedalType" value={newItem.pedalType || ""} >
                                     <option value="">---Select One---</option>
                                         <option value="Clipless">Clipless</option>
                                         <option value="Flats">Flats</option>
