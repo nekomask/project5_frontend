@@ -33,9 +33,11 @@ const NewItemComponent = (props) => {
         rearBrakeBrand: "",
         chainRingTeeth: "",
         chainRingBCD: "",
+        chainLength: "",
         bottomBracketSize: "",
         bottomBracketType: "",
         crankArmLength: "",
+        pedalType: "",
         rimSize: "",
         tireSize: "",
         forkEndSpacing: "",
@@ -101,9 +103,11 @@ const NewItemComponent = (props) => {
                 rearBrakeType: "",
                 chainRingTeeth: "",
                 chainRingBCD: "",
+                chainLength: "",
                 bottomBracketDiameter: "",
                 bottomBracketType: "",
                 crankArmLength: "",
+                pedalType: "",
                 rimSize: "",
                 tireSize: "",
                 forkEndSpacing: "",
@@ -358,6 +362,7 @@ const NewItemComponent = (props) => {
                             
                                     <li>Chainring Teeth #: <input onChange={handleInputChange} type="text" name="chainRingTeeth" value={newItem.chainRingTeeth || ""} /></li><hr /><br />
                                     <li><a href="https://www.sheldonbrown.com/gloss_bo-z.html#bcd" target="_blank"><img src="./images/icons/question_icon.png" /></a> Bolt Circle Diameter (BCD): <input onChange={handleInputChange} type="number" name="chainRingBCD" value={newItem.chainRingBCD || ""} />mm</li><hr /><br />
+                                    <li id="spacer-stack-height">Chain Length: <input onChange={handleInputChange} type="text" name="chainLength" value={newItem.chainLength || ""} />mm</li><hr /><br />
                                     <li><a href="https://www.parktool.com/blog/repair-help/bottom-bracket-standards-and-terminology" target="_blank"><img src="./images/icons/question_icon.png" /></a>Bottom Bracket Type: <select onChange={handleInputChange} type="text" name="bottomBracketType" placeholder="Cartridge, External, Press-Fit, ect." value={newItem.bottomBracketType || ""} >
                                         <option value="">---Select One---</option>
                                         <option value="Cartridge">Cartridge</option>
@@ -371,6 +376,12 @@ const NewItemComponent = (props) => {
                                         <option value="ISIS">ISIS</option>
                                         <option value="Italian">Italian</option>
                                         <option value="Swiss">Swiss</option>
+                                    </select></li><hr /><br />
+                                    <li><a href="https://www.sheldonbrown.com/cribsheet-bottombrackets.html" target="_blank"><img src="./images/icons/question_icon.png" /></a>Pedal Type: <select onChange={handleInputChange} type="text" name="pedalType" value={newItem.pedalType || ""} >
+                                    <option value="">---Select One---</option>
+                                        <option value="Clipless">Clipless</option>
+                                        <option value="Flats">Flats</option>
+                                        <option value="Toe Clips">Toe Clips</option>
                                     </select></li><hr /><br />
                                     <li><a href="https://www.sheldonbrown.com/bbsize.html" target="_blank"><img src="./images/icons/question_icon.png" /></a> Bottom Bracket Shell Width: <input onChange={handleInputChange} type="number" name="bottomBracketSize" value={newItem.bottomBracketSize || ""} />mm</li><hr /><br />
                                     <li><a href="https://www.sheldonbrown.com/cranks.html" target="_blank"><img src="./images/icons/question_icon.png" /></a>Crank Length: <input onChange={handleInputChange} type="number" name="crankArmLength" value={newItem.crankArmLength || ""} />mm</li><hr /><br />

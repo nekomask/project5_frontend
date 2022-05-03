@@ -43,6 +43,7 @@ const SingleItemComponent = (props) => {
         rearBrakeType: props.item.rearBrakeType,
         chainRingTeeth: props.item.chainRingTeeth,
         chainRingBCD: props.item.chainRingBCD,
+        chainLength: props.item.chainLength,
         bottomBracketDiameter: props.item.bottomBracketDiameter,
         bottomBracketType: props.item.bottomBracketType,
         bottomBracketThreading: props.item.bottomBracketThreading,
