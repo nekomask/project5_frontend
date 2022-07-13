@@ -4,7 +4,7 @@ import '../App.css';
 
 function Home(){
     return <div className="App">
-        <div className="nav">
+        <div className="nav1">
     <h1>myBikeDatabase</h1>
     </div>
     <FrameTypeComponent></FrameTypeComponent>
