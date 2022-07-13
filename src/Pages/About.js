@@ -11,19 +11,28 @@ function About(){
                 </div>
                 </div>
     <br />
-    <p>This React-powered application was an idea I had before I started learning to code. Over the years I've built and worked on a number of bikes that I've owned but as time goes on I've usually forgotten some of their specifications like the clamp size on my stem or the minimum length I've needed on new tubes.</p>
+    <div className="about">
+    <p id="about">This React-powered application was an idea I had before I started learning to code. Over the years I've built up and worked on a number of bikes
+        but as time goes on I usually end up forgetting some of their specifications like the clamp size on my stem or the minimum valve length I've needed on new tubes.
+<br/>
+<br/>
+    Bikes themselves can have very different component properties that might not even exist on other bikes. Most of my background focuses on single-speed bicycles so the properties are going to be limited to that knowledge for now but what's here should still be good for almost everybody and I'm open to adding more options for multi-speed bikes in the future.
+    </p>
+    <br/>
+    <br/>
 
-    <p>The site is a work in progress. At the time of this writing- I have only included about 3/5 of the properties that I think should really be here. But that will come in time.</p>
-
-    <p>Bikes themselves can have very different component properties that might not even exist on other bikes. Most of my background focuses on single-speed bicycles so these categories right now are going to be limited to that knowledge but I'm open to adding more options for multi-speed bikes in the future.</p>
-
-    <p>If you are a vendor or someone in the industry and would like to contact me, please see my email below. Cheers! </p>
+    <br/>
 
     <img src={Rufus} />
 
     <p>Brandon Kiefer</p>
-    <a href="volaju@gmail.com">volaju@gmail.com</a>
-
+    <ul id="links">
+        <li><a id="links" href="https://www.linkedin.com/in/brandonkiefer-se/" target="_blank">LinkedIn</a></li>
+        <li><a id="links" href="volaju@gmail.com">volaju@gmail.com</a></li>
+        <li><a id="links" href="https://github.com/nekomask" target="_blank">Github</a></li>
+    </ul>
+    <p id="about">If you are a vendor or someone in the industry and would like to contact me, please see my contact information above. Cheers! </p>
+    </div>
 
     
         </div>

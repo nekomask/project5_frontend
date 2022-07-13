@@ -35,6 +35,7 @@ const NewItemComponent = (props) => {
         chainRingTeeth: "",
         chainRingBCD: "",
         chainLength: "",
+        bottomBracketDiameter: "",
         bottomBracketSize: "",
         bottomBracketType: "",
         crankArmLength: "",

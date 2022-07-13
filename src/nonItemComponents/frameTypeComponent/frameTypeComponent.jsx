@@ -56,8 +56,9 @@ return (
         <p>Select Your Color</p>
         <input type="color" id="colorInput"></input>
         <br />
-        <button onClick={colorChange}>spray it</button>
-        <hr></hr>
+        <button id="spray" onClick={colorChange}>spray it</button>
+        <br/>
+        <br/>
     </div>
 
 )

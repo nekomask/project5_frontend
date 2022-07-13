@@ -24,6 +24,14 @@ export function Show(props) {
         URL = "./images/recumbent.png"
     }
 
+    const meters = () => {
+if (props.currentItem.chainLength){
+    return (
+        props.currentItem.chainLength.value + "mm"
+    )
+}
+    }
+
     return (
         <div className="showPage">
            <div className="nav">
@@ -75,7 +83,7 @@ export function Show(props) {
            <h3>Drivetrain</h3>
            <p id="showCategory"> Chainring Teeth: <div className="showValue">{props.currentItem.chainRingTeeth}</div></p> 
            <p id="showCategory"> Chainring BCD: <div className="showValue">{props.currentItem.chainRingBCD}</div></p> 
-           <p id="showCategory"> Chain Length: <div className="showValue">{props.currentItem.chainLength}</div></p>
+           <p  onClick={meters} id="showCategory"> Chain Length: <div className="showValue">{props.currentItem.chainLength}</div></p>
            <p id="showCategory"> Bottom Bracket Diameter: <div className="showValue">{props.currentItem.bottomBracketDiameter}</div></p> 
            <p id="showCategory"> Bottom Bracket Type: <div className="showValue">{props.currentItem.bottomBracketType}</div></p>
            <p id="showCategory"> Pedal Type: <div className="showValue">{props.currentItem.pedalType}</div></p>

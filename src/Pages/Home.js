@@ -1,5 +1,6 @@
 import React from "react";
 import FrameTypeComponent from "../nonItemComponents/frameTypeComponent/frameTypeComponent";
+import '../App.css';
 
 function Home(){
     return <div className="App">
@@ -7,13 +8,15 @@ function Home(){
     <h1>myBikeDatabase</h1>
     </div>
     <FrameTypeComponent></FrameTypeComponent>
-    <h2>This site is for storing information about your specific bike.</h2>
-        <h3>Ever accidentally ordered a tube where the valve was slightly too short for your deep V-rim?</h3>
-        <h4>Well never again!</h4>
-        <h5>As you get started, you may feel overwhelmed by all the information you don't know. That's okay!
+    <div className="intro">
+    <a id="enter" href="/create">ENTER</a>
+    <h2 id="intro">This site is for storing component information on your bikes.</h2>
+        <h3 id="intro">Ever accidentally ordered a tube where the valve was slightly too short for your deep V-rim?</h3>
+        <h4 id="intro">Well never again!</h4>
+        <h5 id="intro">As you get started, you may feel overwhelmed by all the information you don't know. That's okay!
             Rome wasn't built in a day!
         </h5>
-        <a id="enter" href="/create">ENTER</a>
+        </div>
         </div>
 }
 
