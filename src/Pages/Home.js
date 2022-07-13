@@ -5,7 +5,7 @@ import '../App.css';
 function Home(){
     return <div className="App">
         <div className="nav1">
-    <h1>myBikeDatabase</h1>
+        <h1 id="myBikeDatabase"><a id="navlinks" href="/create">myBikeDatabase</a></h1>
     </div>
     <FrameTypeComponent></FrameTypeComponent>
     <div className="intro">

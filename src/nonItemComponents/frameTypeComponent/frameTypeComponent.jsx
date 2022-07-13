@@ -55,9 +55,9 @@ return (
         <img id="frame1" src={URL} className="bmx" />
         <p>Select Your Color</p>
         <input type="color" id="colorInput"></input>
+        <br/>
         <br />
         <button id="spray" onClick={colorChange}>spray it</button>
-        <br/>
         <br/>
     </div>
 
