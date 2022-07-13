@@ -14,7 +14,7 @@ function Home(){
         <h3 id="intro">Ever accidentally ordered a tube where the valve was slightly too short for your deep V-rim?</h3>
         <h4 id="intro">Well never again!</h4>
         <h5 id="intro">As you get started, you may feel overwhelmed by all the information you don't know. That's okay!
-            Rome wasn't built in a day!
+           <br/> If you could actually fill it all out in one-shot, you probably wouldn't need this website!
         </h5>
         </div>
         </div>
