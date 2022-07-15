@@ -8,6 +8,7 @@ import Home from "./Pages/Home"
 import About from "./Pages/About"
 import Show from './Pages/Show';
 import Login from './userContainer/loginComponent/loginComponent'
+import Blog from './Pages/Blog'
 
 function App() {
   const [currentUser, setCurrentUser] = useState([])
@@ -22,6 +23,7 @@ function App() {
         <Route path="/register" element={<UserContainer currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
         <Route path="/users" element={<Users />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/blog" element={<Blog />} />
         </Routes>
     </Router>
   );
