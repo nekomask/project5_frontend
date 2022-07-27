@@ -398,7 +398,7 @@ width: 100%;
         width: 100%;
         height: 100%;
         bottom: 0;
-        border-bottom: 8.1vh solid darkslategrey;
+        border-bottom: 10.0vh solid darkslategrey;
         display: flex;
         flex-direction: column;
         align-items: center;
