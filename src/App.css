@@ -74,7 +74,7 @@ div.edit-form {
 div.intro{
   background-color: darkslategrey;
   border: 3px solid darkslategrey;
-  height: 32vh;
+  height: 100%;
 }
 
 div.showName{
@@ -99,6 +99,7 @@ div.nav{
 
 div.nav1{
   background-color: darkslategrey;
+  width: 100%;
   color: white;
   display: flex;
   flex-direction: column;
@@ -122,7 +123,7 @@ margin-left: auto;
 margin-right: auto;
 }
 
-#intro{
+.intro{
   margin: 30px 0 0 0;
   color: white;
   text-shadow: 0 2px black, 0 3px black, 0 3px  black, 0 -1px black;
@@ -320,3 +321,44 @@ button#spray:active{
   opacity: 1;
   transition: 0s
 }
+
+@media all and (max-width: 280px) {
+  div.nav1{
+    width: 100vh;
+  }
+  img#frame1{
+    height: 250px;
+  }
+  
+  .intro{
+  width: 100%;
+  }
+  
+  
+  }
+  
+
+
+@media all and (max-width: 480px) {
+img#frame1{
+  height: 250px;
+}
+
+.intro{
+width: 100%;
+}
+
+
+}
+
+@media all and (max-width: 720px) {
+  img#frame1{
+    height: 250px;
+  }
+  
+  .intro{
+  width: 100%;
+  }
+  
+  
+  }
