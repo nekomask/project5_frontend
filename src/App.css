@@ -362,7 +362,7 @@ width: 100%;
   @media all and (max-width: 1024px) {
     
     div.intro{
-    width: 100%;
+    width: 105%;
     height: 100%;
 
     }
@@ -371,7 +371,7 @@ width: 100%;
     @media all and (min-width: 1025px) {
     
       div.intro{
-      width: 100%;
+      width: 105%;
       height: 30vh;
       }
       }
