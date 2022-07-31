@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Register from "./newUserComponent/newUserComponent";
 import SingleUserComponent from "./singleUserComponent/singleUserComponent";
 import NewUserComponent from "./newUserComponent/newUserComponent"
+import Login from "./loginComponent/loginComponent";
 
 const UserContainer = (props) => {
     //requestError is a variable in state that setRequestError is the function we use to set that value when we want to update it
@@ -127,10 +128,11 @@ const UserContainer = (props) => {
                        </div>
                 <aside className="create">
                     <hr />
-                    <h2 id="create">Create a Bike</h2>
-                    <NewUserComponent
+                    <h2 id="create">Create a User</h2>
+                    <Register
                         newUserServerError={newUserServerError}
-                        createNewUser={createNewUser}></NewUserComponent>
+                        createNewUser={createNewUser}></Register>
+                        <Login />
                 </aside>
                 <section id="list">
                     <hr />

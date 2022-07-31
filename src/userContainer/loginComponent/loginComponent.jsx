@@ -22,7 +22,23 @@ const Login = (props) =>{
         })
     }
 
-
+    function onSubmit(e) {
+        e.preventDefault();
+        return fetch(`https://mybikedatabase-backend.herokuapp.com/users`, {
+          method: "POST",
+          body: JSON.stringify(userLogin),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((responseData) => {
+            if (responseData.key) {
+              props.setToken(responseData.key);
+            }
+          })
+          .catch((error) => console.log("error ->", error));
+      }
 
     
 
@@ -30,15 +46,10 @@ const Login = (props) =>{
 
 
 <div className="login">
-<div className="nav">
-               <h2 id="myBikeDatabase"><a id="navlinks" href="/">myBikeDatabase</a></h2>
-            <div className="links">
-            <a id="navlinks" href="/create">Bikes</a>
-                <a id="navlinks" href="/about">About</a>
-            </div></div><br />
+<hr/>
             <h2 id="login"><u>Login</u></h2>
             <h3>(Not working yet, don't bother)</h3>
-<form method="POST">
+<form onSubmit={onSubmit}>
                     <label htmlFor="username">Username:</label>
                     <input type="text" name="username"  onChange={handleInputChange} /><br />
                     <label htmlFor="password">Password:</label>

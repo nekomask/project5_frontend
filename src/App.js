@@ -9,6 +9,7 @@ import About from "./Pages/About"
 import Show from './Pages/Show';
 import Login from './userContainer/loginComponent/loginComponent'
 import Blog from './Pages/Blog'
+import Register from './userContainer/newUserComponent/newUserComponent';
 
 function App() {
   const [currentUser, setCurrentUser] = useState([])
@@ -22,7 +23,7 @@ function App() {
         <Route path="/item" element={<Show currentItem={currentItem}/>} />
         <Route path="/register" element={<UserContainer currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
         <Route path="/users" element={<Users />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<UserContainer  currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
         <Route path="/blog" element={<Blog />} />
         </Routes>
     </Router>
