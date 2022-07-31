@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Navigate, useNavigate, Link } from "react-router-dom"
+import apiURL from "../../apiConfig"
 
 const SingleUserComponent = (props) => {
     //sets 2 types of states to determine whether state is valid
@@ -25,7 +26,7 @@ const SingleUserComponent = (props) => {
 
     const showUser = async () => {
         try {
-            const user = await fetch(`http://localhost:3001/users/${props.user._id}`)
+            const user = await fetch(`${apiURL}/users/${props.user._id}`)
             const parsedUser = await user.json();
             console.log(parsedUser)
             props.setCurrentUser(parsedUser.data)

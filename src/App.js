@@ -9,7 +9,6 @@ import About from "./Pages/About"
 import Show from './Pages/Show';
 import Login from './userContainer/loginComponent/loginComponent'
 import Blog from './Pages/Blog'
-import Register from './userContainer/newUserComponent/newUserComponent';
 
 function App() {
   const [currentUser, setCurrentUser] = useState([])

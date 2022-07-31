@@ -1,5 +1,6 @@
 import React from "react"
 import { useState} from "react"
+import apiURL from "../../apiConfig"
 
 
 const Login = (props) =>{
@@ -24,7 +25,7 @@ const Login = (props) =>{
 
     function onSubmit(e) {
         e.preventDefault();
-        return fetch(`https://mybikedatabase-backend.herokuapp.com/users`, {
+        return fetch(`${apiURL}/users/login`, {
           method: "POST",
           body: JSON.stringify(userLogin),
           headers: {
