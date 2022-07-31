@@ -126,7 +126,7 @@ const ItemContainer = (props) => {
             setLoading(true);
             setTimeout(() => {
                 setLoading(false);
-            }, 4000);
+            }, 7000);
             getItems()
           }, [])
 
