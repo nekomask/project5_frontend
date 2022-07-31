@@ -405,3 +405,46 @@ width: 100%;
         align-content: center;
       }
       }
+
+
+      /* API LOADING ANIMATION */
+
+      div.load{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      img.load {
+        height: 75%;
+        width: 75%;
+        animation: spin 3s infinite;
+        animation-timing-function: linear;
+      }
+
+      p#load{
+        text-align: center;
+        animation: fadein 1.8s infinite;
+      }
+      
+      
+      @keyframes spin {
+        0% {
+          transform: rotate(0);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes fadein {
+        0% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }

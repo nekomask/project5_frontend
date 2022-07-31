@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import SingleItemComponent from "./singleItemComponent/singleItemComponent";
 import NewItemComponent from "./newItemComponent/newItemComponent";
-import FrameTypeComponent from "../nonItemComponents/frameTypeComponent/frameTypeComponent";
+import Loading from "../nonItemComponents/loading";
+
 
 
 const ItemContainer = (props) => {
@@ -13,6 +14,8 @@ const ItemContainer = (props) => {
     const [items, setItems] = useState([])
     //a new item server error that we're passing to the child in our newItemContainer
     const [newItemServerError, setNewItemServerError] = useState("")
+    //loading animation for loading bikes
+    const [loading, setLoading] = useState(false)
 
     //function that lifts state from child to parent
     const createNewItem = async (newItem) => {
@@ -75,6 +78,7 @@ const ItemContainer = (props) => {
             try {
                 const items = await fetch("https://mybikedatabase-backend.herokuapp.com/items")
                 const parsedItems = await items.json();
+                setLoading(true);
                 setItems(parsedItems.data)
             } catch (err) {
                 console.log(err)
@@ -104,6 +108,7 @@ const ItemContainer = (props) => {
                     "Content-Type": "application/json"
                 }
             })
+
             const parsedResponse = await apiResponse.json();
             if (parsedResponse.success) {
                 //shortcut version that checks the item to see if it equals the id to the item we want to update-- if so, update that-- otherwise send the old version
@@ -118,6 +123,10 @@ const ItemContainer = (props) => {
         }
         //loads the object items in our backend database to the page
         useEffect(() => {
+            setLoading(true);
+            setTimeout(() => {
+                setLoading(false);
+            }, 4000);
             getItems()
           }, [])
 
@@ -130,9 +139,9 @@ const ItemContainer = (props) => {
                 <a id="navlinks" href="/about">About</a>
             </div></div><br />
             <div className="list-of-bikes">
-            <h2 id="list-bikes"><u>List of Bikes</u></h2>
-                <aside className="list-of-bikes">
-                    {items.map((item) => {
+            <h2 id="list-bikes"><u>List of Bikes</u></h2> 
+                <aside className="list-of-bikes"> 
+                    {loading ? <Loading /> : items.map((item) => {
                         return <SingleItemComponent currentItem={props.currentItem} setCurrentItem={props.setCurrentItem} key={item._id} item={item} deleteItem={deleteItem} updateItem={updateItem}></SingleItemComponent>
                     })}
                        <hr />
@@ -149,6 +158,7 @@ const ItemContainer = (props) => {
                     <hr />
                 </section>
             </div>
+            
         )
     }
 
