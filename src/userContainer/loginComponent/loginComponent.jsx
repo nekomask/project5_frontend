@@ -1,8 +1,9 @@
 import React from "react"
-import { useState, useEffect, useNavigate, Link } from "react"
+import { useState} from "react"
+
 
 const Login = (props) =>{
-    const [requestError, setRequestError] = useState("")
+
     //setUsers is a free simple useState function that just says whatever item we call to update it to whatever we call it
     const [userLogin, setUserLogin] = useState({
         username: "",
@@ -21,6 +22,8 @@ const Login = (props) =>{
         })
     }
 
+
+
     
 
       return (
@@ -35,12 +38,12 @@ const Login = (props) =>{
             </div></div><br />
             <h2 id="login"><u>Login</u></h2>
             <h3>(Not working yet, don't bother)</h3>
-<form>
-                    <label htmlFor="username" id="username" name="username">Username:</label>
-                    <input type="text" name="username" value={this.state.username} onChange={this.handleInputChange} /><br />
+<form method="POST">
+                    <label htmlFor="username">Username:</label>
+                    <input type="text" name="username"  onChange={handleInputChange} /><br />
                     <label htmlFor="password">Password:</label>
-                    <input type="password" id="password" name="password" value={this.state.password} onChange={this.handleInputChange} /><br />
-                <button type="submit">Register</button>
+                    <input type="password" name="password" onChange={handleInputChange} /><br />
+                <button type="submit">Submit</button>
           
             </form>
            </div>
