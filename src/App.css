@@ -418,7 +418,7 @@ width: 100%;
       img.load {
         height: 75%;
         width: 75%;
-        animation: spin 3s infinite;
+        animation: spin 6s infinite;
         animation-timing-function: linear;
       }
 
