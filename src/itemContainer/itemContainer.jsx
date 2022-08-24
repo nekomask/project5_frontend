@@ -136,8 +136,10 @@ const ItemContainer = (props) => {
 <div className="nav">
                <h2 id="myBikeDatabase"><a id="navlinks" href="/">myBikeDatabase</a></h2>
             <div className="links">
+            <a id="navlinks" href="/login">Login</a>
             <a id="navlinks" href="/create">Bikes</a>
                 <a id="navlinks" href="/about">About</a>
+                <a id="navlinks" href="/register">Register</a>
             </div></div><br />
             <div className="list-of-bikes">
             <h2 id="list-bikes"><u>List of Bikes</u></h2> 

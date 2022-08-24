@@ -21,7 +21,7 @@ const UserContainer = (props) => {
 
 
         //Send a request to our back-end
-        const apiResponse = await fetch(`${apiURL}/users`, {
+        const apiResponse = await fetch(`http://localhost:3001/users`, {
             method: "POST",
             body: JSON.stringify(newUser),
             //need this to POST-- where's this request coming from? What type of Content is it?
@@ -45,7 +45,7 @@ const UserContainer = (props) => {
     const deleteUser = async (idToDelete) => {
         //fetch our item ID from the database to delete one
         try {
-            const apiResponse = await fetch(`${apiURL}/users/${idToDelete}`, {
+            const apiResponse = await fetch(`http://localhost:3001/users/${idToDelete}`, {
                 method: "DELETE"
             })
             const parsedResponse = await apiResponse.json()
@@ -70,10 +70,10 @@ const UserContainer = (props) => {
     }
 
 
-        //function that fetches items from server into our itemContainer
+        //function that fetches users from server into our itemContainer
         const getUsers = async () => {
             try {
-                const users = await fetch(`${apiURL}/users`)
+                const users = await fetch(`http://localhost:3001/users`)
                 const parsedUsers = await users.json();
                 setUsers(parsedUsers.data)
             } catch (err) {
@@ -85,7 +85,7 @@ const UserContainer = (props) => {
         const updateUser = async (idToUpdate, userToUpdate) => {
 
             //calling our API to store our updated item data to the backend
-            const apiResponse = await fetch(`${apiURL}/users/${idToUpdate}`, {
+            const apiResponse = await fetch(`http://localhost:3001/users/${idToUpdate}`, {
                 method: "PUT",
                 body: JSON.stringify(userToUpdate),
                 headers: {
@@ -114,8 +114,10 @@ const UserContainer = (props) => {
 <div className="nav">
                <h2 id="myBikeDatabase"><a id="navlinks" href="/">myBikeDatabase</a></h2>
             <div className="links">
-            <a id="navlinks" href="/create">Bikes</a>
+            <a id="navlinks" href="/login">Login</a>
                 <a id="navlinks" href="/about">About</a>
+                <a id="navlinks" href="/create">Bikes</a>
+                <a id="navlinks" href="/register">Register</a>
             </div></div><br />
             <div className="list-of-users">
             <h2 id="list-of-users"><u>List of Users</u></h2>
@@ -132,7 +134,7 @@ const UserContainer = (props) => {
                     <Register
                         newUserServerError={newUserServerError}
                         createNewUser={createNewUser}></Register>
-                        <Login />
+                       <Login/>
                 </aside>
                 <section id="list">
                     <hr />

@@ -22,7 +22,7 @@ function App() {
         <Route path="/item" element={<Show currentItem={currentItem}/>} />
         <Route path="/register" element={<UserContainer currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
         <Route path="/users" element={<Users />} />
-        <Route path="/login" element={<UserContainer  currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
+        <Route path="/login" element={<Login/>} />
         <Route path="/blog" element={<Blog />} />
         </Routes>
     </Router>
