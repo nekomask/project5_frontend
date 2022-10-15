@@ -35,7 +35,7 @@ const Login = (props) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`http://localhost:3001/users/login`, {
+    const response = await fetch(`http://localhost:3001/users/`, {
       method: "POST",
       body: JSON.stringify(userLogin),
       headers: {
@@ -43,36 +43,22 @@ const Login = (props) => {
       },
     })
     console.log(response.ok)
-    // since it was before .then((response) => response.json())
-    // You'll need to await somewhere else to get `response` and then 
-    // await on the `response.json()` part to get the JSON
-    // eg -- const response = await fetch(.....)
-    // This line still needs some work - it's `await`ing a function call
-    // instead of awaiting the `response.json()` directly
-    // Aim for simple!  Similar to above, `const responseData = await .... `
+
     const responseData = await response.json()
       // Here you'll need responseData assigned from somewhere above the below line
-      ((responseData) => {
-        async response.json(responseData)
+
             if (responseData.key) {
       try {
         props.setToken(responseData.key);
         // If everything went well since you're using `react-router` you probably want to check out https://reactrouter.com/docs/en/v6/getting-started/overview#navigation
         // (Wait until you get the rest of the code working first!)
-      }
-          })
+      
+          }
           // To convert this from a promise to async-land you'll want to wrap the code you were running
           // before in a `try/catch`
-
-          catch ((error) => console.log("error ->", error));
-  }
-
-  // try {
-  //  do_all_my_dangerous_ops()
-  // } catch (error) {
-  //   console.error(error)
-  // }
-
+         catch (error) { 
+          console.error(error) }
+         }
 }
 return (
 
