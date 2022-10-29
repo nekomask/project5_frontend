@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Navigate, useNavigate, Link } from "react-router-dom"
+import apiURL from "../../apiConfig"
 
 const SingleItemComponent = (props) => {
     //sets 2 types of states to determine whether state is valid
@@ -71,7 +72,7 @@ const SingleItemComponent = (props) => {
 
     const showItem = async () => {
         try {
-            const item = await fetch(`https://mybikedatabase-backend.herokuapp.com/items/${props.item._id}`)
+            const item = await fetch(`http://localhost:3001/items/${props.item._id}`)
             const parsedItem = await item.json();
             console.log(parsedItem)
             props.setCurrentItem(parsedItem.data)

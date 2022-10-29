@@ -3,6 +3,8 @@ import SingleItemComponent from "./singleItemComponent/singleItemComponent";
 import NewItemComponent from "./newItemComponent/newItemComponent";
 import Loading from "../nonItemComponents/loading";
 
+import apiURL from "../apiConfig";
+
 
 
 const ItemContainer = (props) => {
@@ -24,7 +26,19 @@ const ItemContainer = (props) => {
 
 
         //Send a request to our back-end
-        const apiResponse = await fetch("https://mybikedatabase-backend.herokuapp.com/items", {
+
+        // FYI: A trick for making it easier to swap between hosts here
+        // const apiResponse = await fetch(new URL("/items", apiURL), {
+
+        // What that does is construct a new URL & sets the "base" to be the API URL
+        // from the config (yuou can see above that I added `import apiURL from "wherever"`)
+        // The base is then where the `/items` is combined with so you don't have to go
+        // and find/replace on the URLs anymore
+
+        // Doesn't solve your current issue, just a note.
+
+
+        const apiResponse = await fetch(`${apiURL}/items`, {
             method: "POST",
             body: JSON.stringify(newItem),
             //need this to POST-- where's this request coming from? What type of Content is it?
@@ -48,7 +62,7 @@ const ItemContainer = (props) => {
     const deleteItem = async (idToDelete) => {
         //fetch our item ID from the database to delete one
         try {
-            const apiResponse = await fetch(`https://mybikedatabase-backend.herokuapp.com/items/${idToDelete}`, {
+            const apiResponse = await fetch(`${apiURL}/items/${idToDelete}`, {
                 method: "DELETE"
             })
             const parsedResponse = await apiResponse.json()
@@ -76,9 +90,8 @@ const ItemContainer = (props) => {
         //function that fetches items from server into our itemContainer
         const getItems = async () => {
             try {
-                const items = await fetch("https://mybikedatabase-backend.herokuapp.com/items")
+                const items = await fetch(`${apiURL}/items`)
                 const parsedItems = await items.json();
-                setLoading(true);
                 setItems(parsedItems.data)
             } catch (err) {
                 console.log(err)
@@ -101,7 +114,7 @@ const ItemContainer = (props) => {
             // }
 
             //calling our API to store our updated item data to the backend
-            const apiResponse = await fetch(`https://mybikedatabase-backend.herokuapp.com/items/${idToUpdate}`, {
+            const apiResponse = await fetch(`${apiURL}/items/${idToUpdate}`, {
                 method: "PUT",
                 body: JSON.stringify(itemToUpdate),
                 
@@ -122,12 +135,10 @@ const ItemContainer = (props) => {
 
 
         }
+
+    //loads the object items in our backend database to the page
         //loads the object items in our backend database to the page
         useEffect(() => {
-            setLoading(true);
-            setTimeout(() => {
-                setLoading(false);
-            }, 7000);
             getItems()
           }, [])
 
