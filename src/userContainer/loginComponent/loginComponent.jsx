@@ -1,10 +1,12 @@
 import React from "react"
 import { useState } from "react"
+import { Navigate, useNavigate } from "react-router-dom"
+
 
 
 
 const Login = (props) => {
-
+  let navigate = useNavigate();
   //setUsers is a free simple useState function that just says whatever item we call to update it to whatever we call it
   const [userLogin, setUserLogin] = useState({
     username: "",
@@ -45,38 +47,37 @@ const Login = (props) => {
     console.log(response.ok)
 
     const responseData = await response.json()
-      // Here you'll need responseData assigned from somewhere above the below line
+    // Here you'll need responseData assigned from somewhere above the below line
 
-            if (responseData.key) {
+    if (responseData.key) {
       try {
         props.setToken(responseData.key);
         // If everything went well since you're using `react-router` you probably want to check out https://reactrouter.com/docs/en/v6/getting-started/overview#navigation
         // (Wait until you get the rest of the code working first!)
-      
-          }
-          // To convert this from a promise to async-land you'll want to wrap the code you were running
-          // before in a `try/catch`
-         catch (error) { 
-          console.error(error) }
-         }
+       navigate('/create')
+      }
+      catch (error) {
+        console.error(error)
+      }
+    }
+  }
+  return (
+
+
+    <div className="login">
+      <hr />
+      <h2 id="login"><u>Login</u></h2>
+      <form onSubmit={onSubmit}>
+        <label htmlFor="username">Username:</label>
+        <input type="text" name="username" onChange={handleInputChange} /><br />
+        <label htmlFor="password">Password:</label>
+        <input type="password" name="password" onChange={handleInputChange} /><br />
+        <button type="submit">Login</button>
+       
+      </form>
+    </div>
+
+  )
 }
-return (
-
-
-  <div className="login">
-    <hr />
-    <h2 id="login"><u>Login</u></h2>
-    <h3>(Not working yet, don't bother)</h3>
-    <form onSubmit={onSubmit}>
-      <label htmlFor="username">Username:</label>
-      <input type="text" name="username" onChange={handleInputChange} /><br />
-      <label htmlFor="password">Password:</label>
-      <input type="password" name="password" onChange={handleInputChange} /><br />
-      <button type="submit">Login</button>
-
-    </form>
-  </div>
-
-)}
 
 export default Login;
