@@ -1,7 +1,7 @@
 let apiURL
 
 const apiURLs = {
-    production: "https://mybikedatabase-backend.herokuapp.com",
+    production: "https://my-bike-database-backend.onrender.com",
     development: "http://localhost:3001"
 }
 

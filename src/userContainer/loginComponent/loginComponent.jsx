@@ -55,11 +55,13 @@ const Login = (props) => {
         // If everything went well since you're using `react-router` you probably want to check out https://reactrouter.com/docs/en/v6/getting-started/overview#navigation
         // (Wait until you get the rest of the code working first!)
        navigate('/create')
+       console.log("let's go back to the create page")
       }
       catch (error) {
         console.error(error)
       }
     }
+    console.log(responseData)
   }
   return (
 
