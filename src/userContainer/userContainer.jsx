@@ -134,7 +134,7 @@ const UserContainer = (props) => {
                     <Register
                         newUserServerError={newUserServerError}
                         createNewUser={createNewUser}></Register>
-                       <Login/>
+                       
                 </aside>
                 <section id="list">
                     <hr />
