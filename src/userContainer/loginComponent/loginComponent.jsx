@@ -37,12 +37,15 @@ const Login = (props) => {
   const responseData = await response.json()
   // Here you'll need responseData assigned from somewhere above the below line
 
-  if (responseData.key) {
+  if (responseData.username) {
     try {
       props.setToken(responseData.key);
+      props.setUsername(responseData.username.username)
       // If everything went well since you're using `react-router` you probably want to check out https://reactrouter.com/docs/en/v6/getting-started/overview#navigation
       // (Wait until you get the rest of the code working first!)
-      navigate("/create");
+      sessionStorage.setItem("username", responseData.username);
+      console.log(responseData.username)
+      navigate("/create", { state: { username: responseData.username }});
     } catch (error) {
       console.error(error);
     }

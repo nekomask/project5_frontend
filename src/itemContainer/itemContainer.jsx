@@ -5,9 +5,17 @@ import Loading from "../nonItemComponents/loading";
 
 import apiURL from "../apiConfig";
 
+import { useLocation } from "react-router-dom";
+
+
+
+
+
 
 
 const ItemContainer = (props) => {
+    const location = useLocation();
+    const [username, setUsername] = useState('');
     //requestError is a variable in state that setRequestError is the function we use to set that value when we want to update it
     //whenever something might possibly go wrong on the frontend
     const [requestError, setRequestError] = useState("")
@@ -19,24 +27,23 @@ const ItemContainer = (props) => {
     //loading animation for loading bikes
     const [loading, setLoading] = useState(false)
 
+
+
+    //retrieve username from Session Storage
+    useEffect(() => {
+        if (location.state && location.state.username) {
+          setUsername(location.state.username);
+        } else {
+          const usernameFromSession = sessionStorage.getItem("username");
+          setUsername(usernameFromSession || props.username);
+        }
+      }, [location.state, props.username]);
+
+
     //function that lifts state from child to parent
     const createNewItem = async (newItem) => {
         console.log(newItem);
         console.log("Let's create this!")
-
-
-        //Send a request to our back-end
-
-        // FYI: A trick for making it easier to swap between hosts here
-        // const apiResponse = await fetch(new URL("/items", apiURL), {
-
-        // What that does is construct a new URL & sets the "base" to be the API URL
-        // from the config (yuou can see above that I added `import apiURL from "wherever"`)
-        // The base is then where the `/items` is combined with so you don't have to go
-        // and find/replace on the URLs anymore
-
-        // Doesn't solve your current issue, just a note.
-
 
         const apiResponse = await fetch(`${apiURL}/items`, {
             method: "POST",
@@ -87,93 +94,83 @@ const ItemContainer = (props) => {
     }
 
 
-        //function that fetches items from server into our itemContainer
-        const getItems = async () => {
-            try {
-                const items = await fetch(`${apiURL}/items`)
-                const parsedItems = await items.json();
-                setItems(parsedItems.data)
-            } catch (err) {
-                console.log(err)
-            }
+    //function that fetches items from server into our itemContainer
+    const getItems = async () => {
+        try {
+            const items = await fetch(`${apiURL}/items`)
+            const parsedItems = await items.json();
+            setItems(parsedItems.data)
+        } catch (err) {
+            console.log(err)
         }
-
-        //function to edit/update our items from the form
-        const updateItem = async (idToUpdate, itemToUpdate) => {
-            //blank array for creating a new array with all the stuff we want
-            // const newItems = []
-            // //forLoop for looking through all the items that already exist in state
-            // for(let i = 0; i< items.length; i++){
-            //     //this specific item we need to change to the new item (idToUpdate) coming into the form
-            //     if(items[i]._id === idToUpdate._id){
-            //         newItems.push(itemToUpdate)
-            //     }else{
-            //         //all other items get a pass to the new array
-            //         newItems.push(items[i])
-            //     }
-            // }
-
-            //calling our API to store our updated item data to the backend
-            const apiResponse = await fetch(`${apiURL}/items/${idToUpdate}`, {
-                method: "PUT",
-                body: JSON.stringify(itemToUpdate),
-                
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            })
-
-            const parsedResponse = await apiResponse.json();
-            if (parsedResponse.success) {
-                //shortcut version that checks the item to see if it equals the id to the item we want to update-- if so, update that-- otherwise send the old version
-                const newItems = items.map(item => item._id === idToUpdate ? itemToUpdate : item)
-                //calling our set function
-                setItems(newItems)
-            } else {
-                setRequestError(parsedResponse.data)
-            }
-
-
-        }
-
-    //loads the object items in our backend database to the page
-        //loads the object items in our backend database to the page
-        useEffect(() => {
-            getItems()
-          }, [])
-
-        return (
-            <div className="itemContainer">
-<div className="nav">
-               <h2 id="myBikeDatabase"><a id="navlinks" href="/">myBikeDatabase</a></h2>
-            <div className="links">
-            <a id="navlinks" href="/login">Login</a>
-            <a id="navlinks" href="/create">Bikes</a>
-                <a id="navlinks" href="/about">About</a>
-                <a id="navlinks" href="/register">Register</a>
-            </div></div><br />
-            <div className="list-of-bikes">
-            <h2 id="list-bikes"><u>List of Bikes</u></h2> 
-                <aside className="list-of-bikes"> 
-                    {loading ? <Loading /> : items.map((item) => {
-                        return <SingleItemComponent currentItem={props.currentItem} setCurrentItem={props.setCurrentItem} key={item._id} item={item} deleteItem={deleteItem} updateItem={updateItem}></SingleItemComponent>
-                    })}
-                       <hr />
-                       </aside>
-                       </div>
-                <aside className="create">
-                    <hr />
-                    <h2 id="create">Create a Bike</h2>
-                    <NewItemComponent
-                        newItemServerError={newItemServerError}
-                        createNewItem={createNewItem}></NewItemComponent>
-                </aside>
-                <section id="list">
-                    <hr />
-                </section>
-            </div>
-            
-        )
     }
 
-    export default ItemContainer;
+    //function to edit/update our items from the form
+    const updateItem = async (idToUpdate, itemToUpdate) => {
+
+        //calling our API to store our updated item data to the backend
+        const apiResponse = await fetch(`${apiURL}/items/${idToUpdate}`, {
+            method: "PUT",
+            body: JSON.stringify(itemToUpdate),
+
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+
+        const parsedResponse = await apiResponse.json();
+        if (parsedResponse.success) {
+            //shortcut version that checks the item to see if it equals the id to the item we want to update-- if so, update that-- otherwise send the old version
+            const newItems = items.map(item => item._id === idToUpdate ? itemToUpdate : item)
+            //calling our set function
+            setItems(newItems)
+        } else {
+            setRequestError(parsedResponse.data)
+        }
+
+
+    }
+
+    //loads the object items in our backend database to the page
+    useEffect(() => {
+        getItems()
+    }, [])
+
+
+
+    return (
+        <div className="itemContainer">
+            <div className="nav">
+                <h2 id="myBikeDatabase"><a id="navlinks" href="/">myBikeDatabase</a></h2>
+                {props.username && <p>Welcome, {props.username}!</p>}
+                <div className="links">
+                    <a id="navlinks" href="/login">Login</a>
+                    <a id="navlinks" href="/create">Bikes</a>
+                    <a id="navlinks" href="/about">About</a>
+                    <a id="navlinks" href="/register">Register</a>
+                </div></div><br />
+            <div className="list-of-bikes">
+                <h2 id="list-bikes"><u>List of Bikes</u></h2>
+                <aside className="list-of-bikes">
+                    {loading ? <Loading /> : items.map((item) => {
+                        return <SingleItemComponent currentItem={props.currentItem} setCurrentItem={props.setCurrentItem} key={item._id} item={item} deleteItem={deleteItem} updateItem={updateItem} username={username}></SingleItemComponent>
+                    })}
+                    <hr />
+                </aside>
+            </div>
+            <aside className="create">
+                <hr />
+                <h2 id="create">Create a Bike</h2>
+                <NewItemComponent
+                    newItemServerError={newItemServerError}
+                    createNewItem={createNewItem}></NewItemComponent>
+            </aside>
+            <section id="list">
+                <hr />
+            </section>
+        </div>
+
+    )
+}
+
+export default ItemContainer;
