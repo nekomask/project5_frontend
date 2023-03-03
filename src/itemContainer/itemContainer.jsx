@@ -2,19 +2,18 @@ import { useEffect, useState } from "react";
 import SingleItemComponent from "./singleItemComponent/singleItemComponent";
 import NewItemComponent from "./newItemComponent/newItemComponent";
 import Loading from "../nonItemComponents/loading";
+import { useLocation, useNavigate } from "react-router-dom";
+import Logout from "../userContainer/logoutComponent/logout";
+import Header from "../nonItemComponents/headerComponent";
 
 import apiURL from "../apiConfig";
-
-import { useLocation } from "react-router-dom";
-
-
-
-
 
 
 
 const ItemContainer = (props) => {
+    const [currentItem, setCurrentItem] = useState(props.currentItem);
     const location = useLocation();
+    const navigate = useNavigate();
     const [username, setUsername] = useState('');
     //requestError is a variable in state that setRequestError is the function we use to set that value when we want to update it
     //whenever something might possibly go wrong on the frontend
@@ -26,19 +25,20 @@ const ItemContainer = (props) => {
     const [newItemServerError, setNewItemServerError] = useState("")
     //loading animation for loading bikes
     const [loading, setLoading] = useState(false)
+    const setToken = props.setToken;
 
 
 
-    //retrieve username from Session Storage
+    //retrieve username from location state or props
     useEffect(() => {
         if (location.state && location.state.username) {
           setUsername(location.state.username);
+          sessionStorage.setItem("username", location.state.username);
         } else {
           const usernameFromSession = sessionStorage.getItem("username");
           setUsername(usernameFromSession || props.username);
         }
       }, [location.state, props.username]);
-
 
     //function that lifts state from child to parent
     const createNewItem = async (newItem) => {
@@ -136,41 +136,47 @@ const ItemContainer = (props) => {
         getItems()
     }, [])
 
+    const logout = () => {
+        // clear token
+        props.setToken("");
+        // clear username
+        props.setUsername("");
+        // navigate to home page
+        navigate("/login", { replace: true });
+      };
 
 
-    return (
+      return (
         <div className="itemContainer">
-            <div className="nav">
-                <h2 id="myBikeDatabase"><a id="navlinks" href="/">myBikeDatabase</a></h2>
-                {props.username && <p>Welcome, {props.username}!</p>}
-                <div className="links">
-                    <a id="navlinks" href="/login">Login</a>
-                    <a id="navlinks" href="/create">Bikes</a>
-                    <a id="navlinks" href="/about">About</a>
-                    <a id="navlinks" href="/register">Register</a>
-                </div></div><br />
-            <div className="list-of-bikes">
-                <h2 id="list-bikes"><u>List of Bikes</u></h2>
-                <aside className="list-of-bikes">
-                    {loading ? <Loading /> : items.map((item) => {
-                        return <SingleItemComponent currentItem={props.currentItem} setCurrentItem={props.setCurrentItem} key={item._id} item={item} deleteItem={deleteItem} updateItem={updateItem} username={username}></SingleItemComponent>
-                    })}
-                    <hr />
-                </aside>
-            </div>
-            <aside className="create">
-                <hr />
-                <h2 id="create">Create a Bike</h2>
-                <NewItemComponent
-                    newItemServerError={newItemServerError}
-                    createNewItem={createNewItem}></NewItemComponent>
+          <div className="nav">
+            <h2 id="myBikeDatabase"><a id="navlinks" href="/">myBikeDatabase</a></h2>
+            {username && <p>Welcome, {username}!</p>}
+            <Logout setToken={setToken} setUsername={setUsername} />
+            <Header />
+       
+          </div><br />
+          <div className="list-of-bikes">
+            <h2 id="list-bikes"><u>List of Bikes</u></h2>
+            <aside className="list-of-bikes">
+              {loading ? <Loading /> : items.map((item) => {
+                return <SingleItemComponent currentItem={currentItem} setCurrentItem={setCurrentItem} key={item._id} username={username} item={item} deleteItem={deleteItem} updateItem={updateItem} ></SingleItemComponent>
+              })}
+              <hr />
             </aside>
-            <section id="list">
-                <hr />
-            </section>
+          </div>
+          <aside className="create">
+            <hr />
+            <h2 id="create">Create a Bike</h2>
+            <NewItemComponent
+              newItemServerError={newItemServerError}
+              createNewItem={createNewItem} username={username}></NewItemComponent>
+          </aside>
+          <section id="list">
+            <hr />
+          </section>
+   
         </div>
-
-    )
-}
+      )
+    };
 
 export default ItemContainer;

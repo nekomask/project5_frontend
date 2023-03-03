@@ -12,6 +12,7 @@ const Login = (props) => {
   })
 
 
+
   //for every input we listen for a change and update the User in state whenever the user changes it
   const handleInputChange = (e) => {
     console.log(e.target.value)
@@ -43,7 +44,7 @@ const Login = (props) => {
       props.setUsername(responseData.username.username)
       // If everything went well since you're using `react-router` you probably want to check out https://reactrouter.com/docs/en/v6/getting-started/overview#navigation
       // (Wait until you get the rest of the code working first!)
-      sessionStorage.setItem("username", responseData.username);
+      console.log(responseData.username.username)
       console.log(responseData.username)
       navigate("/create", { state: { username: responseData.username }});
     } catch (error) {
