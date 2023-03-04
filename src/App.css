@@ -120,7 +120,7 @@ a#navlinks{
   font-weight: 400;
 }
 
-div.showValue{
+span.showValue{
   display: flex;
   font-weight: 600;
 }
@@ -208,6 +208,18 @@ div.links{
   display: flex;
   justify-content: center;
   gap: 5px;
+}
+
+header{
+  display: flex;
+}
+
+nav{
+  display: flex;
+}
+
+ul.links{
+  display: flex;
 }
 
 h1{

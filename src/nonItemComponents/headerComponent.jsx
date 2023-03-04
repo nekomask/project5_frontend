@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import Logout from '../userContainer/logoutComponent/logout';
+import "../App.css"
 
 const Header = ({ username, setToken, setUsername }) => {
   return (
     <header>
       <nav>
-        <ul>
+        <ul class>
           <li>
             <Link to="/">Home</Link>
           </li>

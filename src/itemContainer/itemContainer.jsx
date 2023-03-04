@@ -118,6 +118,7 @@ const ItemContainer = (props) => {
             }
         })
 
+
         const parsedResponse = await apiResponse.json();
         if (parsedResponse.success) {
             //shortcut version that checks the item to see if it equals the id to the item we want to update-- if so, update that-- otherwise send the old version
@@ -136,14 +137,9 @@ const ItemContainer = (props) => {
         getItems()
     }, [])
 
-    const logout = () => {
-        // clear token
-        props.setToken("");
-        // clear username
-        props.setUsername("");
-        // navigate to home page
-        navigate("/login", { replace: true });
-      };
+    useEffect(() => {
+        setCurrentItem(props.currentItem);
+      }, [props.currentItem]);
 
 
       return (
@@ -152,14 +148,19 @@ const ItemContainer = (props) => {
             <h2 id="myBikeDatabase"><a id="navlinks" href="/">myBikeDatabase</a></h2>
             {username && <p>Welcome, {username}!</p>}
             <Logout setToken={setToken} setUsername={setUsername} />
-            <Header />
+            <div className="links">
+            <a id="navlinks" href="/login">Login</a>
+            <a id="navlinks" href="/create">Bikes</a>
+                <a id="navlinks" href="/about">About</a>
+                <a id="navlinks" href="/register">Register</a>
+            </div>
        
           </div><br />
           <div className="list-of-bikes">
             <h2 id="list-bikes"><u>List of Bikes</u></h2>
             <aside className="list-of-bikes">
               {loading ? <Loading /> : items.map((item) => {
-                return <SingleItemComponent currentItem={currentItem} setCurrentItem={setCurrentItem} key={item._id} username={username} item={item} deleteItem={deleteItem} updateItem={updateItem} ></SingleItemComponent>
+                return <SingleItemComponent currentItem={props.currentItem} setCurrentItem={props.setCurrentItem} key={item._id} username={username} item={item} deleteItem={deleteItem} updateItem={updateItem}></SingleItemComponent>
               })}
               <hr />
             </aside>
