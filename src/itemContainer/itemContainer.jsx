@@ -46,6 +46,7 @@ const ItemContainer = (props) => {
         console.log("Let's create this!")
 
         const apiResponse = await fetch(`${apiURL}/items`, {
+          credentials: 'include',
             method: "POST",
             body: JSON.stringify(newItem),
             //need this to POST-- where's this request coming from? What type of Content is it?
@@ -70,7 +71,8 @@ const ItemContainer = (props) => {
         //fetch our item ID from the database to delete one
         try {
             const apiResponse = await fetch(`${apiURL}/items/${idToDelete}`, {
-                method: "DELETE"
+                method: "DELETE",
+                credentials: 'include'
             })
             const parsedResponse = await apiResponse.json()
             if (parsedResponse.success) {
@@ -97,7 +99,10 @@ const ItemContainer = (props) => {
     //function that fetches items from server into our itemContainer
     const getItems = async () => {
         try {
-            const items = await fetch(`${apiURL}/items`)
+            const items = await fetch(`${apiURL}/items`,{
+              credentials: 'include'
+            });
+           
             const parsedItems = await items.json();
             setItems(parsedItems.data)
         } catch (err) {
@@ -111,6 +116,7 @@ const ItemContainer = (props) => {
         //calling our API to store our updated item data to the backend
         const apiResponse = await fetch(`${apiURL}/items/${idToUpdate}`, {
             method: "PUT",
+            credentials: 'include',
             body: JSON.stringify(itemToUpdate),
 
             headers: {
