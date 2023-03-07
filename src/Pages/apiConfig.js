@@ -1,7 +1,7 @@
 let apiUrl
 
 const apiUrls = {
-    production: "https://mybikedatabase-backend.up.railway.app",
+    production: "https://my-bike-database-backend.onrender.com",
     development: "http://localhost:3001"
 }
 

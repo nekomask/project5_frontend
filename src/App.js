@@ -15,6 +15,27 @@ function App() {
   const [currentItem, setCurrentItem] = useState([])
   const [token, setToken] = useState("");
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const storedUsername = sessionStorage.getItem("username");
+    if (storedUsername) {
+      setUsername(storedUsername);
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const handleLogin = (username) => {
+    setUsername(username);
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setUsername([]);
+    setIsLoggedIn(false);
+    sessionStorage.removeItem("username");
+  };
+
   useEffect(() => {
     const storedUsername = sessionStorage.getItem("username");
     if (storedUsername) {
@@ -27,12 +48,12 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/create" element={<ItemContainer currentItem={currentItem} setCurrentItem={setCurrentItem} username={username} setToken={setToken} setUsername={setUsername} />} />
+        <Route path="/create" element={<ItemContainer currentItem={currentItem} setCurrentItem={setCurrentItem} username={username} setToken={setToken} setUsername={setUsername} isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>} />
         <Route path="/about" element={<About />} />
         <Route path="/item" element={<Show currentItem={currentItem}/>} />
         <Route path="/register" element={<UserContainer />} />
         <Route path="/users" element={<Users />} />
-        <Route path="/login" element={<Login setToken={setToken}  setUsername={setUsername} />} />
+        <Route path="/login" element={<Login setToken={setToken}  setUsername={setUsername} handleLogin={handleLogin}/>} />
         <Route path="/blog" element={<Blog />} />
         </Routes>
     </Router>
