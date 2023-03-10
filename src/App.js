@@ -30,11 +30,6 @@ function App() {
     setIsLoggedIn(true);
   };
 
-  const handleLogout = () => {
-    setUsername([]);
-    setIsLoggedIn(false);
-    sessionStorage.removeItem("username");
-  };
 
   useEffect(() => {
     const storedUsername = sessionStorage.getItem("username");
@@ -48,18 +43,15 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/create" element={<ItemContainer currentItem={currentItem} setCurrentItem={setCurrentItem} username={username} setToken={setToken} setUsername={setUsername} isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>} />
+        <Route path="/create" element={<ItemContainer currentItem={currentItem} setCurrentItem={setCurrentItem} username={username} setToken={setToken} setUsername={setUsername} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
         <Route path="/about" element={<About />} />
         <Route path="/item" element={<Show currentItem={currentItem}/>} />
         <Route path="/register" element={<UserContainer />} />
         <Route path="/users" element={<Users />} />
-        <Route path="/login" element={<Login setToken={setToken}  setUsername={setUsername} handleLogin={handleLogin}/>} />
+        <Route path="/login" element={<Login setToken={setToken} setUsername={setUsername} handleLogin={handleLogin} setIsLoggedIn={setIsLoggedIn}/>} />
         <Route path="/blog" element={<Blog />} />
-        </Routes>
+      </Routes>
     </Router>
   );
 }
-
-
-
 export default App;

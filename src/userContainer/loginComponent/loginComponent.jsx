@@ -42,6 +42,7 @@ const Login = (props) => {
     try {
       props.setToken(responseData.key);
       props.setUsername(responseData.username.username)
+      props.setIsLoggedIn(true)
       // If everything went well since you're using `react-router` you probably want to check out https://reactrouter.com/docs/en/v6/getting-started/overview#navigation
       // (Wait until you get the rest of the code working first!)
       console.log(responseData.username.username)
