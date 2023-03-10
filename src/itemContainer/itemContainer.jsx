@@ -156,6 +156,8 @@ const ItemContainer = (props) => {
         {isLoggedIn ? (
           <>
           <p>Welcome, {username}!</p>
+          <a id="navlinks" href="/create">Bikes</a>
+          <a id="navlinks" href="/about">About</a>
           <Logout setToken={setToken} setUsername={setUsername} setIsLoggedIn={props.setIsLoggedIn}/>
           </>
         ) : (
@@ -186,7 +188,7 @@ const ItemContainer = (props) => {
           createNewItem={createNewItem} username={username}></NewItemComponent>
       </aside>
       <section id="list">
-        <hr />
+      
       </section>
 
     </div>

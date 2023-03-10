@@ -3,7 +3,7 @@ import UserContainer from "./userContainer"
 import SingleUserComponent from "./singleUserComponent/singleUserComponent"
 import { useState, useEffect, useNavigate, Link } from "react"
 
-const Users = (props) =>{
+const Users = (props) => {
     //requestError is a variable in state that setRequestError is the function we use to set that value when we want to update it
     //whenever something might possibly go wrong on the frontend
     const [requestError, setRequestError] = useState("")
@@ -13,47 +13,47 @@ const Users = (props) =>{
     //a new item server error that we're passing to the child in our newItemContainer
     const [newUserServerError, setNewUserServerError] = useState("")
 
-        //show route
+    //show route
 
-        const showUser = async () => {
-            try {
-                const user = await fetch(`http://localhost:3001/users/${props.user._id}`)
-                const parsedUser = await user.json();
-                console.log(parsedUser)
-                props.setCurrentUser(parsedUser.data)
-            } catch (err) {
-                console.log(err)
-            }
+    const showUser = async () => {
+        try {
+            const user = await fetch(`http://localhost:3001/users/${props.user._id}`)
+            const parsedUser = await user.json();
+            console.log(parsedUser)
+            props.setCurrentUser(parsedUser.data)
+        } catch (err) {
+            console.log(err)
         }
-    
-
-//function creating a new array out of all the filtered User objects that return true to delete a specific one
-const deleteUser = async (idToDelete) => {
-    //fetch our item ID from the database to delete one
-    try {
-        const apiResponse = await fetch(`http://localhost:3001/users/${idToDelete}`, {
-            method: "DELETE"
-        })
-        const parsedResponse = await apiResponse.json()
-        if (parsedResponse.success) {
-            const newUsers = users.filter(user => user._id !== idToDelete)
-            setUsers(newUsers);
-        } else {
-            //TODO: handle an unsuccessful delete
-
-        }
-    } catch (err) {
-        console.log(err);
-        setRequestError(err.message)
     }
 
-    console.log("deleting item ID" + idToDelete)
-    // One way besides making a For Loop to delete an item
-    // const newItems = items.filter((item) => {
-    //     return item._id !== idToDelete
-    // })
 
-}
+    //function creating a new array out of all the filtered User objects that return true to delete a specific one
+    const deleteUser = async (idToDelete) => {
+        //fetch our item ID from the database to delete one
+        try {
+            const apiResponse = await fetch(`http://localhost:3001/users/${idToDelete}`, {
+                method: "DELETE"
+            })
+            const parsedResponse = await apiResponse.json()
+            if (parsedResponse.success) {
+                const newUsers = users.filter(user => user._id !== idToDelete)
+                setUsers(newUsers);
+            } else {
+                //TODO: handle an unsuccessful delete
+
+            }
+        } catch (err) {
+            console.log(err);
+            setRequestError(err.message)
+        }
+
+        console.log("deleting item ID" + idToDelete)
+        // One way besides making a For Loop to delete an item
+        // const newItems = items.filter((item) => {
+        //     return item._id !== idToDelete
+        // })
+
+    }
 
 
     //function that fetches users from server into our userContainer
@@ -66,7 +66,7 @@ const deleteUser = async (idToDelete) => {
             console.log(err)
         }
     }
- 
+
     //function to edit/update our Users from the form
     const updateUser = async (idToUpdate, userToUpdate) => {
 
@@ -93,21 +93,40 @@ const deleteUser = async (idToDelete) => {
     //loads the object users in our backend database to the page
     useEffect(() => {
         getUsers()
-      }, [])
+    }, [])
 
-      return (
+    return (
 
 
-<div className="list-of-users">
-<h2 id="list-of-users"><u>List of Users</u></h2>
-    <aside className="list-of-users">
-        {users.map((user) => {
-            return <SingleUserComponent currentUser={props.currentUser} setCurrentUser={props.setCurrentUser} key={user._id} user={user} deleteUser={deleteUser} updateUser={updateUser}></SingleUserComponent>
-        })}
-           <hr />
-           </aside>
-           </div>
+        <div className="list-of-users">
+            <h2 id="list-of-users"><u id="list-of-users">List of Users</u></h2>
+            <aside className="list-of-users">
+                {users.map((user) => {
+                    return <SingleUserComponent
 
-      )}
+                        currentUser={props.currentUser}
+                        setCurrentUser={props.setCurrentUser}
+                        key={user._id} user={user}
+                        deleteUser={deleteUser}
+                        updateUser={updateUser}>
 
-    export default Users;
+                    </SingleUserComponent>
+                })}
+
+            </aside>
+        </div>
+
+
+
+
+
+
+
+
+
+
+    )
+
+}
+
+export default Users;

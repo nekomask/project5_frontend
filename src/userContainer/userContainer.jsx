@@ -119,17 +119,9 @@ const UserContainer = (props) => {
                 <a id="navlinks" href="/create">Bikes</a>
                 <a id="navlinks" href="/register">Register</a>
             </div></div><br />
-            <div className="list-of-users">
-            <h2 id="list-of-users"><u>List of Users</u></h2>
-                <aside className="list-of-users">
-                    {users.map((user) => {
-                        return <SingleUserComponent currentUser={props.currentUser} setCurrentUser={props.setCurrentUser} key={user._id} user={user} deleteUser={deleteUser} updateUser={updateUser}></SingleUserComponent>
-                    })}
-                       <hr />
-                       </aside>
-                       </div>
+            
                 <aside className="create">
-                    <hr />
+                 
                     <h2 id="create">Create a User</h2>
                     <Register
                         newUserServerError={newUserServerError}

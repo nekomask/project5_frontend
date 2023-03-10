@@ -344,6 +344,47 @@ button#spray:active{
   transition: 0s
 }
 
+
+/*Users List*/
+u#list-of-users{
+  display: flex;
+ justify-content: center;
+}
+
+div.index-single-user{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#user-buttons{
+  display: flex;
+  gap: 5px;
+}
+
+
+/*Login*/
+div.login{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form.login{
+  display: flex;
+  border: 2px solid black;
+  padding: 25px;
+}
+
+
+div.login-form{
+  justify-content: center;
+}
+
+
+
+/*Responsive Mobile style*/
 @media all and (max-width: 280px) {
   div.nav1{
     width: 100%;

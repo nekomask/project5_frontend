@@ -63,13 +63,14 @@ const Login = (props) => {
     <div className="login">
       <hr />
       <h2 id="login"><u>Login</u></h2>
-      <form onSubmit={onSubmit}>
+      <form class="login" onSubmit={onSubmit}>
+
         <label htmlFor="username">Username:</label>
         <input type="text" name="username" value={userLogin.username} onChange={handleInputChange} /><br />
         <label htmlFor="password">Password:</label>
         <input type="password" name="password" value={userLogin.password} onChange={handleInputChange} /><br />
         <button type="submit">Login</button>
-       
+     
       </form>
     </div>
 
