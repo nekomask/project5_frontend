@@ -1,7 +1,7 @@
 import React from "react"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
-import apiUrl from "../../Pages/apiConfig";
+import apiURL from "../../apiConfig";
 
 
 const Login = (props) => {
