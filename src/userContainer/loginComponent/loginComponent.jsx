@@ -1,6 +1,7 @@
 import React from "react"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
+import apiUrl from "../../Pages/apiConfig";
 
 
 const Login = (props) => {
@@ -26,7 +27,7 @@ const Login = (props) => {
 
   const onSubmit = async (e) => {
   e.preventDefault();
-  const response = await fetch(`https://my-bike-database.onrender.com/users/login`,{
+  const response = await fetch(`${apiURL}/users/login`,{
     method: "POST",
     body: JSON.stringify(userLogin),
     headers: {
