@@ -27,7 +27,7 @@ const Login = (props) => {
 
   const onSubmit = async (e) => {
   e.preventDefault();
-  const response = await fetch(`${apiURL}/users/login`,{
+  const response = await fetch(`${apiURL}/login`,{
     method: "POST",
     body: JSON.stringify(userLogin),
     headers: {
@@ -39,9 +39,10 @@ const Login = (props) => {
   const responseData = await response.json()
   // Here you'll need responseData assigned from somewhere above the below line
 
-  if (responseData.username) {
+  if (responseData.token) {
     try {
-      props.setToken(responseData.key);
+      sessionStorage.setItem("token", responseData.token);
+      props.setToken(responseData.token);
       props.setUsername(responseData.username.username)
       props.setIsLoggedIn(true)
       // If everything went well since you're using `react-router` you probably want to check out https://reactrouter.com/docs/en/v6/getting-started/overview#navigation

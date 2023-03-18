@@ -25,18 +25,23 @@ function App() {
     }
   }, []);
 
-  const handleLogin = (username) => {
+  const handleLogin = (username, token) => {
     setUsername(username);
+    setToken(token);
     setIsLoggedIn(true);
+    sessionStorage.setItem("token", token);
   };
-
-
+  
   useEffect(() => {
+    const storedToken = sessionStorage.getItem("token");
     const storedUsername = sessionStorage.getItem("username");
-    if (storedUsername) {
+    if (storedToken && storedUsername) {
       setUsername(storedUsername);
+      setToken(storedToken);
+      setIsLoggedIn(true);
     }
   }, []);
+  
 
 
   return (

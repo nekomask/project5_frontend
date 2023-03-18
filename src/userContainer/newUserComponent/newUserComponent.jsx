@@ -1,11 +1,13 @@
 import React from "react";
 import { useRef, useState, useEffect } from "react";
 import UserContainer from "../userContainer";
+import { useNavigate } from "react-router-dom";
 
 
 
 
 const Register = (props) => {
+    const navigate = useNavigate();
     const [showing, setShowing] = useState(false)
     //function for showing our form when button is clicked
     const toggleShowing = () => {

@@ -72,14 +72,22 @@ const SingleItemComponent = (props) => {
 
     const showItem = async () => {
         try {
-            const item = await fetch(`${apiURL}/items/${props.item._id}`)
-            const parsedItem = await item.json();
-            console.log(parsedItem)
-            props.setCurrentItem(parsedItem.data)
+            const token = sessionStorage.getItem('token');
+            const response = await fetch(`${apiURL}/items/${props.item._id}`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+            });
+            const parsedItem = await response.json();
+            console.log(parsedItem);
+            props.setCurrentItem(parsedItem.data);
+            navigate('/item');
         } catch (err) {
-            console.log(err)
+            console.log(err);
         }
-    }
+    };
+    
 
     //for every input we listen for a change and update the item in state whenever the user changes it
     const handleInputChange = (e) => {
