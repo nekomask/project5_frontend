@@ -6,7 +6,7 @@ const Header = ({ username, setToken, setUsername }) => {
   return (
     <header>
       <nav>
-        <ul class>
+        <ul className='header-links'>
           <li>
             <Link to="/">Home</Link>
           </li>
