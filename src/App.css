@@ -124,6 +124,10 @@ a#navlinks{
   font-weight: 400;
 }
 
+div.showValue{
+  font-weight: 600;
+}
+
 span.showValue{
   display: flex;
   font-weight: 600;
