@@ -53,7 +53,7 @@ function App() {
         <Route path="/about" element={<About username={username} setToken={setToken} setUsername={setUsername} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} token={sessionStorage.getItem("token")}/>} />
         <Route path="/item" element={<Show currentItem={currentItem}/>} />
         <Route path="/register" element={<UserContainer />} />
-        <Route path="/users" element={<Users />} />
+        <Route path="/users" element={<Users currentUser={{username: username}} setToken={setToken} setUsername={setUsername} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} token={sessionStorage.getItem("token")}/>} />
         <Route path="/login" element={<Login setToken={setToken} setUsername={setUsername} handleLogin={handleLogin} setIsLoggedIn={setIsLoggedIn}/>} />
         <Route path="/blog" element={<Blog username={username} setToken={setToken} setUsername={setUsername} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} token={sessionStorage.getItem("token")}/>} />
       </Routes>

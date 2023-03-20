@@ -103,47 +103,43 @@ const Users = (props) => {
     }, [])
 
     return (
-
-  <div className="App">
-     <div className="nav">
-        <h2 id="myBikeDatabase"><a id="navlinks" href="/">myBikeDatabase</a></h2>
-          <div className="links">
-            <a id="navlinks" href="/login">Login</a>
-            <a id="navlinks" href="/create">Bikes</a>
-            <a id="navlinks" href="/about">About</a>
-            <a id="navlinks" href="/register">Register</a>
-          </div>
-        </div>
-                
-
-        <div className="list-of-users">
-            <h2 id="list-of-users"><u id="list-of-users">List of Users</u></h2>
-            <aside className="list-of-users">
-                {users.map((user) => {
-                    return <SingleUserComponent
-
-                        currentUser={props.currentUser}
-                        setCurrentUser={props.setCurrentUser}
-                        key={user._id} user={user}
-                        deleteUser={deleteUser}
-                        updateUser={updateUser}>
-
-                    </SingleUserComponent>
-                })}
-
-            </aside>
-        </div>
-        </div>
-
-
-
-
-
-
-
-
-
-    )
+        <div className="App">
+           <div className="nav">
+              <h2 id="myBikeDatabase"><a id="navlinks" href="/">myBikeDatabase</a></h2>
+                <div className="links">
+                  <a id="navlinks" href="/login">Login</a>
+                  <a id="navlinks" href="/create">Bikes</a>
+                  <a id="navlinks" href="/about">About</a>
+                  <a id="navlinks" href="/register">Register</a>
+                </div>
+              </div>
+                      
+              {props.currentUser && (props.currentUser.username === "brandon" || props.currentUser.username === "admin") ? (
+                <>
+              <div className="list-of-users">
+                  <h2 id="list-of-users"><u id="list-of-users">List of Users</u></h2>
+                  <aside className="list-of-users">
+                      {users.map((user) => {
+                          return <SingleUserComponent
+      
+                              currentUser={props.currentUser}
+                              setCurrentUser={props.setCurrentUser}
+                              key={user._id} user={user}
+                              deleteUser={deleteUser}
+                              updateUser={updateUser}>
+      
+                          </SingleUserComponent>
+                      })}
+         
+                  </aside>
+              </div>
+              </>
+              ) : (
+                  <p>You don't belong here.</p>
+              )}
+              </div>
+          )
+      
 
 }
 
