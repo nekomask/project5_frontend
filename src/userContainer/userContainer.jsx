@@ -3,8 +3,10 @@ import Register from "./newUserComponent/newUserComponent";
 import SingleUserComponent from "./singleUserComponent/singleUserComponent";
 import apiURL from "../apiConfig";
 import Login from "./loginComponent/loginComponent";
+import { useNavigate } from "react-router-dom";
 
 const UserContainer = (props) => {
+    const navigate = useNavigate();
     //requestError is a variable in state that setRequestError is the function we use to set that value when we want to update it
     //whenever something might possibly go wrong on the frontend
     const [requestError, setRequestError] = useState("")
@@ -46,6 +48,7 @@ const UserContainer = (props) => {
         if (parsedResponse.success) {
             //Add the new item to state!
             setUsers([parsedResponse.data, ...users])
+            navigate('/create');
             //Else show the error message in the form, don't change it back to showing? 
         } else {
             setNewUserServerError(parsedResponse.data);

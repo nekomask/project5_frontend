@@ -36,7 +36,7 @@ const Register = (props) => {
         })
     }
     //function for submitting a newUser with a clustertruck of frontend validation with error messages which are actually pretty cool
-    const submitNewUser = (e) => {
+    const submitNewUser = async (e) => {
         e.preventDefault()
         let validSubmission = true;
         //prevents user from submitting empty string or 1 character as username
@@ -54,7 +54,10 @@ const Register = (props) => {
             validSubmission = false;
         }
         if (validSubmission) {
-            props.createNewUser(newUser)
+            const success = await props.createNewUser(newUser);
+            if (success) {
+          
+            }
             //when submit button is pressed, form is reset to this original state
             setNewUser({
                 username: "",
@@ -68,6 +71,8 @@ const Register = (props) => {
             })
             //closes form after we createNewUser
             setShowing(false);
+            //Navigate to /create
+            navigate('/create');
         }
     }
 
