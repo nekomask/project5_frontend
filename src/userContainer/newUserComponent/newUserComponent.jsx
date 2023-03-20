@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const Register = (props) => {
+    const { newUserServerError } = props;
     const navigate = useNavigate();
     const [showing, setShowing] = useState(false)
     //function for showing our form when button is clicked
@@ -20,6 +21,8 @@ const Register = (props) => {
     const [newUser, setNewUser] = useState({
         username: "",
         password: "",
+        email: "",
+        mod: false,
     })
 
     //for every input we listen for a change and update the User in state whenever the user changes it
@@ -56,6 +59,7 @@ const Register = (props) => {
             setNewUser({
                 username: "",
                 password: "",
+                email: "",
             })
             //when submit button is pressed and more than 2 characters, setIsValidState returns as true
             setIsValidState({
@@ -70,13 +74,18 @@ const Register = (props) => {
 
 
     return (
-        <div>
+        <div className="registration">
             <h1>Register</h1>
-            <form onSubmit={submitNewUser}>
+            {
+  newUserServerError ? <p className="form-error">{newUserServerError}</p> : null
+}
+            <form className="registration" onSubmit={submitNewUser}>
                     <label htmlFor="username">Username:</label>
                     <input type="text" name="username"  value={newUser.username} onChange={handleInputChange}required /><br />
                     <label htmlFor="password">Password:</label>
                     <input type="password" name="password"  value={newUser.password} required onChange={handleInputChange} /><br />
+                    <label htmlFor="email">Email:</label>
+                    <input type="text" name="email"  value={newUser.email} required onChange={handleInputChange} /><br />
                 <button type="submit">Register</button>
           
             </form>

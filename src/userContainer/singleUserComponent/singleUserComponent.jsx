@@ -3,6 +3,7 @@ import { Navigate, useNavigate, Link } from "react-router-dom"
 import apiURL from "../../apiConfig"
 
 const SingleUserComponent = (props) => {
+    const [errorMessage, setErrorMessage] = useState(null);
     //sets 2 types of states to determine whether state is valid
     const [isValidState, setIsValidState] = useState({ valid: true, message: "" })
     //setting an object in state: this state is gonna keep track of what the user has put in the form
@@ -20,7 +21,9 @@ const SingleUserComponent = (props) => {
 
     const [updateUser, setUpdateUser] = useState({
         username: props.user.username,
-        password: props.user.password
+        password: props.user.password,
+        email: props.user.email,
+        mod: props.user.mod
     })
     //show route
 
@@ -74,7 +77,8 @@ const SingleUserComponent = (props) => {
                             <div className="edit-form">
                             Username: <input onChange={handleInputChange} type="text" name="username" value={updateUser.username} /><br />
                             Password: <input onChange={handleInputChange} type="text" name="password" value={updateUser.password} /><br />
-            
+                            Email: <input onChange={handleInputChange} type="text" name="email" value={updateUser.email} /><br />
+                            Moderator: <input onChange={handleInputChange} type="text" name="mod" value={updateUser.mod} /><br />
                             </div>
                             <br></br>
                             <button id="submit" type="submit">Submit</button>

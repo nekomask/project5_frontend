@@ -1,14 +1,45 @@
-import React from "react";
-import Rufus from "../rufus_francais.png"
+import React, { useState, useEffect } from "react";
+import Rufus from "../rufus_francais.png";
+import { useLocation } from "react-router-dom";
+import Logout from "../userContainer/logoutComponent/logout";
 
-function Blog(){
+function Blog({ setUsername, setToken, isLoggedIn, setIsLoggedIn, token }) {
+  const [currentUsername, setCurrentUsername] = useState("");
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state && location.state.username) {
+      setCurrentUsername(location.state.username);
+      sessionStorage.setItem("username", location.state.username);
+    } else {
+      const usernameFromSession = sessionStorage.getItem("username");
+      setCurrentUsername(usernameFromSession || currentUsername);
+    }
+  }, [location.state, isLoggedIn, currentUsername]);
+
+
     return <div className="App">
         <div className="nav">
-      <h1 id="myBikeDatabase"><a id="navlinks" href="/">myBikeDatabase</a></h1>
-      <div className="links">
+        <h2 id="myBikeDatabase"><a id="navlinks" href="/">myBikeDatabase</a></h2>
+        {isLoggedIn ? (
+          <>
+            <p>Welcome, {currentUsername}!</p>
+            <div className="links">
             <a id="navlinks" href="/create">Bikes</a>
-                <a id="navlinks" href="/about">About</a>
-                </div>
+            <a id="navlinks" href="/about">About</a>
+            <Logout setToken={setToken} setUsername={setUsername} setIsLoggedIn={setIsLoggedIn} />
+            </div>
+          </>
+        ) : (
+
+
+          <div className="links">
+            <a id="navlinks" href="/login">Login</a>
+            <a id="navlinks" href="/create">Bikes</a>
+            <a id="navlinks" href="/about">About</a>
+            <a id="navlinks" href="/register">Register</a>
+          </div>
+        )}
                 </div>
     <br />
     <div className="about">

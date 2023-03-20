@@ -1,9 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Logout = ({ setToken, setUsername, setIsLoggedIn }) => {
   const navigate = useNavigate();
 
-  const handleLogout = () => {
+  const handleLogout = (event) => {
+    event.preventDefault(); // Prevent the default behavior of the link
     // clear token and username from state
     setToken("");
     setUsername("");
@@ -17,9 +18,9 @@ const Logout = ({ setToken, setUsername, setIsLoggedIn }) => {
   };
 
   return (
-    <button onClick={handleLogout}>
-      Logout
-    </button>
+    <a id="navlinks" href="/logout" onClick={handleLogout}>
+      (Logout)
+    </a>
   );
 };
 

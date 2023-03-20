@@ -25,12 +25,13 @@ function App() {
     }
   }, []);
 
-  const handleLogin = (username, token) => {
-    setUsername(username);
-    setToken(token);
-    setIsLoggedIn(true);
-    sessionStorage.setItem("token", token);
-  };
+ const handleLogin = (username, token) => {
+  setUsername(username);
+  setToken(token);
+  setIsLoggedIn(true);
+  sessionStorage.setItem("username", username); // Set the username in sessionStorage
+  sessionStorage.setItem("token", token);
+};
   
   useEffect(() => {
     const storedToken = sessionStorage.getItem("token");
@@ -48,13 +49,13 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/create" element={<ItemContainer currentItem={currentItem} setCurrentItem={setCurrentItem} username={username} setToken={setToken} setUsername={setUsername} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
-        <Route path="/about" element={<About />} />
+        <Route path="/create" element={<ItemContainer currentItem={currentItem} setCurrentItem={setCurrentItem} username={username} setToken={setToken} setUsername={setUsername} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} token={sessionStorage.getItem("token")}/>} />
+        <Route path="/about" element={<About username={username} setToken={setToken} setUsername={setUsername} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} token={sessionStorage.getItem("token")}/>} />
         <Route path="/item" element={<Show currentItem={currentItem}/>} />
         <Route path="/register" element={<UserContainer />} />
         <Route path="/users" element={<Users />} />
         <Route path="/login" element={<Login setToken={setToken} setUsername={setUsername} handleLogin={handleLogin} setIsLoggedIn={setIsLoggedIn}/>} />
-        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog" element={<Blog username={username} setToken={setToken} setUsername={setUsername} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} token={sessionStorage.getItem("token")}/>} />
       </Routes>
     </Router>
   );

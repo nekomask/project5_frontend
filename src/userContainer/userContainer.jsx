@@ -21,7 +21,7 @@ const UserContainer = (props) => {
 
 
         //Send a request to our back-end
-        const apiResponse = await fetch(`http://localhost:3001/users`, {
+        const apiResponse = await fetch(`http://localhost:3001/users/register`, {
             method: "POST",
             body: JSON.stringify(newUser),
             //need this to POST-- where's this request coming from? What type of Content is it?
@@ -29,6 +29,16 @@ const UserContainer = (props) => {
                 "Content-Type": "application/json"
             }
         })
+
+  // Check if the response is not successful
+  if (!apiResponse.ok) {
+    const errorData = await apiResponse.json();
+    setNewUserServerError(errorData.error);
+    return;
+  }
+
+
+
         //Parse the response from the back-end
         const parsedResponse = await apiResponse.json()
         //If the response is successful:
@@ -70,7 +80,7 @@ const UserContainer = (props) => {
     }
 
 
-        //function that fetches users from server into our itemContainer
+        //function that fetches users from server into our userContainer
         const getUsers = async () => {
             try {
                 const users = await fetch(`http://localhost:3001/users`)
@@ -128,9 +138,6 @@ const UserContainer = (props) => {
                         createNewUser={createNewUser}></Register>
                        
                 </aside>
-                <section id="list">
-                    <hr />
-                </section>
             </div>
         )
     }

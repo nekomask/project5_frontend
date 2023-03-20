@@ -60,7 +60,16 @@ const Login = (props) => {
 
 }
   return (
-
+    <div className="App">
+    <div className="nav">
+    <h2 id="myBikeDatabase"><a id="navlinks" href="/">myBikeDatabase</a></h2>
+      <div className="links">
+        <a id="navlinks" href="/login">Login</a>
+        <a id="navlinks" href="/create">Bikes</a>
+        <a id="navlinks" href="/about">About</a>
+        <a id="navlinks" href="/register">Register</a>
+      </div>
+    </div>
 
     <div className="login">
       <hr />
@@ -75,7 +84,7 @@ const Login = (props) => {
      
       </form>
     </div>
-
+    </div>
   )
 }
 

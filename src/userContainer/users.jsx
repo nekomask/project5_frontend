@@ -13,8 +13,10 @@ const Users = (props) => {
     //a new item server error that we're passing to the child in our newItemContainer
     const [newUserServerError, setNewUserServerError] = useState("")
 
-    //show route
 
+
+    
+    //show route
     const showUser = async () => {
         try {
             const user = await fetch(`http://localhost:3001/users/${props.user._id}`)
@@ -59,7 +61,12 @@ const Users = (props) => {
     //function that fetches users from server into our userContainer
     const getUsers = async () => {
         try {
-            const users = await fetch("http://localhost:3001/users")
+            const token = sessionStorage.getItem("token")
+            const users = await fetch("http://localhost:3001/users", {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }
+            })
             const parsedUsers = await users.json();
             setUsers(parsedUsers.data)
         } catch (err) {
@@ -97,6 +104,17 @@ const Users = (props) => {
 
     return (
 
+  <div className="App">
+     <div className="nav">
+        <h2 id="myBikeDatabase"><a id="navlinks" href="/">myBikeDatabase</a></h2>
+          <div className="links">
+            <a id="navlinks" href="/login">Login</a>
+            <a id="navlinks" href="/create">Bikes</a>
+            <a id="navlinks" href="/about">About</a>
+            <a id="navlinks" href="/register">Register</a>
+          </div>
+        </div>
+                
 
         <div className="list-of-users">
             <h2 id="list-of-users"><u id="list-of-users">List of Users</u></h2>
@@ -115,7 +133,7 @@ const Users = (props) => {
 
             </aside>
         </div>
-
+        </div>
 
 
 

@@ -27,7 +27,7 @@ const ItemContainer = (props) => {
   const [loading, setLoading] = useState(false)
   const setToken = props.setToken;
   const isLoggedIn = props.isLoggedIn;
-  const token = sessionStorage.getItem('token');
+  const token = props.token;
 
 
 
@@ -183,11 +183,11 @@ const ItemContainer = (props) => {
         <h2 id="myBikeDatabase"><a id="navlinks" href="/">myBikeDatabase</a></h2>
         {isLoggedIn ? (
           <>
-            <p>Welcome, {username}!</p>
+            <p id="welcome-message">Welcome, {username}!         <br/>    <Logout setToken={setToken} setUsername={setUsername} setIsLoggedIn={props.setIsLoggedIn} /></p>
             <div className="links">
             <a id="navlinks" href="/create">Bikes</a>
             <a id="navlinks" href="/about">About</a>
-            <Logout setToken={setToken} setUsername={setUsername} setIsLoggedIn={props.setIsLoggedIn} />
+
             </div>
           </>
         ) : (
