@@ -2,6 +2,7 @@ import React from "react"
 import UserContainer from "./userContainer"
 import SingleUserComponent from "./singleUserComponent/singleUserComponent"
 import { useState, useEffect, useNavigate, Link } from "react"
+import apiURL from "../apiConfig"
 
 const Users = (props) => {
     //requestError is a variable in state that setRequestError is the function we use to set that value when we want to update it
@@ -19,7 +20,7 @@ const Users = (props) => {
     //show route
     const showUser = async () => {
         try {
-            const user = await fetch(`http://localhost:3001/users/${props.user._id}`)
+            const user = await fetch(`http://${apiURL}/users/${props.user._id}`)
             const parsedUser = await user.json();
             console.log(parsedUser)
             props.setCurrentUser(parsedUser.data)
@@ -33,7 +34,7 @@ const Users = (props) => {
     const deleteUser = async (idToDelete) => {
         //fetch our item ID from the database to delete one
         try {
-            const apiResponse = await fetch(`http://localhost:3001/users/${idToDelete}`, {
+            const apiResponse = await fetch(`http://${apiURL}/users/${idToDelete}`, {
                 method: "DELETE"
             })
             const parsedResponse = await apiResponse.json()
@@ -62,7 +63,7 @@ const Users = (props) => {
     const getUsers = async () => {
         try {
             const token = sessionStorage.getItem("token")
-            const users = await fetch("http://localhost:3001/users", {
+            const users = await fetch(`http://${apiURL}/users`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 }
@@ -78,7 +79,7 @@ const Users = (props) => {
     const updateUser = async (idToUpdate, userToUpdate) => {
 
         //calling our API to store our updated item data to the backend
-        const apiResponse = await fetch(`http://localhost:3001/users/${idToUpdate}`, {
+        const apiResponse = await fetch(`http://${apiURL}/users/${idToUpdate}`, {
             method: "PUT",
             body: JSON.stringify(userToUpdate),
             headers: {
