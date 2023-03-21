@@ -23,7 +23,7 @@ const UserContainer = (props) => {
 
 
         //Send a request to our back-end
-        const apiResponse = await fetch(`http://localhost:3001/users/register`, {
+        const apiResponse = await fetch(`http://${apiURL}/users/register`, {
             method: "POST",
             body: JSON.stringify(newUser),
             //need this to POST-- where's this request coming from? What type of Content is it?
@@ -58,7 +58,7 @@ const UserContainer = (props) => {
     const deleteUser = async (idToDelete) => {
         //fetch our item ID from the database to delete one
         try {
-            const apiResponse = await fetch(`http://localhost:3001/users/${idToDelete}`, {
+            const apiResponse = await fetch(`http://${apiURL}/users/${idToDelete}`, {
                 method: "DELETE"
             })
             const parsedResponse = await apiResponse.json()
@@ -86,7 +86,7 @@ const UserContainer = (props) => {
         //function that fetches users from server into our userContainer
         const getUsers = async () => {
             try {
-                const users = await fetch(`http://localhost:3001/users`)
+                const users = await fetch(`http://${apiURL}/users`)
                 const parsedUsers = await users.json();
                 setUsers(parsedUsers.data)
             } catch (err) {
@@ -98,7 +98,7 @@ const UserContainer = (props) => {
         const updateUser = async (idToUpdate, userToUpdate) => {
 
             //calling our API to store our updated item data to the backend
-            const apiResponse = await fetch(`http://localhost:3001/users/${idToUpdate}`, {
+            const apiResponse = await fetch(`http://${apiURL}/users/${idToUpdate}`, {
                 method: "PUT",
                 body: JSON.stringify(userToUpdate),
                 headers: {
