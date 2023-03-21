@@ -70,8 +70,8 @@ function Blog({ setUsername, setToken, isLoggedIn, setIsLoggedIn, token }) {
    may not necessarily be bike nerds themselves. You could say it's common for most people to avoid certain hobbies or activities if they think the barrier to understanding them is too high. It would be very cool if this site could
    not only help people who are already bike nerds-- but also get more people comfortable with the idea of bikes and wanting to use them.<br/>
    <br/>
-    As for the next steps on this site, I will need to refactor the edit by adding several new properties as well as adding a lot more style to the page itself. I am considering adding a few more properties to the schema as well
-    like the minimum tube valve length needed to clear your rims. Finally, the biggest feature needed before I feel comfortable publishing the site-- and that is finishing the login component for users.    
+    As for the next steps on this site, I will need to refactor the edit-form by adding several new properties as well as adding a lot more style to the page itself. I am considering adding a few more properties to the schema as well
+    like the minimum tube valve length needed to clear your rims. Finally, the biggest feature needed before I feel comfortable publishing the site--is finishing the login component for users.    
     </p>
     <br/>
     <br/>

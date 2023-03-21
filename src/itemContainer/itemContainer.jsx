@@ -105,13 +105,14 @@ const ItemContainer = (props) => {
   // function that fetches items from server into our itemContainer
   const getItems = async () => {
     try {
+      setLoading(true); // Set loading to true before fetching data
       console.log("Token:", token);
       const apiResponse = await fetch(`${apiURL}/items`, {
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem("token")}`,
         },
       });
-  
+
       const parsedItems = await apiResponse.json();
       if (parsedItems.message) {
         setRequestError(parsedItems.message);
@@ -122,9 +123,11 @@ const ItemContainer = (props) => {
       if (err.response.status === 401) {
         navigate("/login");
       }
+    } finally {
+      setLoading(false); // Set loading to false after data is fetched
     }
   };
-  
+
 
   //function to edit/update our items from the form
   const updateItem = async (idToUpdate, itemToUpdate) => {
@@ -174,6 +177,7 @@ const ItemContainer = (props) => {
   //loads the object items in our backend database to the page
   useEffect(() => {
     checkToken();
+    setLoading(true); // Set loading to true before fetching data
     getItems();
   }, []);
 
@@ -183,10 +187,10 @@ const ItemContainer = (props) => {
         <h2 id="myBikeDatabase"><a id="navlinks" href="/">myBikeDatabase</a></h2>
         {isLoggedIn ? (
           <>
-            <p id="welcome-message">Welcome, {username}!         <br/>    <Logout setToken={setToken} setUsername={setUsername} setIsLoggedIn={props.setIsLoggedIn} /></p>
+            <p id="welcome-message">Welcome, {username}!         <br />    <Logout setToken={setToken} setUsername={setUsername} setIsLoggedIn={props.setIsLoggedIn} /></p>
             <div className="links">
-            <a id="navlinks" href="/create">Bikes</a>
-            <a id="navlinks" href="/about">About</a>
+              <a id="navlinks" href="/create">Bikes</a>
+              <a id="navlinks" href="/about">About</a>
 
             </div>
           </>
@@ -204,40 +208,40 @@ const ItemContainer = (props) => {
       <div className="list-of-bikes">
         <h2 id="list-bikes"><u>List of Bikes</u></h2>
         <aside className="list-of-bikes">
-        {loading ? (
-  <Loading />
-) : Array.isArray(items) ? (
-  items.length === 0 ? (
-    <div className="welcome-message">{requestError}</div>
-  ) : (
-    items.map((item) => {
-      return (
-        <SingleItemComponent
-          currentItem={props.currentItem}
-          setCurrentItem={props.setCurrentItem}
-          key={item._id}
-          username={username}
-          item={item}
-          deleteItem={deleteItem}
-          updateItem={updateItem}
-        ></SingleItemComponent>
-      );
-    })
-  )
-) : (
-  <div className="welcome-message">You must be logged in to see your created bikes.<br/> If you do not have an account, please register to login.</div>
-)}
+          {loading ? (
+            <Loading />
+          ) : Array.isArray(items) ? (
+            items.length === 0 ? (
+              <div className="welcome-message">{requestError}</div>
+            ) : (
+              items.map((item) => {
+                return (
+                  <SingleItemComponent
+                    currentItem={props.currentItem}
+                    setCurrentItem={props.setCurrentItem}
+                    key={item._id}
+                    username={username}
+                    item={item}
+                    deleteItem={deleteItem}
+                    updateItem={updateItem}
+                  ></SingleItemComponent>
+                );
+              })
+            )
+          ) : (
+            <div className="welcome-message">You must be logged in to see your created bikes.<br /> If you do not have an account, please register to login.</div>
+          )}
           <hr />
         </aside>
       </div>
       {isLoggedIn ? (
-      <aside className="create">
-        <hr />
-        <h2 id="create">Create a Bike</h2>
-        <NewItemComponent
-          newItemServerError={newItemServerError}
-          createNewItem={createNewItem} username={username}></NewItemComponent>
-      </aside>
+        <aside className="create">
+          <hr />
+          <h2 id="create">Create a Bike</h2>
+          <NewItemComponent
+            newItemServerError={newItemServerError}
+            createNewItem={createNewItem} username={username}></NewItemComponent>
+        </aside>
       ) : null}
       <section id="list">
 
