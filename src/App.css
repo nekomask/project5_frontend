@@ -376,6 +376,68 @@ button#spray:active{
   transition: 0s
 }
 
+button#edit{
+  display:inline-block;
+  padding:0.3em 1.2em;
+  margin:13px 0.3em 0.3em 0;
+  border-radius:3em;
+  border: 1px solid black;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  background-color:#000000;
+  text-align:center;
+  transition: all 0.2s;
+ }
+
+ button#edit:hover{
+  background-color:#f7d40e;
+  color: black;
+  border: 1px solid black;
+ }
+
+ button#view{
+  display:inline-block;
+  padding:0.3em 1.2em;
+  margin:13px 0.3em 0.3em 0;
+  border-radius:3em;
+  border: 1px solid black;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  background-color:#000000;
+  text-align:center;
+  transition: all 0.2s;
+ }
+
+ button#view:hover{
+  background-color:#3df70e;
+  color: black;
+  border: 1px solid black;
+ }
+
+ button#delete{
+  display:inline-block;
+  padding:0.3em 1.2em;
+  margin:13px 0.3em 0.3em 0;
+  border-radius:3em;
+  border: 1px solid black;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  background-color:#000000;
+  text-align:center;
+  transition: all 0.2s;
+ }
+
+ button#delete:hover{
+  background-color:#f70e0e;
+  color: black;
+  border: 1px solid black;
+ }
 
 /*Users List*/
 u#list-of-users{

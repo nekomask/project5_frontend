@@ -115,7 +115,7 @@ const Users = (props) => {
                 </div>
               </div>
                       
-              {props.currentUser && (props.currentUser.username === "brandon" || props.currentUser.username === "admin") ? (
+              {props.currentUser && (props.currentUser.username === "brandon" || props.currentUser.username === "admin2") ? (
                 <>
               <div className="list-of-users">
                   <h2 id="list-of-users"><u id="list-of-users">List of Users</u></h2>

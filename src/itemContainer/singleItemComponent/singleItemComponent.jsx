@@ -189,7 +189,7 @@ const SingleItemComponent = (props) => {
                         </form>
                     </div>
                     :
-                    <button id="edit" onClick={toggleShowing}>Edit this bike</button>
+                    <button id="edit" onClick={toggleShowing}>Update</button>
             }
             <>
             </>
