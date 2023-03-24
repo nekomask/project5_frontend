@@ -87,6 +87,7 @@ const Users = (props) => {
             }
         })
         const parsedResponse = await apiResponse.json();
+        console.log(parsedResponse);
         if (parsedResponse.success) {
             //shortcut version that checks the user to see if it equals the id to the user we want to update-- if so, update that-- otherwise send the old version
             const newUsers = users.map(user => user._id === idToUpdate ? userToUpdate : user)

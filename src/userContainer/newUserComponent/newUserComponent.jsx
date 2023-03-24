@@ -44,11 +44,12 @@ const Register = (props) => {
             setIsValidState({
                 valid: false,
                 message: "Name needs to be longer"
-            })}
-        else if (newUser.password.length < 4){
-                setIsValidState({
-                    valid: false,
-                    message: "Password must be at least 4 characters"
+            })
+        }
+        else if (newUser.password.length < 4) {
+            setIsValidState({
+                valid: false,
+                message: "Password must be at least 4 characters"
             })
             //if productName input is less than 2 characters, validSubmission state is false
             validSubmission = false;
@@ -56,25 +57,37 @@ const Register = (props) => {
         if (validSubmission) {
             const success = await props.createNewUser(newUser);
             if (success) {
-          
+                //when submit button is pressed, form is reset to this original state
+                setNewUser({
+                    username: "",
+                    password: "",
+                    email: "",
+                })
+            
+                //when submit button is pressed and more than 2 characters, setIsValidState returns as true
+                setIsValidState({
+                    valid: true,
+                    message: ""
+                })
+            
+                //closes form after we createNewUser
+                setShowing(false);
+                navigate('/create');
+            } else {
+                if (success && success.error) {
+                    setIsValidState({ valid: false, message: success.error });
+                } else {
+                    setIsValidState({ valid: false, message: "An unknown error occurred." });
+                }
             }
-            //when submit button is pressed, form is reset to this original state
-            setNewUser({
-                username: "",
-                password: "",
-                email: "",
-            })
-            //when submit button is pressed and more than 2 characters, setIsValidState returns as true
-            setIsValidState({
-                valid: true,
-                message: ""
-            })
-            //closes form after we createNewUser
-            setShowing(false);
-            //Navigate to /create
-            navigate('/create');
         }
     }
+
+
+
+
+
+
 
 
 
@@ -82,17 +95,17 @@ const Register = (props) => {
         <div className="registration">
             <h1>Register</h1>
             {
-  newUserServerError ? <p className="form-error">{newUserServerError}</p> : null
-}
+                newUserServerError ? <p className="form-error">{newUserServerError}</p> : null
+            }
             <form className="registration" onSubmit={submitNewUser}>
-                    <label htmlFor="username">Username:</label>
-                    <input type="text" name="username"  value={newUser.username} onChange={handleInputChange}required /><br />
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" name="password"  value={newUser.password} required onChange={handleInputChange} /><br />
-                    <label htmlFor="email">Email:</label>
-                    <input type="text" name="email"  value={newUser.email} required onChange={handleInputChange} /><br />
+                <label htmlFor="username">Username:</label>
+                <input type="text" name="username" value={newUser.username} onChange={handleInputChange} required /><br />
+                <label htmlFor="password">Password:</label>
+                <input type="password" name="password" value={newUser.password} required onChange={handleInputChange} /><br />
+                <label htmlFor="email">Email:</label>
+                <input type="text" name="email" value={newUser.email} required onChange={handleInputChange} /><br />
                 <button type="submit">Register</button>
-          
+
             </form>
         </div>
     )

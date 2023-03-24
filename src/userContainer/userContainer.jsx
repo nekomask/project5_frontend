@@ -48,11 +48,12 @@ const UserContainer = (props) => {
         if (parsedResponse.success) {
             //Add the new item to state!
             setUsers([parsedResponse.data, ...users])
-            navigate('/create');
+           
             //Else show the error message in the form, don't change it back to showing? 
         } else {
             setNewUserServerError(parsedResponse.data);
         }
+        return parsedResponse;
     }
     //function creating a new array out of all the filtered User objects that return true to delete a specific one
     const deleteUser = async (idToDelete) => {
