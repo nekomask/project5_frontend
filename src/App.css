@@ -439,6 +439,64 @@ button#edit{
   border: 1px solid black;
  }
 
+ button#submit{
+  padding:0.3em 1.2em;
+  border-radius:3em;
+  border: 1px solid black;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  background-color:#000000;
+  text-align:center;
+  transition: all 0.2s;
+ }
+
+ button#submit:hover{
+  background-color:#ffffff;
+  color: rgb(0, 0, 0);
+  border: 1px solid black;
+ }
+
+ button#close{
+  padding:0.3em 1.2em;
+  border-radius:3em;
+  border: 1px solid black;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  background-color:#000000;
+  text-align:center;
+  transition: all 0.2s;
+ }
+
+ button#close:hover{
+  background-color:#ffffff;
+  color: rgb(0, 0, 0);
+  border: 1px solid black;
+ }
+
+ button#create{
+  padding:0.3em 1.2em;
+  border-radius:3em;
+  border: 1px dashed rgb(255, 255, 255);
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  background-color:#000000;
+  text-align:center;
+  transition: all 0.2s;
+ }
+
+ button#create:hover{
+  background-color:#ffffff;
+  color: rgb(0, 0, 0);
+  border: 1px dashed black;
+ }
+
+
 /*Users List*/
 u#list-of-users{
   display: flex;

@@ -396,7 +396,7 @@ const NewItemComponent = (props) => {
 
                             <br />
                             <button id="submit" type="submit">Submit</button>
-                            <hr></hr>
+                          <br />
                         </form>
                     </div>
                     //else
