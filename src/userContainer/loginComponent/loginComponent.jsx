@@ -1,10 +1,12 @@
 import React from "react"
 import { useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import apiURL from "../../apiConfig";
 
 
 const Login = (props) => {
+  const location = useLocation();
+const fromRegistration = location.state && location.state.fromRegistration;
   const navigate = useNavigate();
   //setUsers is a free simple useState function that just says whatever item we call to update it to whatever we call it
   const [userLogin, setUserLogin] = useState({
@@ -72,9 +74,14 @@ const Login = (props) => {
     </div>
 
     <div className="login">
+    {
+  fromRegistration ? (
+    <p id="message-handler">Thank you for registering, to begin creating bikes please login below.</p>
+  ) : null
+}
       <hr />
       <h2 id="login"><u>Login</u></h2>
-      <form class="login" onSubmit={onSubmit}>
+      <form className="login" onSubmit={onSubmit}>
 
         <label htmlFor="username">Username:</label>
         <input type="text" name="username" value={userLogin.username} onChange={handleInputChange} /><br />

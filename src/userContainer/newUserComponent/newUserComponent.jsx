@@ -40,7 +40,7 @@ const Register = (props) => {
         e.preventDefault()
         let validSubmission = true;
         //prevents user from submitting empty string or 1 character as username
-        if (newUser.username.length < 2) {
+        if (newUser.username.length < 3) {
             setIsValidState({
                 valid: false,
                 message: "Name needs to be longer"
@@ -72,7 +72,8 @@ const Register = (props) => {
             
                 //closes form after we createNewUser
                 setShowing(false);
-                navigate('/create');
+                navigate('/login', { state: { fromRegistration: true } });
+
             } else {
                 if (success && success.error) {
                     setIsValidState({ valid: false, message: success.error });

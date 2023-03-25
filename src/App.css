@@ -227,6 +227,7 @@ h1{
 
 h2#myBikeDatabase{
   font-family: 'Train One', cursive; 
+  text-shadow: 0 5px black, 0 3px black, 0 3px black, 0 -1px black;
 }
 
 h2#create{
@@ -295,6 +296,18 @@ p#showCategory{
   border: 1px solid black;
   align-items: center;
   justify-content: center;
+}
+
+p#message-handler{
+  font-size: x-large;
+font-weight: 600;
+color: green;
+}
+
+p.form-error{
+  font-size: larger;
+  font-weight: 700;
+  color: red;
 }
 
 /* REGISTRATION */
@@ -445,15 +458,15 @@ button#edit{
   border: 1px solid black;
   text-decoration:none;
   font-family:'Roboto',sans-serif;
-  font-weight:300;
+  font-weight:bold;
   color:#FFFFFF;
-  background-color:#000000;
+  background-color:#006e09;
   text-align:center;
   transition: all 0.2s;
  }
 
  button#submit:hover{
-  background-color:#ffffff;
+  background-color:#2be213;
   color: rgb(0, 0, 0);
   border: 1px solid black;
  }
