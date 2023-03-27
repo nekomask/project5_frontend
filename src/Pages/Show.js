@@ -51,21 +51,21 @@ if (props.currentItem.chainLength){
             <p id="showCategory">Frame Height: <div className="showValue">{props.currentItem.frameHeight}</div></p>
             <p id="showCategory"> Fork Brand: <div className="showValue">{props.currentItem.forkBrand}</div></p>
             <p id="showCategory"> Fork Type: <div className="showValue">{props.currentItem.forkType}</div></p>
-            <p id="showCategory"> Fork Length: <div className="showValue">{props.currentItem.forkLength}</div></p>
-            <p id="showCategory"> Steerer Tube: <div className="showValue">{props.currentItem.steerTubeLength}</div></p>
-            <p id="showCategory">Forkend Spacing: <div className="showValue">{props.currentItem.forkEndSpacing}</div></p>
-            <p id="showCategory">Dropout Spacing: <div className="showValue">{props.currentItem.dropoutSpacing}</div></p>
+            <p id="showCategory"> Fork Length: <div className="showValue">{props.currentItem.forkLength?( props.currentItem.forkLength + "mm"): null }</div></p>
+            <p id="showCategory"> Steerer Tube: <div className="showValue">{props.currentItem.steerTubeLength?( props.currentItem.steerTubeLength + "mm"): null }</div></p>
+            <p id="showCategory">Forkend Spacing: <div className="showValue">{props.currentItem.forkEndSpacing?( props.currentItem.forkEndSpacing + "mm"): null }</div></p>
+            <p id="showCategory">Dropout Spacing: <div className="showValue">{props.currentItem.dropoutSpacing?( props.currentItem.dropoutSpacing + "mm"): null }</div></p>
             <p id="showCategory"> Headtube Type: <div className="showValue">{props.currentItem.headTubeType}</div></p>
-            <p id="showCategory">Headtube Length: <div className="showValue">{props.currentItem.headTubeLength}</div></p>
+            <p id="showCategory">Headtube Length: <div className="showValue">{props.currentItem.headTubeLength?( props.currentItem.headTubeLength + "mm"): null }</div></p>
             </div>
             <div className="showBrakes">
             <h3>Headset {"&"} Brakes</h3>
             <p id="showCategory"> Headset Size: <div className="showValue">{props.currentItem.headsetSize}</div></p>
             <p id="showCategory"> Headset Type: <div className="showValue">{props.currentItem.headsetType}</div></p>
-            <p id="showCategory"> Spacer Stack Height: <div className="showValue">{props.currentItem.spacerStackHeight}</div></p>
-            <p id="showCategory"> Stem Length: <div className="showValue">{props.currentItem.stemLength}</div></p>
-            <p id="showCategory">Stem Clamp Size: <div className="showValue">{props.currentItem.stemClampSize}</div></p>
-            <p id="showCategory"> Stem Angle: <div className="showValue">{props.currentItem.stemAngle}</div></p>
+            <p id="showCategory"> Spacer Stack Height: <div className="showValue">{props.currentItem.spacerStackHeight?( props.currentItem.spacerStackHeight + "mm"): null }</div></p>
+            <p id="showCategory"> Stem Length: <div className="showValue">{props.currentItem.stemLength?( props.currentItem.stemLength + "mm"): null }</div></p>
+            <p id="showCategory">Stem Clamp Size: <div className="showValue">{props.currentItem.stemClampSize?( props.currentItem.stemClampSize + "mm"): null }</div></p>
+            <p id="showCategory"> Stem Angle: <div className="showValue">{props.currentItem.stemAngle?( props.currentItem.stemAngle + "°"): null }</div></p>
             <p id="showCategory"> Handlebar Type: <div className="showValue">{props.currentItem.handlebarType}</div></p>
            <p id="showCategory"> Brake Lever Type: <div className="showValue">{props.currentItem.brakeType}</div></p>
            <p id="showCategory">  Front Brake Type: <div className="showValue">{props.currentItem.frontBrakeType}</div></p> 
@@ -74,21 +74,21 @@ if (props.currentItem.chainLength){
            <div className="showSeatpost">
            <h3>Seatpost {"&"} Saddle</h3>
             <p id="showCategory">Seatpost Brand: <div className="showValue">{props.currentItem.seatPostBrand}</div></p>
-           <p id="showCategory"> Seatpost Diameter: <div className="showValue">{props.currentItem.seatPostDiameter}</div></p>
-           <p id="showCategory"> Seatpost Collar Size: <div className="showValue">{props.currentItem.seatPostCollar}</div></p>
-           <p id="showCategory"> Seatpost Length: <div className="showValue">{props.currentItem.seatPostLength}</div></p>
+           <p id="showCategory"> Seatpost Diameter: <div className="showValue">{props.currentItem.seatPostDiameter?( props.currentItem.seatPostDiameter + "mm"): null }</div></p>
+           <p id="showCategory"> Seatpost Collar Size: <div className="showValue">{props.currentItem.seatPostCollar?( props.currentItem.seatPostCollar + "mm"): null }</div></p>
+           <p id="showCategory"> Seatpost Length: <div className="showValue">{props.currentItem.seatPostLength?( props.currentItem.seatPostLength + "mm"): null }</div></p>
            <p id="showCategory"> Saddle Brand: <div className="showValue">{props.currentItem.saddleBrand}</div></p>
            </div>
            <div className="showCrankset">
            <h3>Drivetrain</h3>
            <p id="showCategory"> Chainring Teeth: <div className="showValue">{props.currentItem.chainRingTeeth}</div></p> 
-           <p id="showCategory"> Chainring BCD: <div className="showValue">{props.currentItem.chainRingBCD}</div></p> 
+           <p id="showCategory"> Chainring BCD: <div className="showValue">{props.currentItem.chainRingBCD?( props.currentItem.chainRingBCD + "mm"): null }</div></p>
            <p  onClick={meters} id="showCategory"> Chain Length: <div className="showValue">{props.currentItem.chainLength}</div></p>
-           <p id="showCategory"> Bottom Bracket Diameter: <div className="showValue">{props.currentItem.bottomBracketDiameter}</div></p> 
+           <p id="showCategory"> Bottom Bracket Diameter: <div className="showValue">{props.currentItem.bottomBracketDiameter?( props.currentItem.bottomBracketDiameter + "mm"): null }</div></p>
            <p id="showCategory"> Bottom Bracket Type: <div className="showValue">{props.currentItem.bottomBracketType}</div></p>
            <p id="showCategory"> Pedal Type: <div className="showValue">{props.currentItem.pedalType}</div></p>
            
-           <p id="showCategory">Crank Arm Length: <div className="showValue">{props.currentItem.crankArmLength}</div></p>
+           <p id="showCategory">Crank Arm Length: <div className="showValue">{props.currentItem.crankArmLength?( props.currentItem.crankArmLength + "mm"): null }</div></p>
            </div>
            <div className="showWheels">
             <h3>Wheels</h3>
@@ -96,12 +96,12 @@ if (props.currentItem.chainLength){
             <p id="showCategory">Tire Size: <div className="showValue">{props.currentItem.tireSize}</div></p>
             <p id="showCategory">Hub Type Front: <div className="showValue">{props.currentItem.hubTypeFront}</div></p>
             <p id="showCategory">Hub Type Rear: <div className="showValue">{props.currentItem.hubTypeRear}</div></p>
-            <p id="showCategory">Hub Length Front: <div className="showValue">{props.currentItem.hubLengthFront}</div></p>
-            <p id="showCategory">Hub Length Rear: <div className="showValue">{props.currentItem.hubLengthRear}</div></p>
+            <p id="showCategory">Hub Length Front: <div className="showValue">{props.currentItem.hubLengthFront?( props.currentItem.hubLengthFront + "mm"): null }</div></p>
+            <p id="showCategory">Hub Length Rear: <div className="showValue">{props.currentItem.hubLengthRear?( props.currentItem.hubLengthRear + "mm"): null }</div></p>
             <p id="showCategory">Hub Spoke Count Front: <div className="showValue">{props.currentItem.hubSpokeCountFront}</div></p>
             <p id="showCategory">Hub Spoke Count Rear: <div className="showValue">{props.currentItem.hubSpokeCountRear}</div></p>
-            <p id="showCategory">Spoke Length Front: <div className="showValue">{props.currentItem.spokeLengthFront}</div></p>
-            <p id="showCategory">Spoke Length Rear: <div className="showValue">{props.currentItem.spokeLengthRear}</div></p>
+            <p id="showCategory">Spoke Length Front: <div className="showValue">{props.currentItem.spokeLengthFront?( props.currentItem.spokeLengthFront + "mm"): null }</div></p>
+            <p id="showCategory">Spoke Length Rear: <div className="showValue">{props.currentItem.spokeLengthRear?( props.currentItem.spokeLengthRear + "mm"): null }</div></p>
             </div>
         </div>
         </div>

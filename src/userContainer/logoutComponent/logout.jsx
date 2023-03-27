@@ -19,7 +19,7 @@ const Logout = ({ setToken, setUsername, setIsLoggedIn }) => {
 
   return (
     <a id="navlinks" href="/logout" onClick={handleLogout}>
-      (Logout)
+      (<u>Logout</u>)
     </a>
   );
 };

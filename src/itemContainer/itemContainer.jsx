@@ -187,7 +187,7 @@ const ItemContainer = (props) => {
         <h2 id="myBikeDatabase"><a id="navlinks" href="/">myBikeDatabase</a></h2>
         {isLoggedIn ? (
           <>
-            <p id="welcome-message">Welcome, {username}!         <br />    <Logout setToken={setToken} setUsername={setUsername} setIsLoggedIn={props.setIsLoggedIn} /></p>
+            <p id="welcome-message">Welcome, {username}!    <br />    <Logout setToken={setToken} setUsername={setUsername} setIsLoggedIn={props.setIsLoggedIn} /></p>
             <div className="links">
               <a id="navlinks" href="/create">Bikes</a>
               <a id="navlinks" href="/about">About</a>

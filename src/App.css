@@ -405,6 +405,7 @@ button#edit{
  }
 
  button#edit:hover{
+  cursor: pointer;
   background-color:#f7d40e;
   color: black;
   border: 1px solid black;
@@ -426,7 +427,8 @@ button#edit{
  }
 
  button#view:hover{
-  background-color:#3df70e;
+  cursor: pointer;
+  background-color:#42eb5e;
   color: black;
   border: 1px solid black;
  }
@@ -447,6 +449,7 @@ button#edit{
  }
 
  button#delete:hover{
+  cursor: pointer;
   background-color:#f70e0e;
   color: black;
   border: 1px solid black;
@@ -466,6 +469,7 @@ button#edit{
  }
 
  button#submit:hover{
+  cursor: pointer;
   background-color:#2be213;
   color: rgb(0, 0, 0);
   border: 1px solid black;
@@ -485,6 +489,7 @@ button#edit{
  }
 
  button#close:hover{
+  cursor: pointer;
   background-color:#ffffff;
   color: rgb(0, 0, 0);
   border: 1px solid black;
@@ -504,6 +509,7 @@ button#edit{
  }
 
  button#create:hover{
+  cursor: pointer;
   background-color:#ffffff;
   color: rgb(0, 0, 0);
   border: 1px dashed black;
