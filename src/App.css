@@ -305,9 +305,12 @@ color: green;
 }
 
 p.form-error{
+  display: flex;
   font-size: larger;
   font-weight: 700;
   color: red;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* REGISTRATION */
@@ -563,6 +566,15 @@ div.login-form{
   img#frame1{
     height: 250px;
   }
+
+  div.list-of-bikes{
+    display:flex;
+  }
+
+  aside.list-of-bikes{
+    display:flex;
+    flex-direction: column;
+  }
  }
   
 
@@ -578,7 +590,33 @@ img#frame1{
   align-items: center;
 width: 100%;
 }
+
+div.list-of-bikes{
+  display:flex;
 }
+
+aside.list-of-bikes{
+  display:flex;
+  flex-direction: column;
+}
+
+aside.create{
+  display: flex;
+  flex-direction: column;
+}
+
+div#new-item-form{
+  display: flex;
+  flex-direction: column;
+}
+div.form{
+  display: flex;
+  flex-direction: column;
+}
+
+
+}
+
 
 @media all and (max-width: 720px) {
   img#frame1{

@@ -9,6 +9,7 @@ import About from "./Pages/About"
 import Show from './Pages/Show';
 import Login from './userContainer/loginComponent/loginComponent'
 import Blog from './Pages/Blog'
+import GoogleAnalytics from './nonItemComponents/GoogleAnalytics'
 
 function App() {
   const [username, setUsername] = useState([])
@@ -46,6 +47,9 @@ function App() {
 
 
   return (
+    <>
+    <GoogleAnalytics measurementId={process.env.REACT_APP_GA_MEASUREMENT_ID} />
+
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -58,6 +62,7 @@ function App() {
         <Route path="/blog" element={<Blog username={username} setToken={setToken} setUsername={setUsername} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} token={sessionStorage.getItem("token")}/>} />
       </Routes>
     </Router>
+    </>
   );
 }
 export default App;

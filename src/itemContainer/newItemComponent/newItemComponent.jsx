@@ -152,8 +152,7 @@ const NewItemComponent = (props) => {
                         <form onSubmit={submitNewItem}>
                             <button id="close" onClick={toggleShowing}>Close</button><br />
 
-                            {isValidState.valid ? null : <p className="form-error">{isValidState.message}</p>}
-                            {props.newItemServerError ? <p className="form-error">{props.newItemServerError}</p> : null}
+                         
                             <div className="form">
                                 
                                 <div className="frame_and_fork">
@@ -391,12 +390,17 @@ const NewItemComponent = (props) => {
                                     <li>Spindle Length: <input onChange={handleInputChange} type="number" name="spindleLength" value={newItem.spindleLength || ""} />mm</li><hr /><br />
                                     <li>Cog Teeth: <input onChange={handleInputChange} type="number" name="cogTeeth" value={newItem.cogTeeth || ""} />mm</li><hr /><br />
                             </div>
-                            </div>
-
-
+              
+                          
                             <br />
-                            <button id="submit" type="submit">Submit</button>
+                            </div>
+                            {isValidState.valid ? null : <p className="form-error">{isValidState.message}</p>}
+                            {props.newItemServerError ? <p className="form-error">{props.newItemServerError}</p> : null}
+                            
+                        
                           <br />
+                          <button id="submit" type="submit">Submit</button>
+                       <br />
                         </form>
                     </div>
                     //else
