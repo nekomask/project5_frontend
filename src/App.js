@@ -48,9 +48,8 @@ function App() {
 
   return (
     <>
-    <GoogleAnalytics measurementId={process.env.REACT_APP_GA_MEASUREMENT_ID} />
-
     <Router>
+    <GoogleAnalytics measurementId={process.env.REACT_APP_GA_MEASUREMENT_ID} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/create" element={<ItemContainer currentItem={currentItem} setCurrentItem={setCurrentItem} username={username} setToken={setToken} setUsername={setUsername} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} token={sessionStorage.getItem("token")}/>} />
