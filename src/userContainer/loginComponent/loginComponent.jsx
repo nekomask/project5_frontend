@@ -13,6 +13,7 @@ const fromRegistration = location.state && location.state.fromRegistration;
     username: "",
     password: "",
   })
+  const [loggingIn, setLoggingIn] = useState(false);
 
 
 
@@ -29,6 +30,7 @@ const fromRegistration = location.state && location.state.fromRegistration;
 
   const onSubmit = async (e) => {
   e.preventDefault();
+  setLoggingIn(true);
   const response = await fetch(`${apiURL}/login`,{
     method: "POST",
     body: JSON.stringify(userLogin),
@@ -54,9 +56,12 @@ const fromRegistration = location.state && location.state.fromRegistration;
       navigate("/create", { state: { username: responseData.username }});
     } catch (error) {
       console.error(error);
+    }finally {
+      setLoggingIn(false); 
     }
   } else {
     console.log("Invalid response data");
+    setLoggingIn(false); 
   }
   console.log(responseData)
 
@@ -89,6 +94,11 @@ const fromRegistration = location.state && location.state.fromRegistration;
         <button type="submit">Login</button>
      
       </form>
+      {loggingIn ? (
+          <p className="loading-ellipsis">
+            Please wait while you are being logged in
+          </p>
+        ) : null}
     </div>
     </div>
   )
