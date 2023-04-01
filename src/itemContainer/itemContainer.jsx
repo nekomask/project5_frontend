@@ -206,7 +206,7 @@ const ItemContainer = (props) => {
         )}
       </div><br />
       <div className="list-of-bikes">
-        <h2 id="list-bikes"><u>List of Bikes</u></h2>
+        <h2 id="list-bikes">List of Bikes</h2>
         <aside className="list-of-bikes">
           {loading ? (
             <Loading />

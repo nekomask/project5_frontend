@@ -79,7 +79,6 @@ const fromRegistration = location.state && location.state.fromRegistration;
     <p id="message-handler">Thank you for registering, to begin creating bikes please login below.</p>
   ) : null
 }
-      <hr />
       <h2 id="login"><u>Login</u></h2>
       <form className="login" onSubmit={onSubmit}>
 

@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Concert+One&family=Dokdo&family=Finger+Paint&family=Rubik+Vinyl&display=swap');
 
 
 .App {
@@ -82,6 +84,8 @@ div.intro{
   color: white;
   text-shadow: 0 2px black, 0 3px black, 0 3px  black, 0 2px black;
 }
+
+
 
 div.showName{
   text-align: center;
@@ -245,11 +249,10 @@ h2#list-bikes{
   text-align: center;
 }
 
-div.index-single-item{
-  display: inline-block;
-}
 
 div.item-name{
+  font-family: 'Dokdo';
+  font-size: x-large;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -569,6 +572,7 @@ div.login-form{
 
   div.list-of-bikes{
     display:flex;
+
   }
 
   aside.list-of-bikes{
