@@ -9,11 +9,11 @@ const GoogleAnalytics = ({ measurementId }) => {
     document.head.appendChild(script);
 
     window.dataLayer = window.dataLayer || [];
-    function gtag() {
+    window.gtag = function() {
       window.dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', measurementId);
+    };
+    window.gtag('js', new Date());
+    window.gtag('config', measurementId);
   }, [measurementId]);
 
   const location = useLocation();
