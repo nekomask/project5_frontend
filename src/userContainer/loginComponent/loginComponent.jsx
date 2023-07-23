@@ -78,27 +78,27 @@ const fromRegistration = location.state && location.state.fromRegistration;
       </div>
     </div>
 
-    <div className="login">
-    {
-  fromRegistration ? (
-    <p id="message-handler">Thank you for registering, to begin creating bikes please login below.</p>
-  ) : null
-}
-      <h2 id="login"><u>Login</u></h2>
-      <form className="login" onSubmit={onSubmit}>
-
-        <label htmlFor="username">Username:</label>
-        <input type="text" name="username" value={userLogin.username} onChange={handleInputChange} /><br />
-        <label htmlFor="password">Password:</label>
-        <input type="password" name="password" value={userLogin.password} onChange={handleInputChange} /><br />
-        <button type="submit">Login</button>
-     
+    <div className="login-container">
+    {fromRegistration ? (
+        <p className="message-handler">Thank you for registering, to begin creating bikes please login below.</p>
+      ) : null }
+      <h2 className="login-title"><u>Login</u></h2>
+      <form className="login-form" onSubmit={onSubmit}>
+        <div className="input-group">
+          <label htmlFor="username">Username:</label>
+          <input type="text" name="username" value={userLogin.username} onChange={handleInputChange} />
+        </div>
+        <div className="input-group">
+          <label htmlFor="password">Password:</label>
+          <input type="password" name="password" value={userLogin.password} onChange={handleInputChange} />
+        </div>
+        <button type="submit" className="submit-button">Login</button>
       </form>
       {loggingIn ? (
-          <p className="loading-ellipsis">
-            Please wait while you are being logged in
-          </p>
-        ) : null}
+        <p className="loading-message">
+          Please wait while you are being logged in
+        </p>
+      ) : null}
     </div>
     </div>
   )

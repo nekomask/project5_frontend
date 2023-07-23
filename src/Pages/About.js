@@ -51,7 +51,7 @@ function About({ setUsername, setToken, isLoggedIn, setIsLoggedIn, token }) {
 <a href={Yowamushi} target="_blank"><img id="yowamushi" src={Yowamushi} /></a>
 <p id="yowamushi"><i>Yowamushi Pedal</i></p>
     Bikes themselves can have very different component properties that might not even exist on other bikes let alone be compatible with them. Most of my mechanical background focuses on single-speed bicycles so the properties of this application are going to be 
-    limited to that knowledge for now but what's on here should still be good for virtually anyone who owns a bike and I'm open to adding more options for multi-geared drivetrains in the future.
+    limited to that knowledge for now but what's on here should still be good enough for virtually anyone who owns a bike and I'm open to adding more options for multi-geared drivetrains in the future.
 <br/>
 <br/>
     If you want to check out the site blog, <a href="/blog">click here</a>.
@@ -62,13 +62,13 @@ function About({ setUsername, setToken, isLoggedIn, setIsLoggedIn, token }) {
     <br/>
 
 
-    <p>Administrator: <br/> Brandon Kiefer</p>
+    <p>Administrator: <br/> <b>Brandon Kiefer</b></p>
     <ul id="links">
         <li><a id="links" href="https://www.linkedin.com/in/brandonkiefer-se/" target="_blank">LinkedIn</a></li>
         <li><a id="links" href="volaju@gmail.com">volaju@gmail.com</a></li>
         <li><a id="links" href="https://github.com/nekomask" target="_blank">Github</a></li>
     </ul>
-    <p id="about">If you are a vendor or someone in the industry and would like to contact me, please see my contact information above. Cheers! </p>
+  
     </div>
 
     
