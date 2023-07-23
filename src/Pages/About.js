@@ -43,6 +43,7 @@ function About({ setUsername, setToken, isLoggedIn, setIsLoggedIn, token }) {
                 </div>
     <br />
     <div className="about">
+      <h1>About</h1>
     <p id="about">This React-powered application was an idea I had before I started learning to code. Over the years I've built up and worked on a number of bikes
         but as time goes on I usually end up forgetting a lot of their specifications like the clamp size on my stem or the minimum valve length I've needed on new tubes.
 <br/>
@@ -60,9 +61,8 @@ function About({ setUsername, setToken, isLoggedIn, setIsLoggedIn, token }) {
 
     <br/>
 
-    <img src={Rufus} />
 
-    <p>Brandon Kiefer</p>
+    <p>Administrator: <br/> Brandon Kiefer</p>
     <ul id="links">
         <li><a id="links" href="https://www.linkedin.com/in/brandonkiefer-se/" target="_blank">LinkedIn</a></li>
         <li><a id="links" href="volaju@gmail.com">volaju@gmail.com</a></li>
