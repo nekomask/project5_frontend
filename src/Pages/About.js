@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Rufus from "../rufus_francais.png";
+import Yowamushi from "../images/yowamushi.png"
 import { useLocation } from "react-router-dom";
 import Logout from "../userContainer/logoutComponent/logout";
 
@@ -46,8 +47,10 @@ function About({ setUsername, setToken, isLoggedIn, setIsLoggedIn, token }) {
         but as time goes on I usually end up forgetting a lot of their specifications like the clamp size on my stem or the minimum valve length I've needed on new tubes.
 <br/>
 <br/>
-    Bikes themselves can have very different component properties that might not even exist on other bikes let alone be compatible with them. Most of my mechanical background focuses on single-speed bicycles so the properties are going to be 
-    limited to that knowledge for now but what's here should still be good for virtually anyone who owns a bike and I'm open to adding more options for multi-speed bikes in the future.
+<a href={Yowamushi} target="_blank"><img id="yowamushi" src={Yowamushi} /></a>
+<p id="yowamushi"><i>Yowamushi Pedal</i></p>
+    Bikes themselves can have very different component properties that might not even exist on other bikes let alone be compatible with them. Most of my mechanical background focuses on single-speed bicycles so the properties of this application are going to be 
+    limited to that knowledge for now but what's on here should still be good for virtually anyone who owns a bike and I'm open to adding more options for multi-geared drivetrains in the future.
 <br/>
 <br/>
     If you want to check out the site blog, <a href="/blog">click here</a>.

@@ -264,7 +264,9 @@ div.list-of-bikes {
   align-items: center;
 }
 
-
+img#yowamushi{
+  width: 100%;
+}
 
 li{
   list-style-type: none;
@@ -277,7 +279,7 @@ li{
 }
 
 p#about{
-  width: 500px;
+  width: 707px;
   margin: auto;
   border: 1px solid black;
   padding: 20px;
