@@ -5,6 +5,8 @@ import apiURL from "../../apiConfig";
 
 
 const Login = (props) => {
+  const [loginError, setLoginError] = useState("");
+
   const location = useLocation();
 const fromRegistration = location.state && location.state.fromRegistration;
   const navigate = useNavigate();
@@ -41,6 +43,13 @@ const fromRegistration = location.state && location.state.fromRegistration;
   console.log(response.ok)
 
   const responseData = await response.json()
+
+  if (responseData.error) {
+    setLoginError(responseData.error);
+    setLoggingIn(false);
+    return;
+  }
+
   // Here you'll need responseData assigned from somewhere above the below line
 
   if (responseData.token) {
@@ -94,6 +103,7 @@ const fromRegistration = location.state && location.state.fromRegistration;
         </div>
         <button type="submit" className="submit-button">Login</button>
       </form>
+      {loginError && <p className="form-error">{loginError}</p>}
       {loggingIn ? (
         <p className="loading-message">
           Please wait while you are being logged in

@@ -229,7 +229,7 @@ const ItemContainer = (props) => {
               })
             )
           ) : (
-            <div className="welcome-message">You must be logged in to see your created bikes.<br /> If you do not have an account, please register to login.</div>
+            <div className="welcome-message">You must be logged in to see your created bikes.<br /> If you do not have an account, please <a href="/register">register</a> to login.</div>
           )}
           <hr />
         </aside>
