@@ -136,7 +136,8 @@ const UserContainer = (props) => {
             
                 <aside className="create">
                  
-                    <h2 id="create">Create a User</h2>
+
+                    <h1 id="create">Register</h1>
                     <Register
                         newUserServerError={newUserServerError}
                         createNewUser={createNewUser}></Register>

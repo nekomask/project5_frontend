@@ -234,6 +234,10 @@ h2#myBikeDatabase{
   text-shadow: 0 5px black, 0 3px black, 0 3px black, 0 -1px black;
 }
 
+h1#create{
+  text-align: center;
+}
+
 h2#create{
   text-align: center;
 }
@@ -320,18 +324,65 @@ p.form-error{
 
 /* REGISTRATION */
 
-form.registration{
-  display: flex;
-  flex-direction: column;
-  border: solid 2px black;
-  padding: 40px;
-}
-
-div.registration{
+/* Registration */
+.registration-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  margin-top: 50px;
 }
+
+.registration-title {
+  margin-bottom: 20px;
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding: 25px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.submit-button {
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.form-error {
+  color: red;
+  margin-bottom: 20px;
+}
+
+/* App-logo */
 
 .App-logo {
   height: 40vmin;

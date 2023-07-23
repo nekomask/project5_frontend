@@ -92,24 +92,28 @@ const Register = (props) => {
 
 
 
+
     return (
-        <div className="registration">
-            <h1>Register</h1>
-            {
-                newUserServerError ? <p className="form-error">{newUserServerError}</p> : null
-            }
-            <form className="registration" onSubmit={submitNewUser}>
-                <label htmlFor="username">Username:</label>
-                <input type="text" name="username" value={newUser.username} onChange={handleInputChange} required /><br />
-                <label htmlFor="password">Password:</label>
-                <input type="password" name="password" value={newUser.password} required onChange={handleInputChange} /><br />
-                <label htmlFor="email">Email:</label>
-                <input type="text" name="email" value={newUser.email} required onChange={handleInputChange} /><br />
-                <button type="submit">Register</button>
-
-            </form>
+        <div className="registration-container">
+            
+          {newUserServerError ? <p className="form-error">{newUserServerError}</p> : null}
+          <form className="registration-form" onSubmit={submitNewUser}>
+            <div className="input-group">
+              <label htmlFor="username">Username:</label>
+              <input type="text" name="username" value={newUser.username} onChange={handleInputChange} required />
+            </div>
+            <div className="input-group">
+              <label htmlFor="password">Password:</label>
+              <input type="password" name="password" value={newUser.password} required onChange={handleInputChange} />
+            </div>
+            <div className="input-group">
+              <label htmlFor="email">Email:</label>
+              <input type="text" name="email" value={newUser.email} required onChange={handleInputChange} />
+            </div>
+            <button type="submit" className="submit-button">Register</button>
+          </form>
         </div>
-    )
-}
-
-export default Register
+      )
+    }
+    
+    export default Register;
