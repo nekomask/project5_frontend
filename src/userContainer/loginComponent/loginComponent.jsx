@@ -5,6 +5,8 @@ import apiURL from "../../apiConfig";
 
 
 const Login = (props) => {
+
+  //State variable for storing any error message received from the server during a login attempt
   const [loginError, setLoginError] = useState("");
 
   const location = useLocation();
@@ -42,8 +44,10 @@ const fromRegistration = location.state && location.state.fromRegistration;
   })
   console.log(response.ok)
 
-  const responseData = await response.json()
 
+  // Parse the server's response as JSON and store the resulting object in the variable 'responseData'
+  const responseData = await response.json()
+// Check if the 'responseData' object has an 'error' property
   if (responseData.error) {
     setLoginError(responseData.error);
     setLoggingIn(false);
