@@ -50,7 +50,7 @@ function About({ setUsername, setToken, isLoggedIn, setIsLoggedIn, token }) {
 <br/>
 <a href={Yowamushi} target="_blank"><img id="yowamushi" src={Yowamushi} /></a>
 <p id="yowamushi"><i>Yowamushi Pedal</i></p>
-    Bikes themselves can have very different component properties that might not even exist on other bikes let alone be compatible with them. Most of my mechanical background focuses on single-speed bicycles so the properties of this application are going to be 
+    Now you can record all the data you'll ever need to manage your bikes in here and never have to go looking for bike_specs.txt or mtb1_specsheet.xls ever again. Bikes themselves can have very different component properties that might not even exist on other bikes let alone be compatible with them. Most of my mechanical background focuses on single-speed bicycles so the properties of this application are going to be 
     limited to that knowledge for now but what's on here should still be good enough for virtually anyone who owns a bike and I'm open to adding more options for multi-geared drivetrains in the future.
 <br/>
 <br/>
